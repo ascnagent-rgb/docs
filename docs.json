@@ -1,6 +1,11 @@
 {
   "name": "ASCN Agent",
   "theme": "mint",
+  "logo": {
+    "light": "/logo/light.png",
+    "dark": "/logo/dark.png"
+  },
+  "favicon": "/favicon.png",
   "colors": {
     "primary": "#00b200",
     "light": "#1bf626",
