@@ -9,92 +9,98 @@
   "colors": {
     "primary": "#00b200",
     "light": "#1bf626",
-    "dark": "#009000",
-    "anchors": {
-      "from": "#00b200",
-      "to": "#1bf626"
+    "dark": "#009000"
+  },
+  "navbar": {
+    "links": [
+      { "label": "ascn.ai", "href": "https://ascn.ai/ru/agent" }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Попробовать бесплатно",
+      "href": "https://ascn.ai/ru/agent"
     }
   },
-  "topbarLinks": [
-    {
-      "name": "ascn.ai",
-      "url": "https://ascn.ai/ru/agent"
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Документация",
+        "groups": [
+          {
+            "group": "Начало работы",
+            "pages": [
+              "getting-started/what-is-ascn-agent",
+              "getting-started/quickstart"
+            ]
+          },
+          {
+            "group": "Как устроен агент",
+            "pages": [
+              "architecture/overview"
+            ]
+          },
+          {
+            "group": "Мозг (Brain)",
+            "pages": [
+              "brain/overview",
+              "brain/connectors",
+              "brain/skills",
+              "brain/knowledge",
+              "brain/memory"
+            ]
+          },
+          {
+            "group": "Задачи (Tasks)",
+            "pages": [
+              "tasks/scheduled",
+              "tasks/triggers"
+            ]
+          },
+          {
+            "group": "Каналы",
+            "pages": [
+              "channels/telegram",
+              "channels/slack"
+            ]
+          },
+          {
+            "group": "Настройки",
+            "pages": [
+              "settings/secrets",
+              "settings/permissions",
+              "settings/api",
+              "settings/delete-agent"
+            ]
+          },
+          {
+            "group": "Руководства",
+            "pages": [
+              "guides/email-calendar-agent"
+            ]
+          },
+          {
+            "group": "FAQ",
+            "pages": [
+              "faq/common-questions"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Поддержка",
+          "href": "https://ascn.ai",
+          "icon": "envelope"
+        }
+      ]
     }
-  ],
-  "topbarCtaButton": {
-    "name": "Попробовать бесплатно",
-    "url": "https://ascn.ai/ru/agent"
   },
-  "tabs": [],
-  "anchors": [
-    {
-      "name": "Поддержка",
-      "icon": "envelope",
-      "url": "https://ascn.ai"
+  "footer": {
+    "socials": {
+      "website": "https://ascn.ai"
     }
-  ],
-  "navigation": [
-    {
-      "group": "Начало работы",
-      "pages": [
-        "getting-started/what-is-ascn-agent",
-        "getting-started/quickstart"
-      ]
-    },
-    {
-      "group": "Как устроен агент",
-      "pages": [
-        "architecture/overview"
-      ]
-    },
-    {
-      "group": "Мозг (Brain)",
-      "pages": [
-        "brain/overview",
-        "brain/connectors",
-        "brain/skills",
-        "brain/knowledge",
-        "brain/memory"
-      ]
-    },
-    {
-      "group": "Задачи (Tasks)",
-      "pages": [
-        "tasks/scheduled",
-        "tasks/triggers"
-      ]
-    },
-    {
-      "group": "Каналы",
-      "pages": [
-        "channels/telegram",
-        "channels/slack"
-      ]
-    },
-    {
-      "group": "Настройки",
-      "pages": [
-        "settings/secrets",
-        "settings/permissions",
-        "settings/api",
-        "settings/delete-agent"
-      ]
-    },
-    {
-      "group": "Руководства",
-      "pages": [
-        "guides/email-calendar-agent"
-      ]
-    },
-    {
-      "group": "FAQ",
-      "pages": [
-        "faq/common-questions"
-      ]
-    }
-  ],
-  "footerSocials": {
-    "website": "https://ascn.ai"
   },
   "feedback": {
     "thumbsRating": true,
