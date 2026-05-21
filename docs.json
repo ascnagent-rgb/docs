@@ -40,7 +40,7 @@
             ]
           },
           {
-            "group": "Мозг (Brain)",
+            "group": "Мозг",
             "pages": [
               "brain/overview",
               "brain/connectors",
@@ -50,7 +50,7 @@
             ]
           },
           {
-            "group": "Задачи (Tasks)",
+            "group": "Задачи",
             "pages": [
               "tasks/scheduled",
               "tasks/triggers"
@@ -91,7 +91,7 @@
       "anchors": [
         {
           "anchor": "Поддержка",
-          "href": "https://ascn.ai",
+          "href": "https://t.me/ascnai_nocode",
           "icon": "envelope"
         }
       ]
