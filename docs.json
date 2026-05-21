@@ -30,12 +30,7 @@
             "group": "Начало работы",
             "pages": [
               "getting-started/what-is-ascn-agent",
-              "getting-started/quickstart"
-            ]
-          },
-          {
-            "group": "Как устроен агент",
-            "pages": [
+              "getting-started/quickstart",
               "architecture/overview"
             ]
           },
