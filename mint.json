@@ -74,8 +74,8 @@
     {
       "group": "Настройки",
       "pages": [
-        "settings/secrets",
         "settings/permissions",
+        "settings/secrets",
         "settings/api",
         "settings/delete-agent"
       ]
