@@ -37,7 +37,8 @@
       "group": "Начало работы",
       "pages": [
         "getting-started/what-is-ascn-agent",
-        "getting-started/quickstart"
+        "getting-started/quickstart",
+        "getting-started/sessions"
       ]
     },
     {
