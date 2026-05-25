@@ -31,6 +31,7 @@
             "pages": [
               "getting-started/what-is-ascn-agent",
               "getting-started/quickstart",
+              "getting-started/sessions",
               "architecture/overview"
             ]
           },
@@ -54,17 +55,9 @@
           {
             "group": "Каналы",
             "pages": [
+              "channels/web-chat",
               "channels/telegram",
               "channels/slack"
-            ]
-          },
-          {
-            "group": "Настройки",
-            "pages": [
-              "settings/secrets",
-              "settings/permissions",
-              "settings/api",
-              "settings/delete-agent"
             ]
           },
           {
@@ -77,6 +70,16 @@
             "group": "FAQ",
             "pages": [
               "faq/common-questions"
+            ]
+          },
+          {
+            "group": "Настройки",
+            "pages": [
+              "settings/permissions",
+              "settings/secrets",
+              "settings/credits",
+              "settings/api",
+              "settings/delete-agent"
             ]
           }
         ]
