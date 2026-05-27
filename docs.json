@@ -31,7 +31,6 @@
             "pages": [
               "getting-started/what-is-ascn-agent",
               "getting-started/quickstart",
-              "getting-started/sessions",
               "architecture/overview"
             ]
           },
@@ -55,7 +54,6 @@
           {
             "group": "Каналы",
             "pages": [
-              "channels/web-chat",
               "channels/telegram",
               "channels/slack"
             ]
@@ -77,7 +75,6 @@
             "pages": [
               "settings/permissions",
               "settings/secrets",
-              "settings/credits",
               "settings/api",
               "settings/delete-agent"
             ]
@@ -90,7 +87,7 @@
         {
           "anchor": "Поддержка",
           "href": "https://t.me/ascnai_nocode",
-          "icon": "envelope"
+          "icon": "paper-plane"
         }
       ]
     }
