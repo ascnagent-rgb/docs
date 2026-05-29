@@ -21,10 +21,12 @@
       "href": "https://ascn.ai/ru/agent"
     }
   },
+  "versions": ["Русский", "English"],
   "navigation": {
     "tabs": [
       {
         "tab": "ASCN Agent",
+        "version": "Русский",
         "groups": [
           {
             "group": "Начало работы",
@@ -94,6 +96,7 @@
       },
       {
         "tab": "Крипто ИИ Ассистент",
+        "version": "Русский",
         "groups": [
           {
             "group": "Обзор",
@@ -104,7 +107,8 @@
         ]
       },
       {
-        "tab": "English",
+        "tab": "ASCN Agent",
+        "version": "English",
         "groups": [
           {
             "group": "Getting Started",
@@ -118,7 +122,7 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Поддержка",
+          "anchor": "Support",
           "href": "https://t.me/ascnai_nocode",
           "icon": "paper-plane"
         }
