@@ -24,7 +24,7 @@
   "navigation": {
     "tabs": [
       {
-        "tab": "Документация",
+        "tab": "ASCN Agent",
         "groups": [
           {
             "group": "Начало работы",
@@ -88,6 +88,28 @@
               "settings/secrets",
               "settings/api",
               "settings/delete-agent"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Крипто ИИ Ассистент",
+        "groups": [
+          {
+            "group": "Обзор",
+            "pages": [
+              "crypto/overview"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "English",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "en/what-is-ascn-agent"
             ]
           }
         ]
