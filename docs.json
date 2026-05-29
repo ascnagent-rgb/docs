@@ -35,17 +35,6 @@
             ]
           },
           {
-            "group": "Об ИИ-агенте",
-            "icon": "robot",
-            "pages": [
-              "about-agent/overview",
-              "about-agent/architecture",
-              "about-agent/capabilities",
-              "about-agent/use-cases",
-              "about-agent/security"
-            ]
-          },
-          {
             "group": "Мозг",
             "pages": [
               "brain/overview",
