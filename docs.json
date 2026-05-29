@@ -30,32 +30,39 @@
             "group": "Начало работы",
             "pages": [
               "getting-started/what-is-ascn-agent",
-              "getting-started/quickstart"
+              "getting-started/quickstart",
+              "architecture/overview"
             ]
           },
           {
             "group": "Мозг",
             "pages": [
               "brain/overview",
+              "brain/connectors",
               "brain/skills",
+              "brain/knowledge",
               "brain/memory"
             ]
           },
           {
             "group": "Задачи",
             "pages": [
-              "tasks/scheduled"
+              "tasks/scheduled",
+              "tasks/triggers"
             ]
           },
           {
             "group": "Каналы",
             "pages": [
-              "channels/telegram"
+              "channels/telegram",
+              "channels/slack"
             ]
           },
           {
             "group": "Руководства",
-            "pages": []
+            "pages": [
+              "guides/email-calendar-agent"
+            ]
           },
           {
             "group": "FAQ",
