@@ -1,0 +1,32 @@
+---
+title: "API"
+description: "Conecta sistemas externos al agente via API."
+---
+
+ASCN Agent proporciona una API para integrar con sistemas externos: inicia conversaciones, envía mensajes y obtén respuestas programáticamente.
+
+## Cómo obtener acceso a la API
+
+1. Abre **Configuración → API**
+2. Copia la **URL base** — es única por espacio de trabajo
+3. Copia la **clave de autorización**
+4. Usa la clave en el encabezado `Authorization: Bearer ...` en cada solicitud
+
+## Ejemplo básico
+
+```bash
+curl -X POST "https://api.clawman.ascn.ai/api/v1/workspaces/{workspace_id}/session/{session_id}/messages" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {API_KEY}" \
+  -d '{"content": "Revisa el correo y envía un resumen"}'
+```
+
+## Casos de uso
+
+- Integra ASCN Agent con tu producto
+- Conecta múltiples agentes via API
+- Conéctate a Zapier, Make o scripts personalizados via webhooks
+
+<Info>
+  La URL base y la clave de autenticación están vinculadas a un espacio de trabajo específico.
+</Info>

@@ -1,0 +1,58 @@
+---
+title: "Telegram"
+description: "Conecta el agente a Telegram: DM, grupo, canal o tu cuenta personal."
+---
+
+Telegram es la forma más cómoda de interactuar con el agente fuera del navegador: recibe notificaciones, haz preguntas, da comandos directamente desde el mensajero.
+
+## DM con un bot
+
+### Paso 1. Crea un bot via BotFather
+
+Abre [@BotFather](https://t.me/BotFather) en Telegram y crea un nuevo bot. ASCN muestra una guía paso a paso en la UI.
+
+### Paso 2. Sigue el asistente de ASCN
+
+Abre **Canales → Telegram**. ASCN lanza un asistente de conexión:
+
+1. Abre BotFather en Telegram
+2. Envía `/newbot`
+3. Elige un nombre de visualización
+4. Elige un nombre de usuario (debe terminar en `_bot`)
+5. Copia el token — BotFather lo enviará en el chat
+
+### Paso 3. Pega el token
+
+Haz clic en **Tengo un token →**, pega el token. Puedes pegar el mensaje completo de BotFather — ASCN extrae el token automáticamente.
+
+Haz clic en **Conectar bot**.
+
+### Paso 4. Verifica la propiedad
+
+Después de conectar, ASCN pide verificar el bot:
+
+1. Haz clic en **Abrir bot en Telegram**
+2. Haz clic en **Iniciar** en el diálogo — vincula tu cuenta con el agente
+
+### Listo
+
+Después de hacer clic en Iniciar el bot te saluda y ofrece conectar integraciones directamente en Telegram.
+
+## Grupo o canal
+
+Puedes añadir el agente a un grupo o canal de Telegram — para trabajo en equipo o publicar notificaciones. Añade el bot como administrador, obtén el ID del chat (por ejemplo via [@RawDataBot](https://t.me/RawDataBot)) e introdúcelo en ASCN.
+
+## Cuenta personal
+
+El agente también puede funcionar a través de tu cuenta personal de Telegram — no como bot, sino como tú.
+
+<Warning>
+  Al conectar una cuenta personal el agente accede a tus chats y puede enviar mensajes en tu nombre via comandos o triggers. El agente NO responde automáticamente sin un comando explícito o trigger configurado.
+</Warning>
+
+## Qué puedes hacer via Telegram
+
+- Hacer preguntas y obtener respuestas
+- Dar comandos: «envía un correo», «reserva una reunión», «¿qué tengo hoy?»
+- Recibir notificaciones de triggers y tareas programadas
+- Subir archivos e imágenes directamente en el chat

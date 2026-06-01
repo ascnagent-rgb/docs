@@ -1,0 +1,57 @@
+---
+title: "Conocimiento"
+description: "Todo lo que el agente sabe sobre sí mismo y sobre ti — antes del primer mensaje."
+---
+
+Conocimiento es lo que el agente lee antes de responder. Quién es, cómo se comporta, qué prefieres tú, qué documentos usar.
+
+## Qué hay aquí
+
+**Core** — tres archivos del sistema: IDENTITY.md, SOUL.md y USER.md. Definen personalidad, valores y todo lo que el agente sabe sobre ti.
+
+**Documentos** — archivos de referencia: listas de clientes, plantillas, instrucciones, políticas. Añade via **\+ Añadir** o arrastra y suelta.
+
+---
+
+### IDENTITY.md — quién es tu agente
+
+Una descripción del puesto. Aquí defines el rol, estilo de comunicación y qué hace y no hace el agente.
+
+```markdown
+# Rol
+Eres un asistente para correo y reuniones.
+
+## Estilo
+- Respuestas cortas: máx. 3-4 frases salvo que se pida más
+- Ante dudas — pregunta, no adivines
+- Tono profesional, sin relleno
+```
+
+### USER.md — información sobre ti
+
+Todo lo que el agente debe saber sobre ti: nombre, proyectos, preferencias, zona horaria. El agente actualiza este archivo solo — pero es mejor llenarlo de antemano.
+
+```markdown
+# Sobre el usuario
+Nombre: [nombre]
+
+## Preferencias
+- Respuestas cortas, sin relleno
+- Zona horaria: UTC+0
+```
+
+Para que el agente recuerde algo ahora mismo, dilo en el chat:
+
+```text
+Recuerda: prefiero las respuestas en lista, sin introducciones
+```
+
+### SOUL.md — personalidad y prioridades
+
+Ajuste fino. Cómo se comporta el agente en situaciones ambiguas.
+
+### Documentos
+
+Docs de referencia que el agente usa al responder. Sube via **Documentos → \+ Añadir**.
+
+> Cómo difiere el conocimiento de la memoria — ver [Memoria](/es/brain/memory).

@@ -1,0 +1,99 @@
+---
+title: "Agente de correo y calendario"
+description: "Construcción paso a paso de un agente que lee correo, redacta respuestas, envía resúmenes matutinos y gestiona reuniones via Telegram."
+---
+
+En esta guía construiremos desde cero un agente que:
+
+- Lee Gmail y envía un resumen matutino
+- Redacta respuestas a correos importantes
+- Ve reuniones en Google Calendar y te recuerda
+- Recibe comandos via Telegram
+
+Tiempo de configuración: **10–15 minutos**.
+
+## Paso 1. Crea el agente y describe la tarea
+
+1. Inicia sesión en ASCN, abre la lista de agentes
+2. Haz clic en **\+ Crear nuevo**
+3. En el chat escribe la tarea:
+
+```text
+Eres mi asistente personal para correo y reuniones.
+Tu trabajo: vigilar Gmail y Google Calendar,
+redactar respuestas, enviar resúmenes matutinos,
+y ejecutar mis solicitudes via Telegram.
+```
+
+Después del primer mensaje el agente ofrecerá conectar las integraciones necesarias directamente en el chat.
+
+## Paso 2. Conecta las integraciones
+
+Haz clic en los botones de conexión en el chat: Gmail, Google Calendar, Telegram.
+
+## Paso 3. Define la identidad del agente en el chat
+
+Pega las reglas de comportamiento:
+
+```text
+# Rol
+Eres un asistente personal para correo y reuniones.
+
+## Estilo
+- Respuestas cortas — solo lo esencial
+- No retransmitas el correo completo, destaca puntos clave y acción
+- Ante dudas — pregunta, no adivines
+
+## Prioridades de correo
+1. Correos con plazos o preguntas directas para mí
+2. Correos de personas específicas (pídeme la lista VIP)
+3. Todo lo demás — en resumen, sin alertas
+
+## Prohibido
+- Enviar correos sin mi confirmación explícita
+- Eliminar correos o eventos sin confirmación
+- Tomar decisiones de reuniones en mi nombre
+```
+
+## Paso 4. Cuéntale al agente sobre ti
+
+```text
+# Sobre el usuario
+Nombre: [tu nombre]
+Zona horaria: UTC+0
+
+## Preferencias
+- Resumen matutino a las 8:30
+- Correos importantes — alerta inmediata, el resto — en resumen
+- Confirmar reuniones manualmente, no automáticamente
+```
+
+## Paso 5. Conecta Telegram
+
+Si no lo hiciste en el paso 2, ve a **Canales → Telegram** y sigue las instrucciones: [Cómo conectar Telegram](/es/channels/telegram).
+
+## Paso 6. Configura la tarea matutina
+
+```text
+Cada día a las 8:30 haz lo siguiente:
+1. Revisa el Gmail no leído de las últimas 12 horas
+2. Construye un resumen breve: correos importantes (plazo o pregunta para mí),
+   respuestas necesarias, el resto — una línea cada uno
+3. Revisa Google Calendar para hoy — lista reuniones con horarios
+4. Envíame el resumen en Telegram
+```
+
+El agente crea una tarea programada y empieza a ejecutarla cada mañana.
+
+## Resultado
+
+| Función | Cómo funciona |
+| --- | --- |
+| Resumen matutino | Cada día a las 8:30 en Telegram: correo \+ reuniones |
+| Borradores de respuesta | A solicitud en chat, con confirmación |
+| Recordatorios de reuniones | Dentro del resumen matutino |
+| Creación de reuniones | A comando en Telegram o chat, con confirmación |
+
+<Tip>
+  Siguiente paso: añade un trigger para correos de personas importantes — entonces el agente te notificará al instante.
+</Tip>

@@ -1,0 +1,37 @@
+---
+title: "Triggers de eventos"
+description: "El agente reacciona a eventos en tus servicios — nuevos correos, reuniones, archivos."
+---
+
+Un **trigger** es una condición que, cuando ocurre, hace que el agente ejecute una acción definida. A diferencia de un horario, un trigger no está atado al tiempo — se activa en el momento en que ocurre el evento.
+
+## Triggers disponibles
+
+| Servicio | Evento |
+| --- | --- |
+| **Gmail** | Nuevo correo entrante |
+| **Google Calendar** | Evento creado |
+| **Google Calendar** | Evento modificado |
+| **Google Calendar** | Evento eliminado |
+| **Google Drive** | Nuevo archivo añadido |
+| **Google Drive** | Archivo existente modificado |
+
+## Cómo crear un trigger
+
+Describe la condición y la reacción en el chat:
+
+```text
+Cuando llegue un nuevo correo a Gmail, comprueba si necesita respuesta,
+y si es así — redacta una y envíamela para aprobación en Telegram.
+```
+
+## Uso de créditos
+
+<Warning>
+  Los triggers consumen créditos de integración en cada activación. Si tu bandeja está muy activa, un trigger por correo puede consumir créditos mucho más rápido que una tarea programada.
+</Warning>
+
+## Ejemplo: trigger + horario
+
+- **Trigger** sobre correos de personas VIP → alerta inmediata en Telegram
+- **Horario** a las 8:00 → resumen de todo lo demás durante la noche

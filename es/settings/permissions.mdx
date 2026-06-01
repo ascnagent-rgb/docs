@@ -1,0 +1,22 @@
+---
+title: "Permisos de herramientas"
+description: "Controla qué puede hacer el agente con los archivos del espacio de trabajo."
+---
+
+**Permisos de herramientas** son interruptores que deciden si el agente puede modificar o eliminar archivos en el **espacio de trabajo** (el entorno de archivos aislado de tu agente).
+
+## Permisos disponibles
+
+| Permiso | Descripción |
+| --- | --- |
+| **Permitir cambios en archivos** | El agente puede crear y editar archivos en el espacio de trabajo |
+| **Permitir eliminación de archivos** | El agente puede eliminar archivos permanentemente |
+
+## Recomendaciones
+
+<Tip>
+  Si el agente no debe cambiar archivos de forma autónoma — desactiva «Permitir cambios en archivos». El agente propondrá ediciones, pero solo tú las aplicas.
+</Tip>
+
+- Activa la eliminación de archivos solo cuando el agente deba hacerlo explícitamente (por ejemplo, limpiando archivos temporales según horario)
+- Para agentes que solo leen y responden — ambos pueden estar desactivados

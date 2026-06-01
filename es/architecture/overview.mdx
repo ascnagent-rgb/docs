@@ -1,0 +1,76 @@
+---
+title: "Cómo funciona el agente"
+description: "Las tres capas de ASCN Agent: Cerebro, Tareas, Canales."
+---
+
+Cada ASCN Agent tiene tres capas. Entenderlas significa saber cómo configurar un agente para cualquier tarea.
+
+En el menú lateral ves tres secciones clave: **Cerebro** (①), **Canales** (②) y **Tareas** (③) — cada una tiene su capa.
+
+![Estructura del agente en el menú lateral](/images/05-architecture-sidebar.png)
+
+---
+
+## Cerebro — el centro de control
+
+**Cerebro** define la personalidad, el conocimiento y las capacidades del agente.
+
+Aquí configuras:
+
+- **Integraciones** — qué servicios puede usar el agente: Gmail, Google Calendar, Google Drive, Slack, GitHub
+- **Habilidades** — scripts de comportamiento reutilizables para tareas típicas
+- **Conocimiento** — quién es el agente, cómo habla, qué archivos y documentos usa
+- **Memoria** — qué recuerda el agente sobre ti entre sesiones
+
+<Info>
+  El Cerebro se configura una vez. Una vez conectadas las integraciones y completado el conocimiento, el agente está listo para trabajar sin más instrucciones.
+</Info>
+
+---
+
+## Tareas — automatizaciones
+
+**Tareas** son lo que hace el agente por sí solo, sin ti.
+
+Dos tipos:
+
+| Tipo | Ejemplo |
+| --- | --- |
+| **Programada** | Cada mañana a las 8:00 — resumen del correo no leído |
+| **Por evento** | Llega un nuevo correo → el agente prepara un borrador de respuesta |
+
+Las tareas se crean en el chat — simplemente describe qué hacer y cuándo.
+
+---
+
+## Canales — dónde hablas
+
+**Canales** es donde hablas con el agente y donde él responde.
+
+Canales disponibles:
+
+- **Chat ASCN** — interfaz web de la plataforma
+- **Telegram** — un bot que creas via BotFather
+- **Slack** — tu espacio de trabajo de equipo
+
+<Tip>
+  Conecta Telegram para controlar el agente y recibir notificaciones directamente en el mensajero — sin abrir el navegador.
+</Tip>
+
+---
+
+## Cómo trabajan juntas las capas
+
+**Ejemplo: un agente matutino de correo**
+
+1. **Cerebro** — conectado a Gmail y Google Calendar, conoce tu estilo de trabajo
+2. **Tareas** — cada día a las 8:00 el agente lee tu bandeja y construye un resumen
+3. **Canales** — el resumen te llega a Telegram
+
+Te despiertas y ya sabes qué llegó durante la noche.
+
+---
+
+<Card title="Integraciones" icon="plug" href="/es/brain/connectors">
+  Empieza con el Cerebro — conecta tu primera integración.
+</Card>

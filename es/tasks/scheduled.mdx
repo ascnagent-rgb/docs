@@ -1,0 +1,42 @@
+---
+title: "Tareas programadas"
+description: "Configura el agente para ejecutar tareas automáticamente a la hora correcta."
+---
+
+Una **tarea programada** es un escenario que el agente ejecuta solo a la hora correcta, sin ti. Se crea via chat: solo describe qué y cuándo.
+
+## Cómo crear una tarea
+
+Dile al agente en el chat:
+
+```text
+Cada mañana a las 8:00 construye un resumen del Gmail no leído 
+y envíamelo a Telegram.
+```
+
+```text
+Cada lunes a las 9:00 revisa mi Google Calendar 
+y envíame el plan de reuniones de la semana.
+```
+
+El agente crea la tarea, confirma el horario y empieza a ejecutarla.
+
+## Formatos de horario compatibles
+
+| Formato | Ejemplo |
+| --- | --- |
+| Cada N minutos / horas | Cada 30 minutos |
+| Diariamente a una hora específica | Cada día a las 09:00 |
+| Días de la semana | Cada lunes y viernes |
+
+## Gestionar tareas
+
+Ver todas las tareas en la sección **Tareas**. Cada tarea muestra horario, estado (**Activa** / **Pausada**) y controles de edición.
+
+## Uso de créditos
+
+Cada ejecución de tarea consume créditos de mensaje. Si la tarea toca servicios externos (Gmail, Calendar) — también usa créditos de integración.
+
+<Tip>
+  Las tareas programadas consumen créditos de forma predecible. Para revisiones frecuentes, considera un intervalo óptimo: cada hora en lugar de cada 15 minutos.
+</Tip>
