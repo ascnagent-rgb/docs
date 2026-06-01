@@ -22,82 +22,87 @@
     }
   },
   "navigation": {
-    "tabs": [
+    "languages": [
       {
-        "tab": "ASCN Agent",
-        "groups": [
+        "language": "ru",
+        "tabs": [
           {
-            "group": "Начало работы",
-            "pages": [
-              "getting-started/what-is-ascn-agent",
-              "getting-started/quickstart",
-              "architecture/overview"
+            "tab": "ASCN Agent",
+            "groups": [
+              {
+                "group": "Начало работы",
+                "pages": [
+                  "getting-started/what-is-ascn-agent",
+                  "getting-started/quickstart",
+                  "architecture/overview"
+                ]
+              },
+              {
+                "group": "Об ИИ-агенте",
+                "icon": "robot",
+                "pages": [
+                  "about-agent/architecture",
+                  "about-agent/capabilities",
+                  "about-agent/security"
+                ]
+              },
+              {
+                "group": "Мозг",
+                "pages": [
+                  "brain/overview",
+                  "brain/connectors",
+                  "brain/skills",
+                  "brain/knowledge",
+                  "brain/memory"
+                ]
+              },
+              {
+                "group": "Задачи",
+                "pages": [
+                  "tasks/scheduled",
+                  "tasks/triggers"
+                ]
+              },
+              {
+                "group": "Каналы",
+                "pages": [
+                  "channels/telegram",
+                  "channels/slack"
+                ]
+              },
+              {
+                "group": "Use Cases",
+                "pages": [
+                  "about-agent/use-cases",
+                  "guides/email-calendar-agent"
+                ]
+              },
+              {
+                "group": "Настройки",
+                "pages": [
+                  "settings/permissions",
+                  "settings/secrets",
+                  "settings/api",
+                  "settings/delete-agent"
+                ]
+              }
             ]
           },
           {
-            "group": "Об ИИ-агенте",
-            "icon": "robot",
-            "pages": [
-              "about-agent/architecture",
-              "about-agent/capabilities",
-              "about-agent/security"
-            ]
-          },
-          {
-            "group": "Мозг",
-            "pages": [
-              "brain/overview",
-              "brain/connectors",
-              "brain/skills",
-              "brain/knowledge",
-              "brain/memory"
-            ]
-          },
-          {
-            "group": "Задачи",
-            "pages": [
-              "tasks/scheduled",
-              "tasks/triggers"
-            ]
-          },
-          {
-            "group": "Каналы",
-            "pages": [
-              "channels/telegram",
-              "channels/slack"
-            ]
-          },
-          {
-            "group": "Use Cases",
-            "pages": [
-              "about-agent/use-cases",
-              "guides/email-calendar-agent"
-            ]
-          },
-          {
-            "group": "Настройки",
-            "pages": [
-              "settings/permissions",
-              "settings/secrets",
-              "settings/api",
-              "settings/delete-agent"
+            "tab": "Крипто ИИ Ассистент",
+            "groups": [
+              {
+                "group": "Обзор",
+                "pages": [
+                  "crypto/overview"
+                ]
+              }
             ]
           }
         ]
       },
       {
-        "tab": "Крипто ИИ Ассистент",
-        "groups": [
-          {
-            "group": "Обзор",
-            "pages": [
-              "crypto/overview"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "English",
+        "language": "en",
         "groups": [
           {
             "group": "Getting Started",
@@ -150,7 +155,7 @@
         ]
       },
       {
-        "tab": "Español",
+        "language": "es",
         "groups": [
           {
             "group": "Primeros pasos",
@@ -203,7 +208,7 @@
         ]
       },
       {
-        "tab": "Português",
+        "language": "pt-BR",
         "groups": [
           {
             "group": "Primeiros passos",
@@ -256,7 +261,7 @@
         ]
       },
       {
-        "tab": "中文",
+        "language": "cn",
         "groups": [
           {
             "group": "快速入门",
