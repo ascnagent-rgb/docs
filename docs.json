@@ -89,10 +89,10 @@
             ]
           },
           {
-            "tab": "Крипто ИИ Ассистент",
+            "tab": "Crypto AI Agent",
             "groups": [
               {
-                "group": "Обзор",
+                "group": "API",
                 "pages": [
                   "crypto/overview"
                 ]
@@ -103,212 +103,276 @@
       },
       {
         "language": "en",
-        "groups": [
+        "tabs": [
           {
-            "group": "Getting Started",
-            "pages": [
-              "en/getting-started/what-is-ascn-agent",
-              "en/getting-started/quickstart",
-              "en/architecture/overview"
+            "tab": "ASCN Agent",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "en/getting-started/what-is-ascn-agent",
+                  "en/getting-started/quickstart",
+                  "en/architecture/overview"
+                ]
+              },
+              {
+                "group": "Brain",
+                "pages": [
+                  "en/brain/overview",
+                  "en/brain/connectors",
+                  "en/brain/skills",
+                  "en/brain/knowledge",
+                  "en/brain/memory"
+                ]
+              },
+              {
+                "group": "Tasks",
+                "pages": [
+                  "en/tasks/scheduled",
+                  "en/tasks/triggers"
+                ]
+              },
+              {
+                "group": "Channels",
+                "pages": [
+                  "en/channels/telegram",
+                  "en/channels/slack"
+                ]
+              },
+              {
+                "group": "Guides",
+                "pages": [
+                  "en/guides/email-calendar-agent",
+                  "en/faq/common-questions"
+                ]
+              },
+              {
+                "group": "Settings",
+                "pages": [
+                  "en/settings/permissions",
+                  "en/settings/secrets",
+                  "en/settings/api",
+                  "en/settings/delete-agent"
+                ]
+              }
             ]
           },
           {
-            "group": "Brain",
-            "pages": [
-              "en/brain/overview",
-              "en/brain/connectors",
-              "en/brain/skills",
-              "en/brain/knowledge",
-              "en/brain/memory"
-            ]
-          },
-          {
-            "group": "Tasks",
-            "pages": [
-              "en/tasks/scheduled",
-              "en/tasks/triggers"
-            ]
-          },
-          {
-            "group": "Channels",
-            "pages": [
-              "en/channels/telegram",
-              "en/channels/slack"
-            ]
-          },
-          {
-            "group": "Guides",
-            "pages": [
-              "en/guides/email-calendar-agent",
-              "en/faq/common-questions"
-            ]
-          },
-          {
-            "group": "Settings",
-            "pages": [
-              "en/settings/permissions",
-              "en/settings/secrets",
-              "en/settings/api",
-              "en/settings/delete-agent"
+            "tab": "Crypto AI Agent",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  "en/crypto/overview"
+                ]
+              }
             ]
           }
         ]
       },
       {
         "language": "es",
-        "groups": [
+        "tabs": [
           {
-            "group": "Primeros pasos",
-            "pages": [
-              "es/getting-started/what-is-ascn-agent",
-              "es/getting-started/quickstart",
-              "es/architecture/overview"
+            "tab": "ASCN Agent",
+            "groups": [
+              {
+                "group": "Primeros pasos",
+                "pages": [
+                  "es/getting-started/what-is-ascn-agent",
+                  "es/getting-started/quickstart",
+                  "es/architecture/overview"
+                ]
+              },
+              {
+                "group": "Cerebro",
+                "pages": [
+                  "es/brain/overview",
+                  "es/brain/connectors",
+                  "es/brain/skills",
+                  "es/brain/knowledge",
+                  "es/brain/memory"
+                ]
+              },
+              {
+                "group": "Tareas",
+                "pages": [
+                  "es/tasks/scheduled",
+                  "es/tasks/triggers"
+                ]
+              },
+              {
+                "group": "Canales",
+                "pages": [
+                  "es/channels/telegram",
+                  "es/channels/slack"
+                ]
+              },
+              {
+                "group": "Guías",
+                "pages": [
+                  "es/guides/email-calendar-agent",
+                  "es/faq/common-questions"
+                ]
+              },
+              {
+                "group": "Configuración",
+                "pages": [
+                  "es/settings/permissions",
+                  "es/settings/secrets",
+                  "es/settings/api",
+                  "es/settings/delete-agent"
+                ]
+              }
             ]
           },
           {
-            "group": "Cerebro",
-            "pages": [
-              "es/brain/overview",
-              "es/brain/connectors",
-              "es/brain/skills",
-              "es/brain/knowledge",
-              "es/brain/memory"
-            ]
-          },
-          {
-            "group": "Tareas",
-            "pages": [
-              "es/tasks/scheduled",
-              "es/tasks/triggers"
-            ]
-          },
-          {
-            "group": "Canales",
-            "pages": [
-              "es/channels/telegram",
-              "es/channels/slack"
-            ]
-          },
-          {
-            "group": "Guías",
-            "pages": [
-              "es/guides/email-calendar-agent",
-              "es/faq/common-questions"
-            ]
-          },
-          {
-            "group": "Configuración",
-            "pages": [
-              "es/settings/permissions",
-              "es/settings/secrets",
-              "es/settings/api",
-              "es/settings/delete-agent"
+            "tab": "Crypto AI Agent",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  "es/crypto/overview"
+                ]
+              }
             ]
           }
         ]
       },
       {
         "language": "pt-BR",
-        "groups": [
+        "tabs": [
           {
-            "group": "Primeiros passos",
-            "pages": [
-              "pt-BR/getting-started/what-is-ascn-agent",
-              "pt-BR/getting-started/quickstart",
-              "pt-BR/architecture/overview"
+            "tab": "ASCN Agent",
+            "groups": [
+              {
+                "group": "Primeiros passos",
+                "pages": [
+                  "pt-BR/getting-started/what-is-ascn-agent",
+                  "pt-BR/getting-started/quickstart",
+                  "pt-BR/architecture/overview"
+                ]
+              },
+              {
+                "group": "Cérebro",
+                "pages": [
+                  "pt-BR/brain/overview",
+                  "pt-BR/brain/connectors",
+                  "pt-BR/brain/skills",
+                  "pt-BR/brain/knowledge",
+                  "pt-BR/brain/memory"
+                ]
+              },
+              {
+                "group": "Tarefas",
+                "pages": [
+                  "pt-BR/tasks/scheduled",
+                  "pt-BR/tasks/triggers"
+                ]
+              },
+              {
+                "group": "Canais",
+                "pages": [
+                  "pt-BR/channels/telegram",
+                  "pt-BR/channels/slack"
+                ]
+              },
+              {
+                "group": "Guias",
+                "pages": [
+                  "pt-BR/guides/email-calendar-agent",
+                  "pt-BR/faq/common-questions"
+                ]
+              },
+              {
+                "group": "Configurações",
+                "pages": [
+                  "pt-BR/settings/permissions",
+                  "pt-BR/settings/secrets",
+                  "pt-BR/settings/api",
+                  "pt-BR/settings/delete-agent"
+                ]
+              }
             ]
           },
           {
-            "group": "Cérebro",
-            "pages": [
-              "pt-BR/brain/overview",
-              "pt-BR/brain/connectors",
-              "pt-BR/brain/skills",
-              "pt-BR/brain/knowledge",
-              "pt-BR/brain/memory"
-            ]
-          },
-          {
-            "group": "Tarefas",
-            "pages": [
-              "pt-BR/tasks/scheduled",
-              "pt-BR/tasks/triggers"
-            ]
-          },
-          {
-            "group": "Canais",
-            "pages": [
-              "pt-BR/channels/telegram",
-              "pt-BR/channels/slack"
-            ]
-          },
-          {
-            "group": "Guias",
-            "pages": [
-              "pt-BR/guides/email-calendar-agent",
-              "pt-BR/faq/common-questions"
-            ]
-          },
-          {
-            "group": "Configurações",
-            "pages": [
-              "pt-BR/settings/permissions",
-              "pt-BR/settings/secrets",
-              "pt-BR/settings/api",
-              "pt-BR/settings/delete-agent"
+            "tab": "Crypto AI Agent",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  "pt-BR/crypto/overview"
+                ]
+              }
             ]
           }
         ]
       },
       {
         "language": "cn",
-        "groups": [
+        "tabs": [
           {
-            "group": "快速入门",
-            "pages": [
-              "cn/getting-started/what-is-ascn-agent",
-              "cn/getting-started/quickstart",
-              "cn/architecture/overview"
+            "tab": "ASCN Agent",
+            "groups": [
+              {
+                "group": "快速入门",
+                "pages": [
+                  "cn/getting-started/what-is-ascn-agent",
+                  "cn/getting-started/quickstart",
+                  "cn/architecture/overview"
+                ]
+              },
+              {
+                "group": "大脑",
+                "pages": [
+                  "cn/brain/overview",
+                  "cn/brain/connectors",
+                  "cn/brain/skills",
+                  "cn/brain/knowledge",
+                  "cn/brain/memory"
+                ]
+              },
+              {
+                "group": "任务",
+                "pages": [
+                  "cn/tasks/scheduled",
+                  "cn/tasks/triggers"
+                ]
+              },
+              {
+                "group": "频道",
+                "pages": [
+                  "cn/channels/telegram",
+                  "cn/channels/slack"
+                ]
+              },
+              {
+                "group": "指南",
+                "pages": [
+                  "cn/guides/email-calendar-agent",
+                  "cn/faq/common-questions"
+                ]
+              },
+              {
+                "group": "设置",
+                "pages": [
+                  "cn/settings/permissions",
+                  "cn/settings/secrets",
+                  "cn/settings/api",
+                  "cn/settings/delete-agent"
+                ]
+              }
             ]
           },
           {
-            "group": "大脑",
-            "pages": [
-              "cn/brain/overview",
-              "cn/brain/connectors",
-              "cn/brain/skills",
-              "cn/brain/knowledge",
-              "cn/brain/memory"
-            ]
-          },
-          {
-            "group": "任务",
-            "pages": [
-              "cn/tasks/scheduled",
-              "cn/tasks/triggers"
-            ]
-          },
-          {
-            "group": "频道",
-            "pages": [
-              "cn/channels/telegram",
-              "cn/channels/slack"
-            ]
-          },
-          {
-            "group": "指南",
-            "pages": [
-              "cn/guides/email-calendar-agent",
-              "cn/faq/common-questions"
-            ]
-          },
-          {
-            "group": "设置",
-            "pages": [
-              "cn/settings/permissions",
-              "cn/settings/secrets",
-              "cn/settings/api",
-              "cn/settings/delete-agent"
+            "tab": "Crypto AI Agent",
+            "groups": [
+              {
+                "group": "API",
+                "pages": [
+                  "cn/crypto/overview"
+                ]
+              }
             ]
           }
         ]

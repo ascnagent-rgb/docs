@@ -1,0 +1,137 @@
+---
+title: "ASCN.AI API — Documentação"
+description: "Acesso programático a inteligência cripto institucional em tempo real."
+---
+
+## ✨ Introdução
+
+Bem-vindo à API do Assistente ASCN.AI! Nossa missão é fornecer acesso programático a inteligência cripto de nível institucional em tempo real. A API transforma dados on-chain complexos de mais de 20 blockchains, redes sociais e fontes de notícias em insights acionáveis através de consultas em linguagem natural.
+
+---
+
+## 🚀 Primeiros passos
+
+### Passo 1. Obtenha sua API Key
+
+**Opção rápida** — solicite diretamente no [Suporte no Telegram](https://t.me/ascnai).
+
+**Opção mais completa** — registre-se na [plataforma B2B](https://b2b.ascn.ai), revise os planos e selecione o Free. Assim você tem acesso a logs detalhados, visibilidade do consumo de créditos e possibilidade de upgrade instantâneo.
+
+### Passo 2. Execute sua primeira chamada
+
+```bash
+curl --request POST \
+     --url https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/invoke_assistant \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --header 'X-API-Key: YOUR_API_KEY' \
+     --data '{
+         "message": "Faça uma análise da moeda PEPE: gráfico, dados de mercado e análise técnica"
+     }'
+```
+
+---
+
+## 🔓 Autenticação
+
+Passe sua API key no cabeçalho `X-API-Key` de cada requisição.
+
+```
+X-API-Key: YOUR_API_KEY
+```
+
+<Warning>
+  Sua API key é um segredo. Não a exponha em código do lado do cliente. Todas as requisições devem ser feitas de um ambiente de servidor seguro.
+</Warning>
+
+**Base URL:** `https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/`
+
+## 🟢 Códigos de resposta
+
+| Código | Significado | Descrição |
+| --- | --- | --- |
+| `200` | OK | Requisição bem-sucedida. |
+| `400` | Bad Request | Requisição malformada ou parâmetros ausentes. |
+| `401` | Unauthorized | API key incorreta ou ausente. |
+| `403` | Forbidden | Sem permissão para esta ação. |
+| `429` | Too Many Requests | Limite de requisições excedido. |
+| `500` | Internal Server Error | Erro no servidor. Tente novamente. |
+
+---
+
+## 🧠 Funcionalidades
+
+### Dados de mercado em tempo real
+Preço, volume, capitalização e análise técnica de qualquer token de 20+ blockchains.
+
+### Análise de tokens
+Fluxos de tokens (CEX), saldos de holders (baleias, fundos), maiores transferências, atividade de compradores/vendedores.
+
+### Análise on-chain
+Monitoramento de posições DeFi, rastreamento de trades em DEX e identificação de carteiras lucrativas em 20+ blockchains.
+
+### Contratos perpétuos (DEX)
+Insights em tempo real do mercado de futuros DEX. Acompanhe os melhores traders no Hyperliquid, suas posições, alavancagem e P/L.
+
+### Análise de sentimento
+Análise de comunidades do Telegram e mídia de notícias — sentimento positivo/negativo para qualquer moeda.
+
+### Busca na web
+O assistente AI realiza buscas avançadas sobre projetos, equipes e tendências de mercado.
+
+---
+
+## 📚 API Reference
+
+### POST /invoke_assistant
+
+Envia uma mensagem ao assistente AI e retorna uma análise completa em uma única resposta.
+
+| Parâmetro | Tipo | Descrição |
+| --- | --- | --- |
+| `message` | string | **Obrigatório.** Pergunta ou mensagem em linguagem natural. |
+| `chat_id` | uuid | Opcional. ID de um chat existente para continuar a conversa. |
+| `model` | string | Opcional. Modelo AI. Padrão: `ascn_v1.2`. |
+
+```json
+{
+  "message": "Análise on-chain e de mercado profunda para BONK",
+  "model": "ascn_v1.2"
+}
+```
+
+### POST /invoke_assistant_stream
+
+Para aplicações em tempo real — stream SSE que entrega partes da resposta conforme são geradas.
+
+---
+
+## 📌 Limites e cobertura
+
+### 🔴 Rate Limits
+
+| Plano | Requisições por minuto |
+| --- | --- |
+| Free | 60 |
+| Pro | 300 |
+| Enterprise | Personalizado |
+
+### ⛓️ Blockchains suportados
+
+| Categoria | Chains |
+| --- | --- |
+| EVM | Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Avalanche, Base e mais |
+| Solana | Suporte completo: dados on-chain, trades DEX, análise DeFi |
+| Outros | Blockchains populares adicionais |
+
+---
+
+## 🔗 Links úteis
+
+- **Site:** [https://ascn.ai](https://ascn.ai)
+- **Plataforma B2B:** [https://b2b.ascn.ai](https://b2b.ascn.ai)
+- **Preços:** [https://arbitragescanner.io/crypto-api](https://arbitragescanner.io/crypto-api)
+
+<Card title="Obtenha sua API key grátis" icon="rocket" href="https://b2b.ascn.ai">
+  Cadastre-se e comece a construir hoje.
+</Card>

@@ -1,0 +1,231 @@
+---
+title: "ASCN.AI API Documentation"
+description: "Programmatic access to institutional-grade, real-time crypto intelligence."
+---
+
+## ✨ Introduction
+
+Welcome to the ASCN.AI Assistant API! Our mission is to provide programmatic access to institutional-grade, real-time crypto intelligence. The API transforms complex on-chain data from over 20 blockchains, social media, and news sources into actionable insights, accessible through simple, natural language queries.
+
+Whether you're building sophisticated trading bots, data-rich portfolio trackers, or AI-powered community management tools, our API delivers the speed, accuracy, and depth you need to stay ahead. Go from raw data to actionable insights in seconds.
+
+---
+
+## 🚀 Getting Started
+
+### Step 1: Get Your API Key
+
+There are two ways to obtain a Free API key. The **quick option** is to request directly from [Support in Telegram](https://t.me/ascnai).
+
+The **more useful option** is to register on the [B2B platform](https://b2b.ascn.ai), review all available subscription plans, and select the Free plan. By doing so, you gain access to detailed logs of your requests, visibility into how many "credits" each request consumes, and the ability to upgrade instantly to any paid plan when needed.
+
+### Step 2: Run the cURL Command
+
+Open your terminal and paste the following command. Replace `YOUR_API_KEY` with the key you just copied.
+
+```bash
+curl --request POST \
+     --url https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/invoke_assistant \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --header 'X-API-Key: YOUR_API_KEY' \
+     --data '{
+         "message": "Please perform an analysis of the coin PEPE, including a chart, market data, and technical analysis"
+     }'
+```
+
+### Step 3: See the Response
+
+You will receive a JSON response containing a detailed, real-time analysis of the PEPE coin. Congratulations, you've successfully queried the ASCN.AI Assistant!
+
+---
+
+## 🔓 Authentication
+
+All requests to the ASCN.AI API must be authenticated. We use a single API key for authentication.
+
+Pass your API key in the `X-API-Key` header of every request.
+
+```
+X-API-Key: YOUR_API_KEY
+```
+
+<Warning>
+  Your API key is a secret! Do not share it or expose it in any client-side code (browsers, mobile apps). All API requests should be made from a secure server environment.
+</Warning>
+
+## 🌐 API Structure & Base URL
+
+All interactions with the ASCN.AI API occur via HTTPS requests to our base URL.
+
+**Base URL:** `https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/`
+
+The API is organized around REST principles. Our endpoints use standard HTTP methods (`GET`, `POST`) and return predictable JSON-formatted responses.
+
+## 🟢 Response Codes
+
+| Status Code | Meaning | Description |
+| --- | --- | --- |
+| `200` | OK | The request was successful. |
+| `400` | Bad Request | The request was malformed or missing required parameters. |
+| `401` | Unauthorized | Your API key is incorrect or missing. |
+| `403` | Forbidden | Your API key does not have permission for this action. |
+| `429` | Too Many Requests | You have exceeded your rate limit. |
+| `500` | Internal Server Error | A server error occurred. Please try again later. |
+
+Example error response:
+
+```json
+{ "detail": "Authentication credentials were not provided." }
+```
+
+---
+
+## 🧠 Features
+
+### Real-time Market Data
+
+Access up-to-the-second market data from over 20 blockchains. Get price charts, volume, capitalization, and technical analysis for any token.
+
+- What is the current price and market cap of a token?
+- What are the key support and resistance levels?
+- How has the token performed over the last 24 hours?
+
+### Token Analysis
+
+Analyze token flows (CEX), holder balances (top addresses, whales, funds), top transfers, and recent buyer/seller activity.
+
+- Who are the top holders of this token?
+- Is smart money buying or selling?
+- What are the largest recent transfers for this token?
+
+### On-chain Analysis
+
+Monitor DeFi positions, track DEX trades, and identify profitable wallets across 20+ blockchains, including EVM chains and Solana.
+
+- What are the recent DEX trades for a specific token?
+- Which wallets have been most profitable trading this coin?
+- What are the active DeFi positions for a given wallet address?
+
+### Perp Trades (DEX)
+
+Gain real-time insights into the DEX futures market. Track top traders on platforms like Hyperliquid, analyze their strategies, and see their open positions, leverage, P/L, and trade history.
+
+- Who are the most profitable traders on SOL and ETH right now?
+- What are their entry/exit patterns and win rates?
+
+### Sentiment Analysis
+
+Analyze Telegram communities and news media to give you a clear picture of positive and negative sentiment for any coin.
+
+- What is the current sentiment around a specific token on Telegram?
+- Is the news coverage for a project positive or negative?
+
+### Web Search
+
+Our AI assistant can perform advanced web searches to gather public information about projects, teams, and market trends, combining it with on-chain data for a complete 360-degree view.
+
+---
+
+## 📜 Use Case Templates
+
+| Use Case | Description | Key Features Used |
+| --- | --- | --- |
+| Automated Trading Bot | A bot that executes trades based on real-time market data, on-chain events, and sentiment analysis. | `Real-time Market Data`, `On-chain Analysis`, `Sentiment Analysis`, `Perp Trades` |
+| Portfolio Tracker | Comprehensive overview of crypto assets, including DeFi positions and historical performance. | `On-chain Analysis`, `Wallet Portfolio Tracking` |
+| Sentiment Dashboard | Visualizes market sentiment for specific coins based on social media and news analysis. | `Sentiment Analysis` |
+| Community Management | AI assistant for Telegram or Discord that answers user questions about the market. | `Web Search`, `Real-time Market Data` |
+| Due Diligence Tool | In-depth analysis of new tokens, including holder distribution and smart money flows. | `Token Analysis`, `Holder Balances` |
+| Token Research Assistant | Combines on-chain data, market metrics, sentiment, and web information for comprehensive token analysis. | `Token Analysis`, `Web Search`, `Sentiment Analysis` |
+
+---
+
+## 📚 API Reference
+
+### POST /invoke_assistant
+
+Sends a message to the AI assistant and returns a complete, structured analysis in a single response. Best for scenarios where a complete response is needed before proceeding.
+
+**Request Body**
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| `message` | string | **Required.** The natural language message or question for the AI assistant. |
+| `chat_id` | uuid | Optional. The ID of an existing chat to continue a conversation. |
+| `model` | string | Optional. The AI model to use. Defaults to `ascn_v1.2`. |
+
+**Example Request**
+
+```json
+{
+  "message": "Provide me deep onchain and market analytics for DezXAZ8z7PnrnRJjz3wXBoRgixCa6xjnB7YaB1pPB263 (BONK)",
+  "model": "ascn_v1.2"
+}
+```
+
+### POST /invoke_assistant_stream
+
+For real-time applications, this endpoint establishes a Server-Sent Events (SSE) stream to deliver parts of the response as they are generated. Ideal for interactive, responsive user experiences.
+
+**Stream Events**
+
+| Event | Data | Description |
+| --- | --- | --- |
+| `chat` | `{"chat_id": "...", "chat_title": "..."}` | Sent at the beginning to provide chat context. |
+| `pending_tool_call` | `{"call_id": "...", "title": {"en": "Analyzing..."}}` | Sent when an internal tool is called to gather data. |
+| `finished_tool_call` | `{"call_id": "..."}` | Sent when the internal tool finishes. |
+| `message_start` | `{"t": "..."}` | Streams the message content as it's being generated. |
+| `message_end` | `{"message_id": "..."}` | Indicates the current message has finished. |
+| `finish` | `null` | Marks the end of the entire stream session. |
+
+---
+
+## 📌 About
+
+### 🔴 Rate Limits
+
+| Tier | Requests per minute |
+| --- | --- |
+| Free | 60 |
+| Pro | 300 |
+| Enterprise | Custom |
+
+If you exceed your rate limit, you will receive an HTTP `429 Too Many Requests` error.
+
+For detailed pricing and credit information, visit the [Pricing Page](https://arbitragescanner.io/crypto-api).
+
+### ⛓️ Chain Coverage
+
+| Category | Supported Chains |
+| --- | --- |
+| EVM Chains | Ethereum, BNB Chain, Polygon, Arbitrum, Optimism, Avalanche, Base, and more |
+| Solana | Full support for on-chain data, DEX trades, and DeFi analysis |
+| Other | Various other popular blockchains |
+
+---
+
+## 🙋 FAQ
+
+**What programming languages are supported?**
+The API is language-agnostic. You can use any language that supports HTTP requests.
+
+**Can I use the API for commercial purposes?**
+Yes. Please review our [Terms of Service](https://ascn.ai/terms) for details.
+
+**What is the difference between invoke\_assistant and invoke\_assistant\_stream?**
+`invoke_assistant` returns a complete response in one go. `invoke_assistant_stream` uses SSE to stream the response as it's generated — use it for interactive, real-time applications.
+
+**Do you offer support?**
+Yes — via email [info@ascn.ai](mailto:info@ascn.ai), [Telegram](https://t.me/Ascn_support_bot), and our community forum.
+
+---
+
+## 🔗 Useful Links
+
+- **Website:** [https://ascn.ai](https://ascn.ai)
+- **B2B Platform:** [https://b2b.ascn.ai](https://b2b.ascn.ai)
+- **Pricing:** [https://arbitragescanner.io/crypto-api](https://arbitragescanner.io/crypto-api)
+
+<Card title="Get your free API key" icon="rocket" href="https://b2b.ascn.ai">
+  Sign up and start building today.
+</Card>

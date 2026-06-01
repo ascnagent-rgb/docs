@@ -1,0 +1,137 @@
+---
+title: "ASCN.AI API — 文档"
+description: "机构级实时加密货币智能的程序化访问。"
+---
+
+## ✨ 简介
+
+欢迎使用 ASCN.AI 助手 API！我们的目标是提供机构级实时加密货币智能的程序化访问。API 通过简单的自然语言查询，将来自 20 多个区块链、社交媒体和新闻源的复杂链上数据转化为可操作的洞察。
+
+---
+
+## 🚀 快速开始
+
+### 第一步. 获取 API Key
+
+**快速方式** — 直接向 [Telegram 客服](https://t.me/ascnai) 申请。
+
+**更完整的方式** — 在 [B2B 平台](https://b2b.ascn.ai) 注册，查看订阅计划并选择免费版。这样您可以访问详细的请求日志、了解每次请求消耗的"积分"，并可随时升级到付费计划。
+
+### 第二步. 执行第一个请求
+
+```bash
+curl --request POST \
+     --url https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/invoke_assistant \
+     --header 'accept: application/json' \
+     --header 'content-type: application/json' \
+     --header 'X-API-Key: YOUR_API_KEY' \
+     --data '{
+         "message": "请对 PEPE 进行分析，包括图表、市场数据和技术分析"
+     }'
+```
+
+---
+
+## 🔓 身份验证
+
+在每个请求的 `X-API-Key` 标头中传递您的 API key。
+
+```
+X-API-Key: YOUR_API_KEY
+```
+
+<Warning>
+  您的 API key 是机密！请勿在客户端代码中暴露它。所有 API 请求应从安全的服务器环境发出。
+</Warning>
+
+**Base URL:** `https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/`
+
+## 🟢 响应代码
+
+| 状态码 | 含义 | 描述 |
+| --- | --- | --- |
+| `200` | OK | 请求成功。 |
+| `400` | Bad Request | 请求格式错误或缺少必要参数。 |
+| `401` | Unauthorized | API key 不正确或缺失。 |
+| `403` | Forbidden | API key 无权执行此操作。 |
+| `429` | Too Many Requests | 超出速率限制。 |
+| `500` | Internal Server Error | 服务器错误，请稍后重试。 |
+
+---
+
+## 🧠 功能特性
+
+### 实时市场数据
+来自 20 多个区块链的最新市场数据：任意代币的价格图表、交易量、市值和技术分析。
+
+### 代币分析
+代币流量（CEX）、持有者余额（顶级地址、巨鲸、基金）、最大转账、买卖双方活动。
+
+### 链上分析
+监控 DeFi 仓位，追踪 DEX 交易，识别 20 多个区块链（含 EVM 和 Solana）上的盈利钱包。
+
+### 永续合约（DEX）
+实时了解 DEX 期货市场。追踪 Hyperliquid 等平台的顶级交易者，分析其策略、持仓、杠杆和盈亏。
+
+### 情绪分析
+分析 Telegram 社区和新闻媒体，清晰呈现任意代币的正负情绪。
+
+### 网络搜索
+AI 助手可执行高级网络搜索，收集项目、团队和市场趋势的公开信息。
+
+---
+
+## 📚 API 参考
+
+### POST /invoke_assistant
+
+向 AI 助手发送消息，返回完整的结构化分析。
+
+| 参数 | 类型 | 描述 |
+| --- | --- | --- |
+| `message` | string | **必填。** 自然语言问题或消息。 |
+| `chat_id` | uuid | 可选。继续现有对话的聊天 ID。 |
+| `model` | string | 可选。AI 模型，默认值：`ascn_v1.2`。 |
+
+```json
+{
+  "message": "对 BONK 进行深度链上和市场分析",
+  "model": "ascn_v1.2"
+}
+```
+
+### POST /invoke_assistant_stream
+
+实时应用程序的 SSE 流——在响应生成时逐步传递内容，适合交互式实时体验。
+
+---
+
+## 📌 限制与覆盖范围
+
+### 🔴 速率限制
+
+| 套餐 | 每分钟请求数 |
+| --- | --- |
+| 免费版 | 60 |
+| 专业版 | 300 |
+| 企业版 | 自定义 |
+
+### ⛓️ 支持的区块链
+
+| 类别 | 支持的链 |
+| --- | --- |
+| EVM 链 | Ethereum、BNB Chain、Polygon、Arbitrum、Optimism、Avalanche、Base 等 |
+| Solana | 完整支持链上数据、DEX 交易和 DeFi 分析 |
+| 其他 | 其他流行区块链 |
+
+---
+
+## 🔗 实用链接
+
+- **官网：** [https://ascn.ai](https://ascn.ai)
+- **B2B 平台：** [https://b2b.ascn.ai](https://b2b.ascn.ai)
+- **价格：** [https://arbitragescanner.io/crypto-api](https://arbitragescanner.io/crypto-api)
+
+<Card title="免费获取 API key" icon="rocket" href="https://b2b.ascn.ai">
+  立即注册，开始构建。
+</Card>
