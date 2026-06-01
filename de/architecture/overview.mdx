@@ -1,0 +1,30 @@
+---
+title: "Wie der Agent aufgebaut ist"
+description: "Drei Ebenen von ASCN Agent: Gehirn, Aufgaben, Kanäle."
+---
+
+Jeder ASCN Agent besteht aus drei Ebenen.
+
+![Struktur in der Seitenleiste](/images/05-architecture-sidebar.png)
+
+## Gehirn — Steuerzentrale
+
+Definiert Persönlichkeit, Wissen und Fähigkeiten des Agenten.
+
+- **Integrationen** — auf welche Dienste der Agent zugreift
+- **Fähigkeiten** — wiederverwendbare Verhaltensmuster
+- **Wissen** — wer der Agent ist, welche Dateien er nutzt
+- **Gedächtnis** — was der Agent über Sie weiß
+
+## Aufgaben — Automatisierungen
+
+| Typ | Beispiel |
+| --- | --- |
+| **Geplant** | Täglich um 8:00 — E-Mail-Übersicht |
+| **Trigger** | Neue E-Mail → Entwurf wird erstellt |
+
+## Kanäle — wo Sie sprechen
+
+- **ASCN Chat** — Weboberfläche
+- **Telegram** — Bot via BotFather
+- **Slack** — Team-Workspace

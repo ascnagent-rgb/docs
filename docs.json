@@ -38,10 +38,8 @@
             "group": "Об ИИ-агенте",
             "icon": "robot",
             "pages": [
-              "about-agent/overview",
               "about-agent/architecture",
               "about-agent/capabilities",
-              "about-agent/use-cases",
               "about-agent/security"
             ]
           },
@@ -70,15 +68,10 @@
             ]
           },
           {
-            "group": "Руководства",
+            "group": "Use Cases",
             "pages": [
+              "about-agent/use-cases",
               "guides/email-calendar-agent"
-            ]
-          },
-          {
-            "group": "FAQ",
-            "pages": [
-              "faq/common-questions"
             ]
           },
           {

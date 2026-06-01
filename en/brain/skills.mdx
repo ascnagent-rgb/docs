@@ -1,0 +1,31 @@
+---
+title: "Skills"
+description: "Teach the agent once — it remembers forever."
+---
+
+A skill is behavioural memory. You explain to the agent how to summarize email, how to format a report, how to handle customer requests — and it remembers and repeats. No need to explain again.
+
+![Brain → Skills](/images/08-skills.png)
+
+## Ready-made skills and your own
+
+In **Brain → Skills** there are two sections.
+
+**Open Source skills** — a library by ASCN and the community. Found one you need, click **\+ Install**. For example, the `pdf` skill lets the agent work with PDFs. The `creating-financial-models` skill builds DCFs.
+
+**My skills** — what you've taught the agent yourself. Empty by default.
+
+## How to create your own
+
+Just tell the agent in chat what to do. It will figure it out and create the skill.
+
+```text
+Create a skill: when I ask for an email summary — group by sender,
+highlight emails with deadlines or questions to me, skip newsletters
+```
+
+The skill appears in **My skills**. You can open, view, edit.
+
+## Where it's stored
+
+All skills live in agent files under `.agents/skills/` — visible in the **Files** section.

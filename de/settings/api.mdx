@@ -1,0 +1,22 @@
+---
+title: "API"
+description: "Verbinden Sie externe Systeme mit dem Agenten via API."
+---
+
+![API](/images/14-api.png)
+
+## Zugang
+
+1. **Einstellungen → API** öffnen
+2. **Base URL** kopieren
+3. **Authentifizierungsschlüssel** kopieren
+4. Header `Authorization: Bearer ...`
+
+## Beispiel
+
+```bash
+curl -X POST "https://api.clawman.ascn.ai/api/v1/workspaces/{workspace_id}/session/{session_id}/messages" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer {API_KEY}" \
+  -d '{"content": "E-Mail prüfen"}'
+```

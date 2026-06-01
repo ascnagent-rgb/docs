@@ -1,0 +1,37 @@
+---
+title: "Event triggers"
+description: "The agent reacts to events in your services — new emails, meetings, files."
+---
+
+A **trigger** is a condition that, when it occurs, makes the agent run a defined action. Unlike a schedule, a trigger isn't tied to time — it fires the moment an event happens.
+
+## Available triggers
+
+| Service | Event |
+| --- | --- |
+| **Gmail** | New incoming email |
+| **Google Calendar** | Event created |
+| **Google Calendar** | Event changed |
+| **Google Calendar** | Event deleted |
+| **Google Drive** | New file added |
+| **Google Drive** | Existing file changed |
+
+## How to create a trigger
+
+Describe the condition and reaction in chat:
+
+```text
+When a new email arrives in Gmail, check if it needs a reply,
+and if yes — draft one and send to me for approval in Telegram.
+```
+
+## Credit usage
+
+<Warning>
+  Triggers consume integration credits on every fire. If your inbox is busy, a per-email trigger can burn credits much faster than a scheduled task.
+</Warning>
+
+## Trigger \+ schedule example
+
+- **Trigger** on emails from VIPs → instant Telegram alert
+- **Schedule** at 8:00 → summary of everything else overnight

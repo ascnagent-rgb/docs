@@ -1,0 +1,59 @@
+---
+title: "Knowledge"
+description: "Everything the agent knows about itself and about you — before the first message."
+---
+
+Knowledge is what the agent reads before answering. Who it is, how it behaves, what you prefer, what documents to use.
+
+![Brain → Knowledge](/images/09-knowledge-base.png)
+
+## What's here
+
+**Core** — three system files: IDENTITY.md, SOUL.md and USER.md. They define personality, values and everything the agent knows about you.
+
+**Documents** — reference files: client lists, templates, instructions, policies. Add via **\+ Add** or drag and drop.
+
+---
+
+### IDENTITY.md — who your agent is
+
+A job description. Here you set the role, communication style, and what the agent does and doesn't do.
+
+```markdown
+# Role
+You are an assistant for email and meetings.
+
+## Style
+- Short answers: max 3-4 sentences unless asked for more
+- When unsure — ask, don't guess
+- Business tone, no fluff
+```
+
+### USER.md — information about you
+
+Everything the agent should know about you: name, projects, preferences, timezone. The agent updates this file itself — but better to fill it in upfront.
+
+```markdown
+# About the user
+Name: [name]
+
+## Preferences
+- Short answers, no fluff
+- Timezone: UTC+0
+```
+
+To make the agent remember something right now, say in chat:
+
+```text
+Remember: I prefer answers as a list, no intros
+```
+
+### SOUL.md — personality and priorities
+
+Fine-tuning. How the agent behaves in ambiguous situations.
+
+### Documents
+
+Reference docs the agent uses when answering. Upload via **Documents → \+ Add**.
+
+> How knowledge differs from memory — see [Memory](/en/brain/memory).

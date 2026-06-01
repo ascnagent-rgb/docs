@@ -1,0 +1,17 @@
+---
+title: "API"
+description: "通过 API 将外部系统连接到 Agent。"
+---
+
+![API](/images/14-api.png)
+
+1. **设置 → API**
+2. 复制 **Base URL**
+3. 复制 **授权密钥**
+4. Header `Authorization: Bearer ...`
+
+```bash
+curl -X POST "https://api.clawman.ascn.ai/api/v1/workspaces/{workspace_id}/session/{session_id}/messages" \
+  -H "Authorization: Bearer {API_KEY}" \
+  -d '{"content": "检查邮件"}'
+```

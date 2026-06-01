@@ -1,0 +1,24 @@
+---
+title: "Tool permissions"
+description: "Control what the agent can do with files in the workspace."
+---
+
+**Tool permissions** are switches that decide whether the agent can change or delete files in the **workspace** (the isolated file environment of your agent).
+
+![Settings → Tool permissions](/images/15-permissions.png)
+
+## Available permissions
+
+| Permission | Description |
+| --- | --- |
+| **Allow file changes** | The agent can create and edit files in the workspace |
+| **Allow file deletion** | The agent can permanently delete files |
+
+## Recommendations
+
+<Tip>
+  If the agent shouldn't change files autonomously — turn off «Allow file changes». The agent will propose edits, but only you apply them.
+</Tip>
+
+- Enable file deletion only when the agent must do it explicitly (e.g. cleaning temp files on schedule)
+- For agents that only read and answer — both can stay off

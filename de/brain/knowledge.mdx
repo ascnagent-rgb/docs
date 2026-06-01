@@ -1,0 +1,43 @@
+---
+title: "Wissen"
+description: "Alles, was der Agent über sich und über Sie weiß — bevor die erste Nachricht eintrifft."
+---
+
+Wissen ist das, was der Agent liest, bevor er antwortet.
+
+![Wissen](/images/09-knowledge-base.png)
+
+**Kern** — drei Systemdateien: IDENTITY.md, SOUL.md, USER.md.
+
+**Dokumente** — Referenzdateien: Kundenlisten, Vorlagen, Anweisungen.
+
+### IDENTITY.md — wer Ihr Agent ist
+
+```markdown
+# Rolle
+Du bist Assistent für E-Mail und Termine.
+
+## Stil
+- Kurze Antworten
+- Bei Unsicherheit — fragen, nicht raten
+```
+
+### USER.md — Informationen über Sie
+
+```markdown
+# Über den Nutzer
+Name: [Name]
+Zeitzone: UTC+0
+```
+
+Um dem Agenten etwas zu merken, sagen Sie im Chat:
+
+```text
+Merke dir: ich möchte Antworten als Liste, ohne Einleitung
+```
+
+### SOUL.md — Charakter und Prioritäten
+
+Feinabstimmung des Verhaltens.
+
+> Unterschied zum [Gedächtnis](/de/brain/memory).

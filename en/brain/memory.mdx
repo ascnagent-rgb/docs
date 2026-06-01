@@ -1,0 +1,40 @@
+---
+title: "Memory"
+description: "How the agent remembers information between sessions."
+---
+
+**Memory** is what the agent learns about you during work and stores between sessions. Unlike Knowledge, which you fill manually, memory forms automatically.
+
+## How it works
+
+During conversations the agent remembers:
+
+- Preferences and details you mention
+- Context of current tasks and projects
+- Your communication style
+
+## Managing memory
+
+**To make the agent remember something specific**, say it in chat:
+
+```text
+Remember: I prefer short answers without intros.
+```
+
+**To make the agent forget**:
+
+```text
+Forget what I said about project X — it's cancelled.
+```
+
+## Memory vs Knowledge
+
+| Memory | Knowledge |
+| --- | --- |
+| Forms automatically | You fill it manually |
+| Personal details from conversations | Reference info, roles, rules |
+| Changes over time | Stays stable |
+
+## Priority on conflict
+
+Knowledge has priority over memory. If you said one thing in chat but the Knowledge file says otherwise — the agent follows Knowledge.
