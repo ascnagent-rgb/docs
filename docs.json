@@ -126,5 +126,6 @@
   "feedback": {
     "thumbsRating": true,
     "suggestEdit": false
-  }
+  },
+  "description": "Docs ASCN"
 }
