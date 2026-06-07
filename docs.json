@@ -103,6 +103,16 @@
       },
       {
         "language": "en",
+        "navbar": {
+          "links": [
+            { "label": "ascn.ai", "href": "https://ascn.ai/ru/agent" }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Try for free",
+            "href": "https://ascn.ai/ru/agent"
+          }
+        },
         "tabs": [
           {
             "tab": "ASCN Agent",
@@ -172,6 +182,16 @@
       },
       {
         "language": "es",
+        "navbar": {
+          "links": [
+            { "label": "ascn.ai", "href": "https://ascn.ai/ru/agent" }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Prueba gratis",
+            "href": "https://ascn.ai/ru/agent"
+          }
+        },
         "tabs": [
           {
             "tab": "ASCN Agent",
@@ -241,6 +261,16 @@
       },
       {
         "language": "pt-BR",
+        "navbar": {
+          "links": [
+            { "label": "ascn.ai", "href": "https://ascn.ai/ru/agent" }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "Experimente grátis",
+            "href": "https://ascn.ai/ru/agent"
+          }
+        },
         "tabs": [
           {
             "tab": "ASCN Agent",
@@ -310,6 +340,16 @@
       },
       {
         "language": "cn",
+        "navbar": {
+          "links": [
+            { "label": "ascn.ai", "href": "https://ascn.ai/ru/agent" }
+          ],
+          "primary": {
+            "type": "button",
+            "label": "免费试用",
+            "href": "https://ascn.ai/ru/agent"
+          }
+        },
         "tabs": [
           {
             "tab": "ASCN Agent",
