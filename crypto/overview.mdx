@@ -25,13 +25,14 @@ description: "Программный доступ к крипто-аналити
 
 ```bash
 curl --request POST \
-     --urlhttps://b2b.api.ascn.ai/api/ai-assistant/v2/invoke_assistant
-     --header 'accept: application/json' \
-     --header 'content-type: application/json' \
-     --header 'X-API-Key: YOUR_API_KEY' \
-     --data '{
-         "message": "Сделай анализ монеты PEPE: график, рыночные данные и технический анализ"
-     }'
+  --url 'https://b2b.api.ascn.ai/api/ai-assistant/v2/invoke_assistant' \
+  --header 'accept: application/json' \
+  --header 'content-type: application/json' \
+  --header 'X-API-Key: YOUR_API_KEY' \
+  --data '{
+    "message": "Кратко перечисли возможности ASCN API",
+    "model": "ascn_v1.2"
+  }'
 ```
 
 ### Шаг 3. Посмотрите ответ
@@ -114,7 +115,11 @@ AI-ассистент выполняет расширенные поиски д�
 
 ## 📚 API Reference
 
-### POST /invoke\_assistant
+**Base URL:** `https://b2b.api.ascn.ai`
+
+- `POST /api/ai-assistant/v2/invoke_assistant`
+
+- `POST /api/ai-assistant/v2/invoke_assistant_stream`
 
 Отправляет сообщение AI-ассистенту и возвращает полный структурированный анализ за один запрос.
 
@@ -183,6 +188,8 @@ AI-ассистент выполняет расширенные поиски д�
 **Можно ли использовать API в коммерческих целях?** Да. Подробности — в [Условиях использования](https://ascn.ai/terms).
 
 **Чем отличается invoke\_assistant от invoke\_assistant\_stream?** `invoke_assistant` возвращает полный ответ за один запрос. `invoke_assistant_stream` стримит ответ через SSE — подходит для интерактивных приложений.
+
+**Какие endpoint использует ASCN AI Assistant API?**<br />Для полного ответа используйте `POST /api/ai-assistant/v2/invoke_assistant`.<br />Для SSE-стриминга — `POST /api/ai-assistant/v2/invoke_assistant_stream`.<br />Во всех запросах передавайте ключ в `X-API-Key`.
 
 **Есть ли поддержка?** Да — [info@ascn.ai](mailto:info@ascn.ai), [Telegram](https://t.me/Ascn_support_bot).
 
