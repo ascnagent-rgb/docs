@@ -25,7 +25,7 @@ description: "Программный доступ к крипто-аналити
 
 ```bash
 curl --request POST \
-     --url https://b2b.api.arbitragescanner.io/api/ai-assistant/v1/invoke_assistant \
+     --urlhttps://b2b.api.ascn.ai/api/ai-assistant/v2/invoke_assistant
      --header 'accept: application/json' \
      --header 'content-type: application/json' \
      --header 'X-API-Key: YOUR_API_KEY' \
@@ -44,7 +44,7 @@ curl --request POST \
 
 Все запросы к API должны быть аутентифицированы. Передавайте ключ в заголовке `X-API-Key` каждого запроса.
 
-```
+```text
 X-API-Key: YOUR_API_KEY
 ```
 
@@ -89,7 +89,7 @@ API построен на принципах REST. Эндпоинты испол
 
 ### On-chain анализ
 
-Мониторинг DeFi-позиций, трекинг DEX-сделок и выявление прибыльных кошельков на 20+ блокчейнах, включая EVM-сети и Solana.
+Мониторинг DeFi-позиций, трекинг DEX-сделок и выявление прибыльных кошельков на 20\+ блокчейнах, включая EVM-сети и Solana.
 
 ### Бессрочные контракты (DEX)
 
@@ -120,7 +120,7 @@ AI-ассистент выполняет расширенные поиски д�
 
 ## 📚 API Reference
 
-### POST /invoke_assistant
+### POST /invoke\_assistant
 
 Отправляет сообщение AI-ассистенту и возвращает полный структурированный анализ за один запрос.
 
@@ -141,7 +141,7 @@ AI-ассистент выполняет расширенные поиски д�
 }
 ```
 
-### POST /invoke_assistant_stream
+### POST /invoke\_assistant\_stream
 
 Для приложений реального времени — SSE-поток, который отдаёт части ответа по мере генерации.
 
@@ -184,17 +184,13 @@ AI-ассистент выполняет расширенные поиски д�
 
 ## 🙋 FAQ
 
-**Какие языки программирования поддерживаются?**
-API не зависит от языка. Используйте любой, поддерживающий HTTP-запросы.
+**Какие языки программирования поддерживаются?** API не зависит от языка. Используйте любой, поддерживающий HTTP-запросы.
 
-**Можно ли использовать API в коммерческих целях?**
-Да. Подробности — в [Условиях использования](https://ascn.ai/terms).
+**Можно ли использовать API в коммерческих целях?** Да. Подробности — в [Условиях использования](https://ascn.ai/terms).
 
-**Чем отличается invoke\_assistant от invoke\_assistant\_stream?**
-`invoke_assistant` возвращает полный ответ за один запрос. `invoke_assistant_stream` стримит ответ через SSE — подходит для интерактивных приложений.
+**Чем отличается invoke\_assistant от invoke\_assistant\_stream?** `invoke_assistant` возвращает полный ответ за один запрос. `invoke_assistant_stream` стримит ответ через SSE — подходит для интерактивных приложений.
 
-**Есть ли поддержка?**
-Да — [info@ascn.ai](mailto:info@ascn.ai), [Telegram](https://t.me/Ascn_support_bot).
+**Есть ли поддержка?** Да — [info@ascn.ai](mailto:info@ascn.ai), [Telegram](https://t.me/Ascn_support_bot).
 
 ---
 
@@ -202,8 +198,3 @@ API не зависит от языка. Используйте любой, по
 
 - **Сайт:** [https://ascn.ai](https://ascn.ai)
 - **B2B-платформа:** [https://b2b.ascn.ai](https://b2b.ascn.ai)
-- **Цены:** [https://arbitragescanner.io/crypto-api](https://arbitragescanner.io/crypto-api)
-
-<Card title="Получить бесплатный API-ключ" icon="rocket" href="https://b2b.ascn.ai">
-  Зарегистрируйтесь и начните разрабатывать сегодня.
-</Card>
