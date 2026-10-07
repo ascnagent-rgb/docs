@@ -1,13 +1,13 @@
 ---
 title: "Интеграции"
-description: "LangChain, Vercel AI SDK, LlamaIndex и HTTP-запросы."
+description: "LangChain, Vercel AI SDK, LlamaIndex и обычные HTTP-запросы."
 icon: "puzzle-piece"
 ---
 
-ASCN Router работает с любой библиотекой, где можно задать свой базовый URL для OpenAI и дополнительный заголовок `X-API-KEY`.
+ASCN Router можно подключить к любой библиотеке, где можно указать свой адрес OpenAI API и добавить заголовок `X-API-KEY`.
 
 <Note>
-Инструменты, в которых можно указать только URL и ключ, без своих заголовков, отправляют ключ в `Authorization`. Перед подключением такого инструмента проверьте, что запрос проходит.
+Некоторые инструменты позволяют указать только адрес и ключ, без своих заголовков. Они отправляют ключ в заголовке `Authorization`. Прежде чем подключать такой инструмент, проверьте, что запросы проходят.
 </Note>
 
 ## LangChain
@@ -82,11 +82,11 @@ print(llm.complete("Hello!"))
 
 ## HTTP-запрос без SDK
 
-В no-code инструментах (n8n, Make, Zapier) используйте обычный HTTP-узел:
+В n8n, Make, Zapier и похожих сервисах используйте обычный HTTP-узел:
 
-- **Метод:** `POST`
-- **URL:** `https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions`
-- **Заголовки:** `X-API-KEY: <ключ>`, `Content-Type: application/json`
-- **Тело:** `{"model": "openai/gpt-4o-mini", "messages": [{"role": "user", "content": "Hello!"}]}`
+- метод `POST`;
+- адрес `https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions`;
+- заголовки `X-API-KEY: <ключ>` и `Content-Type: application/json`;
+- тело `{"model": "openai/gpt-4o-mini", "messages": [{"role": "user", "content": "Hello!"}]}`.
 
-Ответ модели лежит в `choices[0].message.content`.
+Текст ответа будет в `choices[0].message.content`.

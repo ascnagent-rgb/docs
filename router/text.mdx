@@ -1,10 +1,10 @@
 ---
 title: "Генерация текста"
-description: "Chat Completions, Responses и потоковый вывод."
+description: "Chat Completions, Responses и стриминг."
 icon: "message"
 ---
 
-Для текста доступны два протокола OpenAI. Используйте модели с `kind: text` из `GET /v1/models`.
+Для текста есть два метода, оба повторяют API OpenAI. Подходят модели с `kind: text` из `GET /v1/models`.
 
 ## Chat Completions
 
@@ -12,16 +12,16 @@ icon: "message"
 POST /v1/chat/completions
 ```
 
-Каждое поле протокола передаётся модели как есть — `tools`, `tool_choice`, `response_format`, `logprobs`, `seed`, `stop` и остальные. Учитывает ли модель поле, решает сама модель.
+Все поля запроса передаются модели без изменений: `tools`, `tool_choice`, `response_format`, `logprobs`, `seed`, `stop` и остальные. Поддерживает ли модель конкретное поле, зависит от самой модели.
 
 <ParamField body="model" type="string" required>
-  `id` модели, например `deepseek/deepseek-v4-flash`.
+  Название модели, например `deepseek/deepseek-v4-flash`.
 </ParamField>
 <ParamField body="messages" type="object[]" required>
-  История диалога. `role`: `system`, `developer`, `user`, `assistant` или `tool`. `content`: текст или массив частей (`text`, `image_url`, …).
+  История диалога. `role`: `system`, `developer`, `user`, `assistant` или `tool`. `content`: текст или массив частей (`text`, `image_url` и т. д.).
 </ParamField>
 <ParamField body="max_tokens" type="integer">
-  Лимит выходных токенов, включая рассуждения.
+  Максимум токенов в ответе, включая рассуждения.
 </ParamField>
 
 <ParamField body="stream" default="false" type="boolean">
@@ -38,12 +38,12 @@ POST /v1/chat/completions
 </ParamField>
 
 <ParamField body="tool_choice" type="string | object">
-  `none`, `auto`, `required` или выбор конкретного инструмента.
+  `none`, `auto`, `required` или конкретная функция.
 </ParamField>
 
-Ответ — стандартный объект `chat.completion` с `choices` (`message`, `finish_reason`: `stop`, `length`, `tool_calls`, `content_filter`) и `usage`. `completion_tokens` включает скрытые токены рассуждений.
+Ответ приходит в стандартном формате `chat.completion`: массив `choices` с полями `message` и `finish_reason` (`stop`, `length`, `tool_calls`, `content_filter`) и объект `usage`. В `completion_tokens` входят и скрытые рассуждения.
 
-```bash Вызов инструментов
+```bash Вызов функции
 curl https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions \
   -H "X-API-KEY: $ASCN_API_KEY" \
   -H "Content-Type: application/json" \
@@ -67,10 +67,10 @@ curl https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions \
 POST /v1/responses
 ```
 
-Для кода, написанного под `client.responses.create`. Обязательные поля — `model` и `input` (строка или массив сообщений); также `instructions`, `max_output_tokens`, `temperature`, `tools`, `stream`.
+Подойдёт, если ваш код уже написан под `client.responses.create`. Обязательные поля: `model` и `input` (строка или массив сообщений). Также можно передать `instructions`, `max_output_tokens`, `temperature`, `tools` и `stream`.
 
 <Warning>
-Ответы не сохраняются. `previous_response_id` и получение ответа позже не поддерживаются — передавайте всю историю в `input`.
+Ответы не сохраняются на сервере, поэтому `previous_response_id` и получение ответа позже не работают. Передавайте всю историю в `input`.
 </Warning>
 
 ```python
@@ -82,15 +82,15 @@ response = client.responses.create(
 print(response.output_text)
 ```
 
-## Потоковый вывод
+## Стриминг
 
-Передайте `"stream": true`, чтобы получать ответ через Server-Sent Events. Поток заканчивается `data: [DONE]`.
+Чтобы получать ответ по частям через Server-Sent Events, передайте `"stream": true`. Поток заканчивается строкой `data: [DONE]`.
 
-- **Chat Completions** — `stream_options.include_usage` включён всегда, последний чанк содержит `usage`.
-- **Responses** — события `response.output_text.delta`, …, `response.completed`; `usage` — в `response.completed`.
+- В Chat Completions всегда включён `stream_options.include_usage`, а в последнем чанке приходит `usage`.
+- В Responses приходят события `response.output_text.delta` и другие. `usage` будет в последнем событии `response.completed`.
 
 <Tip>
-Используйте поток для длинных ответов. Длинный ответ без потока может быть отклонён с `streaming_required`.
+Длинные ответы запрашивайте со стримингом. Без него запрос может вернуть ошибку `streaming_required`.
 </Tip>
 
 ```python
@@ -105,4 +105,4 @@ for chunk in stream:
         print(chunk.choices[0].delta.content, end="")
 ```
 
-Уже начавшийся поток не переключается на другой бэкенд. При сбое посреди ответа поток завершится чанком `data: {"error": {…}}` и затем `data: [DONE]` — считайте полученное неполным ответом.
+Если провайдер упадёт посреди ответа, переключиться на другого уже не получится. Поток закончится чанком `data: {"error": {…}}` и строкой `data: [DONE]`. То, что успело прийти, считайте неполным ответом.
