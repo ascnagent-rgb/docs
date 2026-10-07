@@ -113,7 +113,8 @@
                 "group": "API",
                 "pages": [
                   "router/text",
-                  "router/media"
+                  "router/media",
+                  "router/errors"
                 ]
               }
             ]
@@ -194,6 +195,19 @@
                 "pages": [
                   "en/crypto/overview"
                 ]
+              }
+            ]
+          },
+          {
+            "tab": "ASCN Router",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": []
+              },
+              {
+                "group": "API",
+                "pages": []
               }
             ]
           }
