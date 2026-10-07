@@ -110,6 +110,12 @@
                 ]
               },
               {
+                "group": "Гайды",
+                "pages": [
+                  "router/migration"
+                ]
+              },
+              {
                 "group": "API",
                 "pages": [
                   "router/text",

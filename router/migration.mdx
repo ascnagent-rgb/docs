@@ -1,0 +1,67 @@
+---
+title: "Переход с OpenAI"
+description: "Перенос существующего кода на ASCN Router."
+icon: "arrow-right-arrow-left"
+---
+
+ASCN Router говорит на протоколе OpenAI, поэтому существующий код обычно переносится заменой трёх вещей: базового URL, заголовка с ключом и имени модели.
+
+## С OpenAI
+
+<CodeGroup>
+
+```python Python
+import os
+from openai import OpenAI
+
+# Было:
+# client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+# Стало:
+key = os.environ["ASCN_API_KEY"]
+client = OpenAI(
+    base_url="https://b2b.api.ascn.ai/api/ai-gateway/v1",
+    api_key=key,
+    default_headers={"X-API-KEY": key},
+)
+
+response = client.chat.completions.create(
+    model="openai/gpt-4o-mini",  # было: "gpt-4o-mini"
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+```
+
+```javascript Node.js
+import OpenAI from "openai";
+
+// Было:
+// const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+// Стало:
+const key = process.env.ASCN_API_KEY;
+const client = new OpenAI({
+  baseURL: "https://b2b.api.ascn.ai/api/ai-gateway/v1",
+  apiKey: key,
+  defaultHeaders: { "X-API-KEY": key },
+});
+
+const response = await client.chat.completions.create({
+  model: "openai/gpt-4o-mini", // было: "gpt-4o-mini"
+  messages: [{ role: "user", content: "Hello!" }],
+});
+```
+
+</CodeGroup>
+
+## С других OpenAI-совместимых шлюзов
+
+Если вы уже работаете через другой шлюз с именами моделей вида `vendor/model`, замените `base_url` и ключ как показано выше. Имена моделей сверьте с каталогом `GET /v1/models` — они могут отличаться.
+
+## Чек-лист
+
+- **Базовый URL:** `https://b2b.api.ascn.ai/api/ai-gateway/v1`.
+- **Ключ:** в заголовке `X-API-KEY`.
+- **Модели:** с префиксом производителя, например `anthropic/claude-haiku-4.5`. Регистр и разделители не важны.
+- **Responses API:** ответы не хранятся, поэтому `previous_response_id` не работает — передавайте историю в `input`.
+- **Картинки, видео, речь:** вместо синхронных эндпоинтов OpenAI используются [медиа-задачи](/router/media).
+- **Рассуждающие модели:** задавайте `max_tokens` от 2000.
