@@ -211,7 +211,9 @@
               {
                 "group": "API",
                 "pages": [
-                  "en/router/text"
+                  "en/router/text",
+                  "en/router/media",
+                  "en/router/errors"
                 ]
               }
             ]
