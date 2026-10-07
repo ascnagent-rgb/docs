@@ -1,0 +1,99 @@
+---
+title: "Возможности моделей"
+description: "Картинки на входе, JSON-ответы, вызов инструментов, кэширование."
+icon: "wand-magic-sparkles"
+---
+
+Все поля протокола Chat Completions передаются модели как есть, а учитывает ли их модель, решает она сама. Перед использованием возможности проверьте модель в `GET /v1/models`.
+
+## Изображения на входе
+
+Модели с `image` в `input_modalities` читают картинки, переданные в `messages`. Передайте `content` массивом частей:
+
+```python
+response = client.chat.completions.create(
+    model="openai/gpt-4o-mini",
+    messages=[{
+        "role": "user",
+        "content": [
+            {"type": "text", "text": "Что на этой картинке?"},
+            {"type": "image_url", "image_url": {"url": "https://example.com/photo.jpg"}},
+        ],
+    }],
+)
+```
+
+## Структурированный ответ (JSON)
+
+Поле `response_format` передаётся модели без изменений. Модели, которые его поддерживают, вернут JSON по схеме:
+
+```python
+response = client.chat.completions.create(
+    model="openai/gpt-4o-mini",
+    messages=[{"role": "user", "content": "Назови столицу Франции и её население."}],
+    response_format={
+        "type": "json_schema",
+        "json_schema": {
+            "name": "city",
+            "schema": {
+                "type": "object",
+                "properties": {
+                    "city": {"type": "string"},
+                    "population": {"type": "integer"},
+                },
+                "required": ["city", "population"],
+            },
+        },
+    },
+)
+```
+
+<Tip>
+Если модель не поддерживает `response_format`, API может вернуть `400 unsupported_parameter`, а модель — проигнорировать поле. В таком случае опишите нужный формат в промпте.
+</Tip>
+
+## Вызов инструментов: полный цикл
+
+<Steps>
+  <Step title="Опишите инструменты">
+    Передайте их в `tools`. Если модель решит вызвать функцию, в ответе будет `finish_reason: "tool_calls"`.
+  </Step>
+  <Step title="Выполните функцию у себя">
+    Возьмите имя и аргументы из `message.tool_calls`.
+  </Step>
+  <Step title="Верните результат">
+    Добавьте в историю ответ модели и сообщение с `role: "tool"` и тем же `tool_call_id`, затем отправьте запрос снова.
+  </Step>
+</Steps>
+
+```python
+import json
+
+tools = [{
+    "type": "function",
+    "function": {
+        "name": "get_weather",
+        "description": "Current weather for a city.",
+        "parameters": {"type": "object", "properties": {"city": {"type": "string"}}, "required": ["city"]},
+    },
+}]
+messages = [{"role": "user", "content": "Какая погода в Берлине?"}]
+
+first = client.chat.completions.create(model="openai/gpt-4o-mini", messages=messages, tools=tools)
+call = first.choices[0].message.tool_calls[0]
+args = json.loads(call.function.arguments)
+
+result = {"city": args["city"], "temp_c": 18}  # ваша функция
+
+messages.append(first.choices[0].message)
+messages.append({"role": "tool", "tool_call_id": call.id, "content": json.dumps(result)})
+
+final = client.chat.completions.create(model="openai/gpt-4o-mini", messages=messages, tools=tools)
+print(final.choices[0].message.content)
+```
+
+## Кэширование промпта
+
+Некоторые модели кэшируют повторяющийся промпт. Сколько токенов взято из кэша, видно в `usage.prompt_tokens_details.cached_tokens`. Если в каталоге для модели указан `cached_input_per_mtok`, такие токены оплачиваются по этой цене; если не указан — по обычной цене входа.
+
+Чтобы кэш срабатывал чаще, держите неизменную часть (системный промпт, инструкции, документы) в начале сообщений, а изменяющуюся — в конце.

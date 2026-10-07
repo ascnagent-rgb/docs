@@ -112,7 +112,8 @@
               {
                 "group": "Гайды",
                 "pages": [
-                  "router/migration"
+                  "router/migration",
+                  "router/features"
                 ]
               },
               {
