@@ -495,5 +495,16 @@
     "thumbsRating": true,
     "suggestEdit": false
   },
-  "description": "Docs ASCN"
+  "description": "Docs ASCN",
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor"
+    ],
+    "display": "header"
+  }
 }
