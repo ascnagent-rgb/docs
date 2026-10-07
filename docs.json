@@ -98,6 +98,21 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "ASCN Router",
+            "groups": [
+              {
+                "group": "Начало работы",
+                "pages": [
+                  "router/overview"
+                ]
+              },
+              {
+                "group": "API",
+                "pages": []
+              }
+            ]
           }
         ]
       },

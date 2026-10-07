@@ -1,0 +1,109 @@
+---
+title: "ASCN Router"
+sidebarTitle: "Обзор"
+description: "Единый OpenAI-совместимый API для сотен языковых и медиа-моделей."
+icon: "route"
+---
+
+ASCN Router — это один OpenAI-совместимый API, за которым стоят модели OpenAI, Anthropic, Google, DeepSeek, xAI, Qwen, Mistral и многих других. Подключите любой OpenAI SDK, выберите модель из `GET /v1/models` и отправляйте запросы по уже знакомому протоколу.
+
+<CardGroup cols={2}>
+  <Card title="Текст" icon="message" href="/router/text">
+    Chat Completions и Responses API, потоковый вывод, вызов инструментов.
+  </Card>
+  <Card title="Медиа" icon="photo-film" href="/router/media">
+    Изображения, видео, музыка и речь через асинхронные задачи.
+  </Card>
+  <Card title="Модели и оплата" icon="wallet" href="/router/models">
+    Живой каталог моделей с вашими ценами и правила списаний.
+  </Card>
+  <Card title="Ошибки" icon="triangle-exclamation" href="/router/errors">
+    Формат ошибок и что делать с каждой.
+  </Card>
+</CardGroup>
+
+## Базовый URL
+
+```text
+https://b2b.api.ascn.ai/api/ai-gateway
+```
+
+Все эндпоинты начинаются с `/v1`. Для OpenAI SDK укажите `base_url` вместе с `/v1`.
+
+## Аутентификация
+
+Каждый запрос должен содержать ключ API вашего аккаунта в заголовке `X-API-KEY`. Тот же заголовок нужен для скачивания файлов медиа-задач.
+
+```http
+X-API-KEY: <ваш_ключ>
+```
+
+OpenAI SDK по умолчанию отправляет ключ в заголовке `Authorization`, поэтому добавьте `X-API-KEY` через дополнительные заголовки клиента (см. примеры ниже).
+
+<Warning>
+Храните ключ на сервере. Не вставляйте его в клиентский код и не коммитьте в репозиторий.
+</Warning>
+
+## Быстрый старт
+
+<CodeGroup>
+
+```bash cURL
+curl https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions \
+  -H "X-API-KEY: $ASCN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "deepseek/deepseek-v4-flash",
+    "messages": [{"role": "user", "content": "What is 1+1? Answer with a single number."}]
+  }'
+```
+
+```python Python
+import os
+from openai import OpenAI
+
+key = os.environ["ASCN_API_KEY"]
+client = OpenAI(
+    base_url="https://b2b.api.ascn.ai/api/ai-gateway/v1",
+    api_key=key,
+    default_headers={"X-API-KEY": key},
+)
+
+response = client.chat.completions.create(
+    model="deepseek/deepseek-v4-flash",
+    messages=[{"role": "user", "content": "What is 1+1? Answer with a single number."}],
+)
+print(response.choices[0].message.content)
+```
+
+```javascript Node.js
+import OpenAI from "openai";
+
+const key = process.env.ASCN_API_KEY;
+const client = new OpenAI({
+  baseURL: "https://b2b.api.ascn.ai/api/ai-gateway/v1",
+  apiKey: key,
+  defaultHeaders: { "X-API-KEY": key },
+});
+
+const response = await client.chat.completions.create({
+  model: "deepseek/deepseek-v4-flash",
+  messages: [{ role: "user", content: "What is 1+1? Answer with a single number." }],
+});
+console.log(response.choices[0].message.content);
+```
+
+</CodeGroup>
+
+## Эндпоинты
+
+| Метод | Путь | Назначение |
+|---|---|---|
+| `POST` | `/v1/chat/completions` | Текст, протокол Chat Completions |
+| `POST` | `/v1/responses` | Текст, протокол Responses |
+| `GET` | `/v1/models`, `/v1/models/{model}` | Каталог моделей с вашими ценами |
+| `POST` | `/v1/{images\|videos\|music\|audio}/jobs` | Запуск медиа-задачи |
+| `GET` | `/v1/{kind}/jobs/{id}` | Статус задачи |
+| `GET` | `/v1/{kind}/jobs/{id}/content` | Скачивание результата |
+
+Каждый ответ содержит заголовок `X-Request-ID` — указывайте его при обращении в поддержку.
