@@ -114,7 +114,8 @@
                 "pages": [
                   "router/migration",
                   "router/features",
-                  "router/integrations"
+                  "router/integrations",
+                  "router/faq"
                 ]
               },
               {
@@ -214,6 +215,15 @@
                 "pages": [
                   "en/router/overview",
                   "en/router/models"
+                ]
+              },
+              {
+                "group": "Guides",
+                "pages": [
+                  "en/router/migration",
+                  "en/router/features",
+                  "en/router/integrations",
+                  "en/router/faq"
                 ]
               },
               {
