@@ -112,7 +112,8 @@
               {
                 "group": "API",
                 "pages": [
-                  "router/text"
+                  "router/text",
+                  "router/media"
                 ]
               }
             ]
