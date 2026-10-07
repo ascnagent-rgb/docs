@@ -1,0 +1,81 @@
+---
+title: "Models and billing"
+description: "The model catalog, prices and how charges work."
+icon: "wallet"
+---
+
+## Model catalog
+
+`GET /v1/models` is the live catalog. Every entry carries the model's name, context window, accepted inputs and **your** price. `GET /v1/models/{model}` returns a single entry.
+
+<Tip>
+The catalog changes as models are added or retired. Read it from the API instead of hard-coding a list.
+</Tip>
+
+A model name has the form `vendor/model`, for example `openai/gpt-4o-mini`. Case and separators do not matter: `anthropic/claude-haiku-4.5` and `anthropic/claude-haiku-4-5` are the same model.
+
+<ResponseField name="id" type="string" required>
+  The value to put in `model`.
+</ResponseField>
+<ResponseField name="name" type="string">
+  Display name.
+</ResponseField>
+<ResponseField name="owned_by" type="string" required>
+  The model's vendor.
+</ResponseField>
+<ResponseField name="kind" type="string">
+  `text` — served by `/v1/chat/completions` and `/v1/responses`; `image`, `video`, `music`, `audio` — by the matching `/v1/{kind}/jobs`.
+</ResponseField>
+<ResponseField name="context_length" type="integer">
+  Context window in tokens (prompt plus answer).
+</ResponseField>
+<ResponseField name="max_output_tokens" type="integer">
+  Largest answer the model can produce, when known.
+</ResponseField>
+<ResponseField name="input_modalities" type="string[]">
+  `text`, `image`, `audio`, `video`, `file`.
+</ResponseField>
+<ResponseField name="pricing" type="object" required>
+  Your price in USD. Text models: `input_per_mtok`, `output_per_mtok` and `cached_input_per_mtok` (per million tokens). Media models: `unit` (`image`, `video`, `second`, `request`, `1k_characters`) and `per_unit` for the cheapest configuration.
+</ResponseField>
+
+Fields a model has no data for are omitted rather than sent as zero.
+
+```bash
+curl https://b2b.api.ascn.ai/api/ai-gateway/v1/models \
+  -H "X-API-KEY: $ASCN_API_KEY"
+```
+
+## Cost
+
+Requests are charged in US dollars, counted in micro-dollars: 1 µ$ = $0.000001.
+
+**Text:**
+
+```text
+input_tokens × input price + output_tokens × output price
+```
+
+- A price per million tokens is also the price per token in µ$.
+- Token counts come from the model's own `usage` report, returned to you unchanged.
+- Any request that consumed tokens costs at least 1 µ$; the total is rounded up.
+- Hidden reasoning tokens are billed as output tokens.
+
+**Media:** a job is charged once, when it completes — see `cost`. `estimated_cost` is the forecast at start. Duration, resolution, sound and tier raise the price. A failed job costs nothing.
+
+## Balance holds
+
+Before a request runs, its largest possible cost is held against your balance, so parallel requests cannot together spend more than you have.
+
+- **Text** — the prompt plus `max_tokens` of answer (4096 if unset). When the request ends, the hold is replaced by the actual cost.
+- **Media** — the job's cost. The first time a configuration is used (a new model, a first 4K clip), the hold carries a margin. A failed job releases its hold at once.
+
+If the hold does not fit in your free balance, the request is refused with `402 insufficient_balance` before any work begins. `meta` gives `required_micro_usd`, `balance_micro_usd` and `held_micro_usd`.
+
+<Tip>
+When your balance is small, always set `max_tokens`.
+</Tip>
+
+## Reasoning models
+
+o-series, DeepSeek R1 and thinking variants, Gemini Pro and Claude thinking spend part of `max_tokens` on hidden reasoning. Give them `max_tokens` of 2000 or more, or the answer may be cut off with `finish_reason: "length"`.

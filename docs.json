@@ -203,11 +203,16 @@
             "groups": [
               {
                 "group": "Getting Started",
-                "pages": []
+                "pages": [
+                  "en/router/overview",
+                  "en/router/models"
+                ]
               },
               {
                 "group": "API",
-                "pages": []
+                "pages": [
+                  "en/router/text"
+                ]
               }
             ]
           }
