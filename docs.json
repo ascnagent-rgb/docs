@@ -98,6 +98,36 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "ASCN Router",
+            "groups": [
+              {
+                "group": "Начало работы",
+                "pages": [
+                  "router/overview",
+                  "router/ai-prompt",
+                  "router/models"
+                ]
+              },
+              {
+                "group": "Гайды",
+                "pages": [
+                  "router/migration",
+                  "router/features",
+                  "router/integrations",
+                  "router/faq"
+                ]
+              },
+              {
+                "group": "API",
+                "pages": [
+                  "router/text",
+                  "router/media",
+                  "router/errors"
+                ]
+              }
+            ]
           }
         ]
       },
@@ -174,6 +204,36 @@
                 "group": "API",
                 "pages": [
                   "en/crypto/overview"
+                ]
+              }
+            ]
+          },
+          {
+            "tab": "ASCN Router",
+            "groups": [
+              {
+                "group": "Getting Started",
+                "pages": [
+                  "en/router/overview",
+                  "en/router/ai-prompt",
+                  "en/router/models"
+                ]
+              },
+              {
+                "group": "Guides",
+                "pages": [
+                  "en/router/migration",
+                  "en/router/features",
+                  "en/router/integrations",
+                  "en/router/faq"
+                ]
+              },
+              {
+                "group": "API",
+                "pages": [
+                  "en/router/text",
+                  "en/router/media",
+                  "en/router/errors"
                 ]
               }
             ]
@@ -437,5 +497,16 @@
     "thumbsRating": true,
     "suggestEdit": false
   },
-  "description": "Docs ASCN"
+  "description": "Docs ASCN",
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "cursor"
+    ],
+    "display": "header"
+  }
 }

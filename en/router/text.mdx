@@ -1,0 +1,108 @@
+---
+title: "Text generation"
+description: "Chat Completions, Responses and streaming."
+icon: "message"
+---
+
+Two OpenAI protocols are available for text. Use models with `kind: text` from `GET /v1/models`.
+
+## Chat Completions
+
+```http
+POST /v1/chat/completions
+```
+
+Every field of the protocol is forwarded to the model as sent — `tools`, `tool_choice`, `response_format`, `logprobs`, `seed`, `stop` and the rest. Whether a model honours a field is up to the model.
+
+<ParamField body="model" type="string" required>
+  A model `id`, for example `deepseek/deepseek-v4-flash`.
+</ParamField>
+<ParamField body="messages" type="object[]" required>
+  The conversation. `role`: `system`, `developer`, `user`, `assistant` or `tool`. `content`: text, or an array of parts (`text`, `image_url`, …).
+</ParamField>
+<ParamField body="max_tokens" type="integer">
+  Cap on output tokens, reasoning included.
+</ParamField>
+
+<ParamField body="stream" default="false" type="boolean">
+</ParamField>
+
+<ParamField body="temperature" type="number">
+  From 0 to 2.
+</ParamField>
+<ParamField body="reasoning_effort" type="string">
+  `minimal`, `low`, `medium` or `high`.
+</ParamField>
+
+<ParamField body="tools" type="object[]">
+</ParamField>
+
+<ParamField body="tool_choice" type="string | object">
+  `none`, `auto`, `required`, or a specific tool.
+</ParamField>
+
+The response is a standard `chat.completion` object with `choices` (`message`, `finish_reason`: `stop`, `length`, `tool_calls`, `content_filter`) and `usage`. `completion_tokens` includes hidden reasoning tokens.
+
+```bash Tool calling
+curl https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions \
+  -H "X-API-KEY: $ASCN_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "openai/gpt-4o-mini",
+    "messages": [{"role": "user", "content": "What is the weather in Berlin?"}],
+    "tools": [{
+      "type": "function",
+      "function": {
+        "name": "get_weather",
+        "description": "Current weather for a city.",
+        "parameters": {"type": "object", "properties": {"city": {"type": "string"}}, "required": ["city"]}
+      }
+    }]
+  }'
+```
+
+## Responses
+
+```http
+POST /v1/responses
+```
+
+For code written against `client.responses.create`. Required fields are `model` and `input` (a string or an array of messages); also `instructions`, `max_output_tokens`, `temperature`, `tools`, `stream`.
+
+<Warning>
+Responses are not stored. `previous_response_id` and retrieving a response later are not supported — send the whole conversation in `input`.
+</Warning>
+
+```python
+response = client.responses.create(
+    model="openai/gpt-4o-mini",
+    input="Summarise the CAP theorem in three bullets.",
+    max_output_tokens=400,
+)
+print(response.output_text)
+```
+
+## Streaming
+
+Set `"stream": true` to receive Server-Sent Events. The stream ends with `data: [DONE]`.
+
+- **Chat Completions** — `stream_options.include_usage` is always forced on; the final chunk carries `usage`.
+- **Responses** — events `response.output_text.delta`, …, `response.completed`; `usage` is in `response.completed`.
+
+<Tip>
+Use streaming for long answers. A long non-streamed answer may be rejected with `streaming_required`.
+</Tip>
+
+```python
+stream = client.chat.completions.create(
+    model="anthropic/claude-haiku-4.5",
+    max_tokens=1024,
+    messages=[{"role": "user", "content": "Explain mixture-of-experts in one paragraph."}],
+    stream=True,
+)
+for chunk in stream:
+    if chunk.choices and chunk.choices[0].delta.content:
+        print(chunk.choices[0].delta.content, end="")
+```
+
+A stream that has started cannot switch to another backend. If the backend fails mid-answer, the stream ends with `data: {"error": {…}}` followed by `data: [DONE]` — treat what arrived as a partial answer.

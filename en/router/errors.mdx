@@ -1,0 +1,43 @@
+---
+title: "Errors"
+description: "Error format and the full list of codes."
+icon: "triangle-exclamation"
+---
+
+Errors use the OpenAI envelope, extended with `status_code` and `request_id`. Quote `request_id` when contacting support.
+
+```json
+{
+  "error": {
+    "message": "model \"x\" is not available",
+    "type": "invalid_request_error",
+    "code": "model_not_found"
+  },
+  "status_code": 404,
+  "request_id": "req_…"
+}
+```
+
+| HTTP | `code` | Meaning |
+|---|---|---|
+| 400 | `model_required` | The body is not JSON or has no `model`. |
+| 400 | `invalid_request_error` | The model rejected the request; `message` says why. |
+| 400 | `context_length_exceeded` | Prompt plus `max_tokens` exceed the context window. |
+| 400 | `streaming_required` | The answer is too long — resend with `"stream": true`. |
+| 400 | `unsupported_parameter`, `unsupported_value` | This model does not take that parameter or value. |
+| 400 | `content_policy_violation` | The model refused the content. |
+| 400 | `wrong_endpoint` | The model is served by another endpoint; `message` names it. |
+| 402 | `insufficient_balance` | Not enough free balance. `meta` gives `required_micro_usd`, `balance_micro_usd`, `held_micro_usd`. |
+| 404 | `model_not_found` | No such model in the catalog. |
+| 404 | `not_found` | Unknown endpoint. |
+| 404 | `job_not_found` | No such job for this account. |
+| 409 | `job_not_completed` | The job has no result yet. |
+| 410 | `content_expired` | The file is past its retention. |
+| 413 | `request_too_large` | The request body is too large. |
+| 429 | `rate_limited` | Too many requests — retry after `Retry-After`. |
+| 429 | `too_many_jobs` | The account already has its limit of media jobs running. |
+| 502 | `backend_error` | The model backend failed. Safe to retry. |
+| 503 | `no_provider_active` | The service is temporarily unavailable. |
+| 503 | `model_unavailable` | The model cannot serve this configuration right now. |
+
+**When to retry:** `429` — after `Retry-After`; `502` — right away or after a short delay; `503` — later or with another model. Do not retry `400` and `404` without changing the request.

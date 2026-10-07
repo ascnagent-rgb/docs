@@ -1,0 +1,35 @@
+---
+title: "FAQ"
+description: "Answers to common questions about ASCN Router."
+icon: "circle-question"
+---
+
+<AccordionGroup>
+  <Accordion title="Why does the answer stop halfway?">
+    If `finish_reason` is `length`, the model ran out of `max_tokens`. Reasoning models spend part of the limit on hidden reasoning — set `max_tokens` to 2000 or more.
+  </Accordion>
+  <Accordion title="Why 402 when my balance is positive?">
+    Before a request runs, its largest possible cost is held: for text, the prompt plus `max_tokens` (4096 if unset). Amounts held by other running requests and jobs are subtracted too. Set a lower `max_tokens`, or check `meta` in the error.
+  </Accordion>
+  <Accordion title="What does streaming_required mean?">
+    The answer is too long to return without streaming. Resend the request with `"stream": true`.
+  </Accordion>
+  <Accordion title="I get wrong_endpoint — what's wrong?">
+    The model was sent to the wrong endpoint — for example, an image model to `/v1/chat/completions`. The catalog's `kind` field shows where each model goes, and the error's `message` names the right endpoint.
+  </Accordion>
+  <Accordion title="How do I know a request's price in advance?">
+    Take the model's prices from `GET /v1/models` and multiply by the token count. For media jobs, the forecast arrives in `estimated_cost` right after the start, and the actual amount in `cost` once the job completes.
+  </Accordion>
+  <Accordion title="Do I pay for failed requests?">
+    A media job that fails costs nothing. Invalid parameters are refused before anything is charged. A text request is billed for the tokens it actually consumed.
+  </Accordion>
+  <Accordion title="Can I continue a conversation with previous_response_id?">
+    No. Responses are not stored and every request is independent. Send the whole history in `messages` or `input`.
+  </Accordion>
+  <Accordion title="Which models are available?">
+    The current list is always in `GET /v1/models`. The catalog changes, so don't hard-code it.
+  </Accordion>
+  <Accordion title="A job's file won't download">
+    `409 job_not_completed` — the job hasn't finished yet. `410 content_expired` — the retention period is over (images and video — 7 days; download music and speech right away). Also check that you send the `X-API-KEY` header.
+  </Accordion>
+</AccordionGroup>

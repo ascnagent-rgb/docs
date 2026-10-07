@@ -1,0 +1,95 @@
+---
+title: "Медиа-задачи"
+description: "Изображения, видео, музыка и речь через асинхронные задачи."
+icon: "photo-film"
+---
+
+Изображения, видео, музыка и речь генерируются через **задачи**, потому что рендер занимает от секунд до нескольких минут.
+
+<Steps>
+  <Step title="Запустите">
+    `POST /v1/{images|videos|music|audio}/jobs` с моделью нужного типа. В ответе сразу приходят `id`, `status: "pending"` и `estimated_cost`.
+  </Step>
+  <Step title="Опрашивайте">
+    `GET /v1/{kind}/jobs/{id}` каждые 3–5 секунд, пока `status` не станет `completed` или `failed`. Задача выполняется, даже если вы перестали опрашивать.
+  </Step>
+  <Step title="Скачайте">
+    У каждого элемента `output` есть `url` (`…/v1/{kind}/jobs/{id}/content?index=N`). Файл отдаётся с тем же `X-API-KEY`, поддерживаются `Range`-запросы.
+  </Step>
+</Steps>
+
+| Тип | Время | Хранение |
+|---|---|---|
+| Изображения | Секунды — пара минут (4K до 5) | 7 дней |
+| Видео | 30 секунд — несколько минут | 7 дней |
+| Музыка | Несколько минут | Скачайте сразу |
+| Речь и звук | Зависит от модели | Скачайте сразу |
+
+Точный срок — в `expires_at`; после него вернётся `410 content_expired`. Одновременно можно запускать ограниченное число задач (`429 too_many_jobs`).
+
+## Изображения
+
+`POST /v1/images/jobs` — генерация по тексту или редактирование, если переданы `input_images`. Одно изображение на задачу.
+
+| Поле | Описание |
+|---|---|
+| `model`, `prompt` | Обязательны. Промпт обычно до 5000 символов |
+| `size` | `1:1`, `16:9`, `1k`/`2k`/`4k`, `WIDTHxHEIGHT` или `auto` |
+| `input_images` | Референсы (https или `data:` URI), обычно до 10 |
+| `output_format` | `png` (по умолчанию), `jpeg`, `webp` |
+| `quality` | `standard`, `hd` |
+| `mj_task_id`, `mj_index` | Действия Midjourney |
+
+## Видео
+
+`POST /v1/videos/jobs`. Режим определяется по входным данным: текст; `image_url` (+ `last_frame_url`) — изображение в видео; `reference_image_urls` / `video_urls` — по референсам; `video_url` + `image_url` — контроль движения.
+
+| Поле | Описание |
+|---|---|
+| `model`, `prompt` | Обязательны. Промпт до 10 000 символов |
+| `duration` | Секунды; у каждой модели свой набор (Veo 4/6/8, Kling 5/10, Seedance 4–15) |
+| `aspect_ratio` | `16:9` (по умолчанию), `9:16`, `1:1` и др. |
+| `resolution` | `480p`, `720p`, `1080p`, `4k` |
+| `audio` | Звуковая дорожка, где поддерживается (может повысить цену) |
+| `mode` | `standard`, `pro`, `master` |
+| `output_format` | `mp4` (по умолчанию), `mov`, `webm` |
+
+## Музыка
+
+`POST /v1/music/jobs`. Только `prompt` — модель сама напишет текст и выберет стиль. Поля: `lyrics` (до 5000), `style` (до 1000), `title` (до 200), `instrumental`. Некоторые модели возвращают два трека по цене одного.
+
+## Речь и звук
+
+`POST /v1/audio/jobs`. Синтез речи — `text` + `voice`; диалог — `dialogue` (реплики с `text` и `voice`); звуковые эффекты — `text` + `duration_seconds` (до 30); выделение голоса — `audio_url`. Дополнительно: `language_code`, `speed` (0.7–1.2), `stability`, `similarity_boost`.
+
+## Пример
+
+```python
+import os, time, requests
+
+BASE = "https://b2b.api.ascn.ai/api/ai-gateway"
+HEADERS = {"X-API-KEY": os.environ["ASCN_API_KEY"]}
+
+job = requests.post(f"{BASE}/v1/images/jobs", headers=HEADERS, json={
+    "model": "google/nano-banana-2",
+    "prompt": "A cozy cabin at sunrise, cinematic light",
+    "size": "16:9",
+}).json()
+
+while job["status"] not in ("completed", "failed"):
+    time.sleep(4)
+    job = requests.get(f"{BASE}/v1/images/jobs/{job['id']}", headers=HEADERS).json()
+
+print(job["output"][0]["url"] if job["status"] == "completed" else job["error"])
+```
+
+## Ошибки задачи
+
+| `error.code` | Что делать |
+|---|---|
+| `content_moderation` | Переформулируйте промпт |
+| `input_rejected` | Поменяйте входной файл, см. `message` |
+| `invalid_request` | Исправьте поля по подсказке в `message` |
+| `generation_failed`, `job_expired` | Запустите новую задачу |
+
+Неудачная задача не оплачивается. Референсные файлы должны быть доступны по https без авторизации.

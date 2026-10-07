@@ -1,0 +1,67 @@
+---
+title: "Migrating from OpenAI"
+description: "Move existing code to ASCN Router."
+icon: "arrow-right-arrow-left"
+---
+
+ASCN Router speaks the OpenAI protocol, so existing code usually moves over by changing three things: the base URL, the key header and the model name.
+
+## From OpenAI
+
+<CodeGroup>
+
+```python Python
+import os
+from openai import OpenAI
+
+# Before:
+# client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
+
+# After:
+key = os.environ["ASCN_API_KEY"]
+client = OpenAI(
+    base_url="https://b2b.api.ascn.ai/api/ai-gateway/v1",
+    api_key=key,
+    default_headers={"X-API-KEY": key},
+)
+
+response = client.chat.completions.create(
+    model="openai/gpt-4o-mini",  # before: "gpt-4o-mini"
+    messages=[{"role": "user", "content": "Hello!"}],
+)
+```
+
+```javascript Node.js
+import OpenAI from "openai";
+
+// Before:
+// const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+// After:
+const key = process.env.ASCN_API_KEY;
+const client = new OpenAI({
+  baseURL: "https://b2b.api.ascn.ai/api/ai-gateway/v1",
+  apiKey: key,
+  defaultHeaders: { "X-API-KEY": key },
+});
+
+const response = await client.chat.completions.create({
+  model: "openai/gpt-4o-mini", // before: "gpt-4o-mini"
+  messages: [{ role: "user", content: "Hello!" }],
+});
+```
+
+</CodeGroup>
+
+## From other OpenAI-compatible gateways
+
+If you already use another gateway with `vendor/model` names, change `base_url` and the key as shown above. Check model names against the `GET /v1/models` catalog — they may differ.
+
+## Checklist
+
+- **Base URL:** `https://b2b.api.ascn.ai/api/ai-gateway/v1`.
+- **Key:** in the `X-API-KEY` header.
+- **Models:** prefixed with the vendor, for example `anthropic/claude-haiku-4.5`. Case and separators do not matter.
+- **Responses API:** responses are not stored, so `previous_response_id` does not work — send the history in `input`.
+- **Images, video, speech:** use [media jobs](/en/router/media) instead of OpenAI's synchronous endpoints.
+- **Reasoning models:** set `max_tokens` to 2000 or more.

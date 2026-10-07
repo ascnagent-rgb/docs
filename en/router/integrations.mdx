@@ -1,0 +1,92 @@
+---
+title: "Integrations"
+description: "LangChain, Vercel AI SDK, LlamaIndex and plain HTTP."
+icon: "puzzle-piece"
+---
+
+ASCN Router works with any library that lets you set a custom OpenAI base URL and an extra `X-API-KEY` header.
+
+<Note>
+Tools that only let you enter a URL and a key, without custom headers, send the key in `Authorization`. Before connecting such a tool, check that a request goes through.
+</Note>
+
+## LangChain
+
+<CodeGroup>
+
+```python Python
+import os
+from langchain_openai import ChatOpenAI
+
+key = os.environ["ASCN_API_KEY"]
+llm = ChatOpenAI(
+    model="anthropic/claude-haiku-4.5",
+    base_url="https://b2b.api.ascn.ai/api/ai-gateway/v1",
+    api_key=key,
+    default_headers={"X-API-KEY": key},
+)
+print(llm.invoke("Hello!").content)
+```
+
+```javascript Node.js
+import { ChatOpenAI } from "@langchain/openai";
+
+const key = process.env.ASCN_API_KEY;
+const llm = new ChatOpenAI({
+  model: "anthropic/claude-haiku-4.5",
+  apiKey: key,
+  configuration: {
+    baseURL: "https://b2b.api.ascn.ai/api/ai-gateway/v1",
+    defaultHeaders: { "X-API-KEY": key },
+  },
+});
+console.log((await llm.invoke("Hello!")).content);
+```
+
+</CodeGroup>
+
+## Vercel AI SDK
+
+```javascript
+import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
+import { generateText } from "ai";
+
+const ascn = createOpenAICompatible({
+  name: "ascn",
+  baseURL: "https://b2b.api.ascn.ai/api/ai-gateway/v1",
+  headers: { "X-API-KEY": process.env.ASCN_API_KEY },
+});
+
+const { text } = await generateText({
+  model: ascn("openai/gpt-4o-mini"),
+  prompt: "Hello!",
+});
+```
+
+## LlamaIndex
+
+```python
+import os
+from llama_index.llms.openai_like import OpenAILike
+
+key = os.environ["ASCN_API_KEY"]
+llm = OpenAILike(
+    model="deepseek/deepseek-v4-flash",
+    api_base="https://b2b.api.ascn.ai/api/ai-gateway/v1",
+    api_key=key,
+    default_headers={"X-API-KEY": key},
+    is_chat_model=True,
+)
+print(llm.complete("Hello!"))
+```
+
+## Plain HTTP request
+
+In no-code tools (n8n, Make, Zapier), use a regular HTTP node:
+
+- **Method:** `POST`
+- **URL:** `https://b2b.api.ascn.ai/api/ai-gateway/v1/chat/completions`
+- **Headers:** `X-API-KEY: <key>`, `Content-Type: application/json`
+- **Body:** `{"model": "openai/gpt-4o-mini", "messages": [{"role": "user", "content": "Hello!"}]}`
+
+The model's answer is in `choices[0].message.content`.
