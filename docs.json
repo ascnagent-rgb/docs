@@ -105,7 +105,8 @@
               {
                 "group": "Начало работы",
                 "pages": [
-                  "router/overview"
+                  "router/overview",
+                  "router/models"
                 ]
               },
               {

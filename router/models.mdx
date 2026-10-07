@@ -1,0 +1,81 @@
+---
+title: "Модели и оплата"
+description: "Каталог моделей, цены и правила списаний."
+icon: "wallet"
+---
+
+## Каталог моделей
+
+`GET /v1/models` — живой каталог. Каждая запись содержит имя модели, контекстное окно, принимаемые входные данные и **вашу** цену. `GET /v1/models/{model}` возвращает одну запись.
+
+<Tip>
+Каталог меняется: модели добавляются и выводятся из эксплуатации. Читайте его из API, а не храните список в коде.
+</Tip>
+
+Имя модели имеет вид `vendor/model`, например `openai/gpt-4o-mini`. Регистр и разделители не важны: `anthropic/claude-haiku-4.5` и `anthropic/claude-haiku-4-5` — одна и та же модель.
+
+<ResponseField name="id" type="string" required>
+  Значение для поля `model`.
+</ResponseField>
+<ResponseField name="name" type="string">
+  Отображаемое имя.
+</ResponseField>
+<ResponseField name="owned_by" type="string" required>
+  Производитель модели.
+</ResponseField>
+<ResponseField name="kind" type="string">
+  `text` — обслуживается `/v1/chat/completions` и `/v1/responses`; `image`, `video`, `music`, `audio` — соответствующим `/v1/{kind}/jobs`.
+</ResponseField>
+<ResponseField name="context_length" type="integer">
+  Контекстное окно в токенах (промпт плюс ответ).
+</ResponseField>
+<ResponseField name="max_output_tokens" type="integer">
+  Максимальная длина ответа, если известна.
+</ResponseField>
+<ResponseField name="input_modalities" type="string[]">
+  `text`, `image`, `audio`, `video`, `file`.
+</ResponseField>
+<ResponseField name="pricing" type="object" required>
+  Ваша цена в USD. Для текста — `input_per_mtok`, `output_per_mtok` и `cached_input_per_mtok` (за миллион токенов). Для медиа — `unit` (`image`, `video`, `second`, `request`, `1k_characters`) и `per_unit` для самой дешёвой конфигурации.
+</ResponseField>
+
+Поля без данных не передаются, а не заполняются нулями.
+
+```bash
+curl https://b2b.api.ascn.ai/api/ai-gateway/v1/models \
+  -H "X-API-KEY: $ASCN_API_KEY"
+```
+
+## Стоимость
+
+Запросы оплачиваются в долларах США и учитываются в микродолларах: 1 µ$ = $0,000001.
+
+**Текст:**
+
+```text
+input_tokens × цена входа + output_tokens × цена выхода
+```
+
+- Цена за миллион токенов численно равна цене одного токена в µ$.
+- Токены берутся из отчёта `usage` модели и возвращаются вам без изменений.
+- Минимум 1 µ$ за запрос с токенами; итог округляется вверх.
+- Скрытые токены рассуждений оплачиваются как выходные.
+
+**Медиа:** задача оплачивается один раз при завершении — сумма в поле `cost`. `estimated_cost` — прогноз на момент запуска. Длительность, разрешение, звук и уровень качества повышают цену. Неудачная задача ничего не стоит.
+
+## Резервирование средств
+
+Перед запуском максимальная возможная стоимость резервируется на балансе, чтобы параллельные запросы не потратили больше, чем есть на счёте.
+
+- **Текст** — промпт плюс `max_tokens` ответа (4096, если не задан). После завершения резерв заменяется фактической стоимостью.
+- **Медиа** — стоимость задачи. При первом использовании конфигурации (новая модель, первый 4K-клип) резерв берётся с запасом. Резерв неудачной задачи освобождается сразу.
+
+Если резерв не помещается в свободный баланс, запрос отклоняется с `402 insufficient_balance` до начала работы. В `meta` — `required_micro_usd`, `balance_micro_usd`, `held_micro_usd`.
+
+<Tip>
+При небольшом балансе всегда задавайте `max_tokens`.
+</Tip>
+
+## Модели с рассуждениями
+
+o-серия, DeepSeek R1 и thinking-варианты, Gemini Pro и Claude в режиме thinking тратят часть `max_tokens` на скрытые рассуждения. Задавайте им `max_tokens` от 2000, иначе ответ может оборваться с `finish_reason: "length"`.
