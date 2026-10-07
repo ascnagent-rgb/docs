@@ -111,7 +111,9 @@
               },
               {
                 "group": "API",
-                "pages": []
+                "pages": [
+                  "router/text"
+                ]
               }
             ]
           }
