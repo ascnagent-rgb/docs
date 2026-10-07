@@ -1,0 +1,56 @@
+---
+title: "Инструкция для ИИ"
+description: "Одна кнопка — и ваш ИИ-ассистент знает, как работать с ASCN Router."
+icon: "robot"
+---
+
+Интегрируете ASCN Router с помощью Cursor, Claude Code, ChatGPT или другого ИИ-ассистента? Скопируйте инструкцию ниже одной кнопкой (иконка копирования в правом верхнем углу блока) и вставьте в чат с ассистентом. Он получит всё нужное, чтобы написать рабочий код.
+
+```text Инструкция для ИИ
+You are integrating ASCN Router — an OpenAI-compatible API in front of models from OpenAI, Anthropic, Google, DeepSeek, xAI, Qwen, Mistral and others.
+
+CONNECTION
+- Base URL: https://b2b.api.ascn.ai/api/ai-gateway/v1
+- Auth: send the API key in the header "X-API-KEY: <key>". Read the key from the env var ASCN_API_KEY. Never hard-code it or ship it to the client.
+- With the official OpenAI SDK, set base_url to the URL above, pass the key as api_key AND add it to default headers as X-API-KEY.
+  Python: OpenAI(base_url=URL, api_key=key, default_headers={"X-API-KEY": key})
+  Node:   new OpenAI({ baseURL: URL, apiKey: key, defaultHeaders: { "X-API-KEY": key } })
+
+MODELS
+- Model names look like "vendor/model", e.g. "openai/gpt-4o-mini", "anthropic/claude-haiku-4.5", "deepseek/deepseek-v4-flash".
+- Get the live list from GET /v1/models. Each entry has id, kind (text | image | video | music | audio), context_length, input_modalities and pricing. Do not hard-code a model list.
+
+TEXT
+- POST /v1/chat/completions — standard OpenAI Chat Completions; tools, tool_choice, response_format, seed, stop etc. are forwarded to the model.
+- POST /v1/responses — OpenAI Responses API, but responses are NOT stored: previous_response_id is not supported, send the full history in input.
+- Use "stream": true for long answers; non-streamed long answers may fail with code streaming_required.
+- Reasoning models spend max_tokens on hidden reasoning: set max_tokens >= 2000 for them.
+
+MEDIA (images, video, music, speech) — asynchronous jobs
+1. POST /v1/{images|videos|music|audio}/jobs with a model of that kind -> returns { id, status: "pending", estimated_cost }.
+2. Poll GET /v1/{kind}/jobs/{id} every 3-5 s until status is "completed" or "failed".
+3. Download each output[i].url (/v1/{kind}/jobs/{id}/content?index=N) with the same X-API-KEY header. Images/video are kept 7 days; download music/speech right away.
+- Images: model, prompt, size ("16:9", "1k", "WIDTHxHEIGHT"), input_images (for editing), output_format.
+- Video: model, prompt, duration, aspect_ratio, resolution, image_url (image-to-video), audio.
+- Music: model, prompt, lyrics, style, title, instrumental.
+- Audio: model, text + voice (speech), dialogue, audio_url (voice isolation).
+
+ERRORS
+- OpenAI error envelope plus status_code and request_id: {"error": {"message", "type", "code"}, "status_code", "request_id"}.
+- Retry 429 rate_limited (after Retry-After), 502 backend_error, 503. Do not retry 400/404 without changing the request.
+- 402 insufficient_balance: the max possible cost (prompt + max_tokens, 4096 if unset) is held before the request runs; set max_tokens when the balance is low.
+
+BILLING
+- Charged in USD, counted in micro-dollars (1 µ$ = $0.000001): input_tokens x input price + output_tokens x output price, prices per million tokens from GET /v1/models. Failed media jobs cost nothing.
+
+Full docs: https://docs.ascn.ai/llms-full.txt
+```
+
+## Открыть страницу в ИИ
+
+На каждой странице документации справа от заголовка есть меню: можно скопировать страницу в Markdown или сразу открыть её в ChatGPT, Claude, Perplexity или Cursor.
+
+## Вся документация одним файлом
+
+- [`/llms.txt`](/llms.txt) — краткий список страниц для ИИ.
+- [`/llms-full.txt`](/llms-full.txt) — вся документация в одном файле. Передайте ссылку ассистенту, если нужен полный контекст.

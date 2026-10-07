@@ -106,6 +106,7 @@
                 "group": "Начало работы",
                 "pages": [
                   "router/overview",
+                  "router/ai-prompt",
                   "router/models"
                 ]
               },
@@ -214,6 +215,7 @@
                 "group": "Getting Started",
                 "pages": [
                   "en/router/overview",
+                  "en/router/ai-prompt",
                   "en/router/models"
                 ]
               },
