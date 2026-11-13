@@ -1,0 +1,58 @@
+---
+title: "Solução de problemas"
+description: "O que fazer se o agente não responde, uma tarefa não roda ou um canal não funciona."
+---
+
+## Diagnóstico rápido
+
+| O que você vê | O que fazer |
+| --- | --- |
+| O agente travou, não responde ou age de forma estranha | Reinicie em **Configurações → Zona de perigo → Reiniciar** |
+| Uma tarefa parou depois de mudar integrações | Verifique se o serviço está conectado em **Cérebro → Integrações** |
+| Uma tarefa agendada não roda | Abra **Tarefas** e confira o status: **Ativa** ou **Pausada** |
+| O bot não responde em um grupo do Telegram | Mencione o bot pelo @username ou responda a uma mensagem dele |
+| O agente não publica em um canal do Telegram | Torne o bot administrador com permissão de publicar e confira o Chat ID |
+| O agente não publica em canais do Slack | Conecte a **integração do Slack** no Cérebro: o canal do Slack sozinho não basta |
+| Os créditos acabam rápido demais | Troque gatilhos frequentes por tarefas agendadas ou aumente o intervalo |
+| O agente ignora o que você disse no chat | Confira os arquivos de conhecimento: eles têm prioridade sobre a memória |
+| O agente não consegue modificar ou excluir um arquivo | Ative a permissão em **Configurações → Permissões de ferramentas** |
+| O serviço de que você precisa não está na lista | Conecte via MCP em **Conexões adicionais** |
+| O valor de um segredo não aparece depois de salvo | É assim por design: segredos não são exibidos. Para trocar, exclua e adicione de novo |
+
+## O agente não responde. O que faço?
+
+1. Abra **Configurações → Zona de perigo**
+2. Clique em **Reiniciar**
+
+As sessões ativas são interrompidas, mas dados, configurações e tarefas são mantidos. Não é preciso excluir o workspace.
+
+## Por que uma tarefa quebrou depois que removi uma integração?
+
+Ao remover uma conexão, todas as tarefas que a usam param de funcionar. Conecte o serviço de novo. Da próxima vez, primeiro **desative** a integração, verifique se nada quebrou e só depois remova. Mais em [Aplicativos e integrações](/pt-BR/brain/connectors).
+
+## Por que o bot fica calado em um grupo do Telegram?
+
+Em grupos o agente só responde a mensagens dirigidas ao bot pelo @username ou a respostas às mensagens dele, para não poluir o chat. Confira também se o bot é administrador com permissão para enviar mensagens e se em **Canais → Telegram** está o Chat ID correto. Mais em [Telegram](/pt-BR/channels/telegram).
+
+## Por que os créditos acabam tão rápido?
+
+Cada execução de tarefa consome créditos de mensagens, e chamadas a serviços externos também consomem créditos de integração. Um gatilho para cada e-mail novo, com muito e-mail chegando, gasta créditos bem mais rápido que uma tarefa agendada.
+
+- Se não precisa de reação imediata, use uma [tarefa agendada](/pt-BR/tasks/scheduled)
+- Verifique com menos frequência: uma vez por hora em vez de a cada 15 minutos
+- Deixe os [gatilhos](/pt-BR/tasks/triggers) só para o urgente, como e-mails de clientes VIP
+
+## Por que o agente não faz o que peço no chat?
+
+O conhecimento tem prioridade sobre a memória. Se o SOUL.md diz «Nunca crie reuniões sem confirmação explícita», o agente vai propor os detalhes da reunião para confirmar mesmo que você peça para criá-la na hora. Para mudar o comportamento, edite o [Conhecimento](/pt-BR/brain/knowledge).
+
+## A quem recorro se nada ajudou?
+
+Escreva para o [suporte no Telegram](https://t.me/ascnai_nocode). Descreva o que você fez, o que esperava e o que aconteceu, e anexe uma captura de tela.
+
+## Páginas relacionadas
+
+- [Perguntas frequentes](/pt-BR/faq/common-questions)
+- [Configurações e notificações](/pt-BR/settings/delete-agent)
+- [Tarefas agendadas](/pt-BR/tasks/scheduled)
+- [Gatilhos por eventos](/pt-BR/tasks/triggers)

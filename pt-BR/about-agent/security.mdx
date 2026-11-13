@@ -1,0 +1,34 @@
+---
+title: "Segurança"
+description: "Como o ASCN Agent lida com seus dados, tokens e permissões."
+---
+
+## Princípios
+
+- **Cada agente funciona separadamente** — os dados de um agente não ficam disponíveis para outro
+- **Senhas e chaves são guardadas criptografadas** — ninguém além de você tem acesso a elas
+- **Você decide o que o agente pode fazer** — enviar e-mails, excluir arquivos, criar eventos: cada ação exige sua permissão
+- **O acesso pode ser revogado a qualquer momento** — desconecte qualquer serviço ou exclua o agente por completo
+
+## O que o agente não faz sem sua permissão
+
+- Não envia e-mails
+- Não compartilha seus dados com outros usuários
+- Não usa seus dados para treinar modelos de IA
+
+## Onde gerenciar
+
+<Columns cols={2}>
+  <Card title="Permissões" icon="lock" href="/pt-BR/settings/permissions">
+    Escolha o que o agente pode fazer sozinho e o que só com sua confirmação.
+  </Card>
+  <Card title="Segredos e chaves" icon="key" href="/pt-BR/settings/secrets">
+    Armazenamento seguro de tokens e chaves de serviços.
+  </Card>
+  <Card title="Zona de perigo" icon="triangle-exclamation" href="/pt-BR/settings/delete-agent">
+    Reiniciar o agente e excluir todos os dados para sempre.
+  </Card>
+  <Card title="Memória" icon="brain" href="/pt-BR/brain/memory">
+    O que o agente lembra sobre você e como apagar.
+  </Card>
+</Columns>

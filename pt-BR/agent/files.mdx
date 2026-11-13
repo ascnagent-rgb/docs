@@ -1,0 +1,57 @@
+---
+title: "Arquivos e resultados"
+description: "Onde ficam os arquivos que você envia e os resultados que o agente cria."
+---
+
+Cada agente tem um **workspace**: um ambiente de arquivos isolado. Ele guarda documentos, pastas e outros recursos que o agente pode consultar, tanto os que você envia quanto os que ele cria enquanto trabalha.
+
+## Como adiciono arquivos?
+
+Abra **Arquivos** e:
+
+- envie arquivos avulsos ou pastas inteiras
+- crie pastas para organizar o workspace
+
+Você também pode anexar arquivos no chat: eles vão para o workspace.
+
+## O que o agente faz com os arquivos?
+
+- Lê documentos e responde perguntas sobre o conteúdo
+- Extrai dados de PDFs, planilhas e outros formatos
+- Cria e edita arquivos: relatórios, logs, notas
+- Lê documentos do Google Drive se a [integração](/pt-BR/brain/connectors) estiver conectada
+
+Por exemplo, uma tarefa agendada pode salvar toda sexta o resumo da semana em um arquivo:
+
+```text
+Toda sexta às 17:00 me pergunte o que foi feito na semana
+e grave a resposta em weekly_report_[data].md.
+```
+
+## Onde ficam as habilidades e o conhecimento?
+
+Os arquivos do próprio agente também ficam no workspace:
+
+| O quê | Onde |
+| --- | --- |
+| Habilidades | `.agents/skills/` em **Arquivos** |
+| Núcleo do conhecimento | IDENTITY.md, SOUL.md, USER.md em **Cérebro → Conhecimento** |
+| Documentos de referência | **Cérebro → Conhecimento → Documentos** |
+
+São arquivos de texto: você pode abrir e editar diretamente.
+
+## O agente pode modificar ou excluir arquivos?
+
+Só se você permitir. Modificar e excluir arquivos são chaves separadas em **Configurações → Permissões de ferramentas**. Mais em [Permissões e privacidade](/pt-BR/settings/permissions).
+
+<Warning>
+  Ao excluir o workspace, todos os arquivos criados pelo agente são apagados para sempre. Salve antes o que precisar.
+</Warning>
+
+## Páginas relacionadas
+
+- [Mensagens e colaboração](/pt-BR/agent/chat)
+- [Conhecimento](/pt-BR/brain/knowledge)
+- [Habilidades](/pt-BR/brain/skills)
+- [Permissões e privacidade](/pt-BR/settings/permissions)
+- [Configurações e notificações](/pt-BR/settings/delete-agent)

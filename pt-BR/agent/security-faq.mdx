@@ -1,0 +1,44 @@
+---
+title: "Perguntas frequentes sobre segurança"
+sidebarTitle: "FAQ de segurança"
+description: "Respostas a perguntas frequentes sobre dados, acesso e privacidade no ASCN Agent."
+---
+
+## Outros agentes podem ver meus dados?
+
+Não. Cada agente funciona em um workspace isolado: os dados de um agente não ficam disponíveis para outro.
+
+## Meus dados são usados para treinar modelos?
+
+Não. O agente não usa seus dados para treinar modelos de IA nem os compartilha com outros usuários.
+
+## Como são guardadas senhas, tokens e chaves?
+
+Criptografados. Os valores dos [segredos](/pt-BR/settings/secrets) não aparecem na interface depois de salvos e não entram no histórico do chat nem nos logs. As integrações padrão (Gmail, Google Agenda, Slack etc.) são autorizadas via OAuth: as senhas delas nunca chegam ao agente.
+
+## O agente pode enviar um e-mail sem eu saber?
+
+Não. Por padrão o agente prepara um rascunho e pede confirmação antes de enviar. Fixe essa regra em SOUL.md ou IDENTITY.md: as regras do conhecimento têm prioridade sobre frases soltas no chat. Mais em [Memória](/pt-BR/brain/memory).
+
+## O agente pode excluir meus arquivos?
+
+Só se você ativou **Permitir exclusão de arquivos** nas [permissões de ferramentas](/pt-BR/settings/permissions).
+
+## O que o agente recebe ao conectar minha conta pessoal do Telegram?
+
+Acesso aos seus chats e mensagens e a possibilidade de enviar mensagens em seu nome por comando ou gatilho. Sem um comando explícito ou um gatilho configurado, o agente não responde nos chats. Para manter a separação, use uma conta do Telegram só para o agente. Mais em [Telegram](/pt-BR/channels/telegram).
+
+## Como revogo o acesso do agente a um serviço?
+
+Abra **Cérebro → Integrações** e desative ou remova a conexão. As tarefas que usam esse serviço vão parar de funcionar. Mais em [Aplicativos e integrações](/pt-BR/brain/connectors).
+
+## Como excluo todos os dados do agente?
+
+**Configurações → Zona de perigo → Excluir workspace**. Chats, configurações do Cérebro, tarefas, canais, arquivos e segredos são apagados para sempre. Mais em [Configurações e notificações](/pt-BR/settings/delete-agent).
+
+## Páginas relacionadas
+
+- [Segurança](/pt-BR/about-agent/security)
+- [Permissões e privacidade](/pt-BR/settings/permissions)
+- [Segredos e chaves](/pt-BR/settings/secrets)
+- [Perguntas frequentes](/pt-BR/faq/common-questions)
