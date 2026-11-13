@@ -1,0 +1,57 @@
+---
+title: "Archivos y resultados"
+description: "Dónde se guardan los archivos que subes y los resultados que crea el agente."
+---
+
+Cada agente tiene un **espacio de trabajo**: un entorno de archivos aislado. Guarda documentos, carpetas y otros recursos a los que el agente puede referirse: tanto los que subes tú como los que crea mientras trabaja.
+
+## ¿Cómo añado archivos?
+
+Abre **Archivos** y:
+
+- sube archivos sueltos o carpetas completas
+- crea carpetas para organizar el espacio de trabajo
+
+También puedes adjuntar archivos en el chat: se guardan en el espacio de trabajo.
+
+## ¿Qué puede hacer el agente con los archivos?
+
+- Leer documentos y responder preguntas sobre su contenido
+- Extraer datos de PDF, hojas de cálculo y otros formatos
+- Crear y editar archivos: informes, registros, notas
+- Leer documentos de Google Drive si la [integración](/es/brain/connectors) está conectada
+
+Por ejemplo, una tarea programada puede guardar cada viernes el resumen de la semana en un archivo:
+
+```text
+Cada viernes a las 17:00 pregúntame qué se hizo esta semana
+y escribe mi respuesta en weekly_report_[fecha].md.
+```
+
+## ¿Dónde se guardan las habilidades y el conocimiento?
+
+Los archivos propios del agente también están en el espacio de trabajo:
+
+| Qué | Dónde |
+| --- | --- |
+| Habilidades | `.agents/skills/` en **Archivos** |
+| Núcleo del conocimiento | IDENTITY.md, SOUL.md, USER.md en **Cerebro → Conocimiento** |
+| Documentos de referencia | **Cerebro → Conocimiento → Documentos** |
+
+Son archivos de texto: puedes abrirlos y editarlos directamente.
+
+## ¿Puede el agente modificar o eliminar archivos?
+
+Solo si lo permites. Modificar y eliminar archivos son interruptores separados en **Configuración → Permisos de herramientas**. Más en [Permisos y privacidad](/es/settings/permissions).
+
+<Warning>
+  Al eliminar el espacio de trabajo se borran para siempre todos los archivos creados por el agente. Guarda antes lo que necesites.
+</Warning>
+
+## Páginas relacionadas
+
+- [Mensajes y colaboración](/es/agent/chat)
+- [Conocimiento](/es/brain/knowledge)
+- [Habilidades](/es/brain/skills)
+- [Permisos y privacidad](/es/settings/permissions)
+- [Configuración y notificaciones](/es/settings/delete-agent)

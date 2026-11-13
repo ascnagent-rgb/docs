@@ -1,0 +1,58 @@
+---
+title: "Solución de problemas"
+description: "Qué hacer si el agente no responde, una tarea no se ejecuta o un canal no funciona."
+---
+
+## Diagnóstico rápido
+
+| Qué ves | Qué hacer |
+| --- | --- |
+| El agente está atascado, no responde o se comporta de forma extraña | Reinícialo en **Configuración → Zona de peligro → Reiniciar** |
+| Una tarea dejó de funcionar tras cambiar integraciones | Comprueba que el servicio esté conectado en **Cerebro → Integraciones** |
+| Una tarea programada no se ejecuta | Abre **Tareas** y revisa el estado: **Activa** o **Pausa** |
+| El bot no responde en un grupo de Telegram | Menciona al bot con su @username o responde a su mensaje |
+| El agente no publica en un canal de Telegram | Haz al bot administrador con permiso de publicar y revisa el Chat ID |
+| El agente no publica en canales de Slack | Conecta la **integración de Slack** en Cerebro: el canal de Slack por sí solo no basta |
+| Los créditos se gastan demasiado rápido | Sustituye triggers frecuentes por tareas programadas o amplía el intervalo |
+| El agente ignora lo que dijiste en el chat | Revisa los archivos de conocimiento: tienen prioridad sobre la memoria |
+| El agente no puede modificar o eliminar un archivo | Activa el permiso en **Configuración → Permisos de herramientas** |
+| El servicio que necesitas no está en la lista | Conéctalo mediante MCP en **Conexiones adicionales** |
+| No se ve el valor de un secreto tras guardarlo | Es así por diseño: los secretos no se muestran. Para cambiarlo, elimínalo y añádelo de nuevo |
+
+## El agente no responde. ¿Qué hago?
+
+1. Abre **Configuración → Zona de peligro**
+2. Haz clic en **Reiniciar**
+
+Las sesiones activas se interrumpen, pero los datos, la configuración y las tareas se conservan. No hace falta eliminar el espacio de trabajo.
+
+## ¿Por qué se rompió una tarea al eliminar una integración?
+
+Al eliminar una conexión, todas las tareas que la usan dejan de funcionar. Vuelve a conectar el servicio. La próxima vez, primero **deshabilita** la integración, comprueba que nada se rompe y solo después elimínala. Más en [Aplicaciones e integraciones](/es/brain/connectors).
+
+## ¿Por qué el bot no habla en un grupo de Telegram?
+
+En los grupos el agente solo responde a mensajes dirigidos al bot con su @username o a respuestas a sus mensajes, para no saturar el chat. Comprueba también que el bot sea administrador con permiso para enviar mensajes y que en **Canales → Telegram** esté el Chat ID correcto. Más en [Telegram](/es/channels/telegram).
+
+## ¿Por qué se acaban tan rápido los créditos?
+
+Cada ejecución de una tarea consume créditos de mensajes, y las llamadas a servicios externos también consumen créditos de integración. Un trigger para cada correo nuevo con mucho correo gasta créditos mucho más rápido que una tarea programada.
+
+- Si no necesitas una reacción inmediata, usa una [tarea programada](/es/tasks/scheduled)
+- Revisa con menos frecuencia: una vez por hora en lugar de cada 15 minutos
+- Deja los [triggers](/es/tasks/triggers) solo para lo urgente, como correos de clientes VIP
+
+## ¿Por qué el agente no hace lo que le pido en el chat?
+
+El conocimiento tiene prioridad sobre la memoria. Si SOUL.md dice «Nunca crees reuniones sin confirmación explícita», el agente propondrá los detalles de la reunión para confirmar aunque le pidas crearla de inmediato. Para cambiar el comportamiento, edita el [Conocimiento](/es/brain/knowledge).
+
+## ¿A quién acudo si nada funcionó?
+
+Escribe al [soporte en Telegram](https://t.me/ascnai_nocode). Describe qué hiciste, qué esperabas y qué obtuviste, y adjunta una captura.
+
+## Páginas relacionadas
+
+- [Preguntas frecuentes](/es/faq/common-questions)
+- [Configuración y notificaciones](/es/settings/delete-agent)
+- [Tareas programadas](/es/tasks/scheduled)
+- [Triggers por eventos](/es/tasks/triggers)

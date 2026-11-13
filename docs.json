@@ -278,47 +278,60 @@
                 "pages": [
                   "es/getting-started/what-is-ascn-agent",
                   "es/getting-started/quickstart",
-                  "es/architecture/overview"
-                ]
-              },
-              {
-                "group": "Cerebro",
-                "pages": [
-                  "es/brain/overview",
-                  "es/brain/connectors",
-                  "es/brain/skills",
-                  "es/brain/knowledge",
-                  "es/brain/memory"
-                ]
-              },
-              {
-                "group": "Tareas",
-                "pages": [
-                  "es/tasks/scheduled",
-                  "es/tasks/triggers"
-                ]
-              },
-              {
-                "group": "Canales",
-                "pages": [
-                  "es/channels/telegram",
-                  "es/channels/slack"
-                ]
-              },
-              {
-                "group": "Guías",
-                "pages": [
+                  "es/about-agent/use-cases",
                   "es/guides/email-calendar-agent",
-                  "es/faq/common-questions"
+                  "es/architecture/overview",
+                  "es/agent/changelog"
                 ]
               },
               {
-                "group": "Configuración",
+                "group": "Usar ASCN Agent",
                 "pages": [
+                  "es/agent/chat",
+                  "es/agent/files",
+                  "es/brain/connectors",
+                  "es/brain/overview",
+                  "es/brain/knowledge",
+                  "es/brain/memory",
+                  "es/brain/skills",
+                  "es/tasks/scheduled",
+                  "es/tasks/triggers",
                   "es/settings/permissions",
                   "es/settings/secrets",
+                  "es/agent/team-agents",
+                  "es/agent/mobile",
+                  "es/channels/telegram",
+                  "es/channels/slack",
+                  "es/agent/microsoft-teams",
+                  "es/agent/meetings",
+                  "es/agent/initiative",
+                  "es/agent/tag-on-x"
+                ]
+              },
+              {
+                "group": "Equipos y empresas",
+                "icon": "building",
+                "pages": [
+                  "es/agent/teams-and-enterprises",
+                  "es/agent/deployment",
+                  "es/agent/identity-and-access",
+                  "es/agent/okta-fastpass",
+                  "es/agent/private-networks",
+                  "es/agent/proxies",
+                  "es/agent/computers",
+                  "es/agent/inference-hooks",
+                  "es/about-agent/security",
+                  "es/agent/security-faq"
+                ]
+              },
+              {
+                "group": "Referencia",
+                "pages": [
+                  "es/settings/delete-agent",
+                  "es/agent/deep-links",
                   "es/settings/api",
-                  "es/settings/delete-agent"
+                  "es/agent/troubleshooting",
+                  "es/faq/common-questions"
                 ]
               }
             ]

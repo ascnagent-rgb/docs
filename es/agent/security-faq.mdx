@@ -1,0 +1,44 @@
+---
+title: "Preguntas frecuentes de seguridad"
+sidebarTitle: "FAQ de seguridad"
+description: "Respuestas a preguntas frecuentes sobre datos, acceso y privacidad en ASCN Agent."
+---
+
+## ¿Otros agentes pueden ver mis datos?
+
+No. Cada agente funciona en un espacio de trabajo aislado: los datos de un agente no están disponibles para otro.
+
+## ¿Se usan mis datos para entrenar modelos?
+
+No. El agente no usa tus datos para entrenar modelos de IA ni los comparte con otros usuarios.
+
+## ¿Cómo se guardan las contraseñas, tokens y claves?
+
+Cifrados. Los valores de los [secretos](/es/settings/secrets) no se muestran en la interfaz después de guardarlos y no aparecen en el historial de chat ni en los registros. Las integraciones estándar (Gmail, Google Calendar, Slack, etc.) se autorizan mediante OAuth: sus contraseñas nunca llegan al agente.
+
+## ¿Puede el agente enviar un correo sin que yo lo sepa?
+
+No. Por defecto el agente prepara un borrador y pide confirmación antes de enviarlo. Fija esta regla en SOUL.md o IDENTITY.md: las reglas del conocimiento tienen prioridad sobre frases sueltas del chat. Más en [Memoria](/es/brain/memory).
+
+## ¿Puede el agente eliminar mis archivos?
+
+Solo si activaste **Permitir eliminar archivos** en los [permisos de herramientas](/es/settings/permissions).
+
+## ¿Qué obtiene el agente al conectar mi cuenta personal de Telegram?
+
+Acceso a tus chats y mensajes, y la posibilidad de enviar mensajes en tu nombre por comando o trigger. Sin un comando explícito o un trigger configurado, el agente no responde en los chats. Para mantener la separación, usa una cuenta de Telegram aparte. Más en [Telegram](/es/channels/telegram).
+
+## ¿Cómo revoco el acceso del agente a un servicio?
+
+Abre **Cerebro → Integraciones** y deshabilita o elimina la conexión. Ten en cuenta que las tareas que usan ese servicio dejarán de funcionar. Más en [Aplicaciones e integraciones](/es/brain/connectors).
+
+## ¿Cómo elimino todos los datos del agente?
+
+**Configuración → Zona de peligro → Eliminar espacio de trabajo**. Se eliminan para siempre los chats, la configuración del Cerebro, las tareas, los canales, los archivos y los secretos. Más en [Configuración y notificaciones](/es/settings/delete-agent).
+
+## Páginas relacionadas
+
+- [Seguridad](/es/about-agent/security)
+- [Permisos y privacidad](/es/settings/permissions)
+- [Secretos y claves](/es/settings/secrets)
+- [Preguntas frecuentes](/es/faq/common-questions)

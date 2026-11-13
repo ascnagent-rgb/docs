@@ -1,46 +1,163 @@
 ---
-title: "¿Qué es ASCN Agent?"
-description: "Un asistente de IA que trabaja para ti mientras haces otras cosas."
+title: "ASCN Agent"
+sidebarTitle: "Resumen"
+description: "Un agente de IA que trabaja para ti: lee el correo, prepara informes, ejecuta tareas programadas y responde donde estés."
+keywords:
+  - "ASCN Agent"
+  - "agente de IA"
+  - "resumen"
 ---
 
-ASCN Agent es tu asistente personal de IA. Le dices qué hacer y a qué servicios puede acceder. A partir de ahí trabaja solo: lee tu correo, vigila tu calendario, te envía lo que necesitas a Telegram o Slack — sin tu intervención.
+ASCN Agent es un agente de IA proactivo con su propio espacio de trabajo. Describe una tarea con tus palabras: el agente se conecta a los servicios necesarios, hace el trabajo y envía el resultado al chat, Telegram o Slack. Puede ser tu asistente personal, especialista de soporte, marketer o analista, según lo que le encargues.
 
-## Qué hace
+<div className="not-prose flex flex-wrap items-center gap-3 mt-6 mb-10">
+  <a href="/es/getting-started/quickstart" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 no-underline">Empezar</a>
+  <a href="/es/about-agent/use-cases" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold border border-zinc-300 dark:border-zinc-700 no-underline">Ver casos de uso</a>
+  <a href="/es/agent/teams-and-enterprises" className="text-sm font-medium opacity-70 hover:opacity-100 no-underline ml-1">Para equipos y empresas →</a>
+</div>
 
-<CardGroup cols={2}>
-  <Card title="Lee el correo y reacciona" icon="envelope">
-    Vigila tu bandeja de entrada y hace lo que pediste: responde, reenvía, redacta.
+## Agentes que trabajan para ti
+
+Crea un agente o varios, uno por cada rol. Los agentes trabajan dentro de tus aplicaciones: leen el correo, gestionan el calendario, vigilan archivos y publican mensajes. Habla con ellos en el chat, adjunta archivos e imágenes o dicta la tarea por voz.
+
+El agente se conecta a Gmail, Google Calendar, Google Drive, Slack, GitHub, Notion, HubSpot y más de 3000 servicios, además de tus propias herramientas mediante MCP o la [API](/es/settings/api).
+
+## Flujos listos en tus aplicaciones
+
+Elige un flujo para ver cómo se ve la tarea. Puedes enviar cada ejemplo al agente tal cual.
+
+<AppFlows />
+
+<Visibility for="agents">
+  | Aplicación | Flujo | Solicitud |
+  | --- | --- | --- |
+  | Gmail | Resumen matutino del correo | Cada mañana a las 9:00 envíame un resumen de los correos no leídos de Gmail con una breve descripción de cada uno. |
+  | Google Calendar | Plan semanal de reuniones | Cada lunes a las 9:00 revisa mi Google Calendar y envíame el plan de reuniones de la semana. |
+  | Gmail | Borradores de respuesta | Cuando llegue un correo nuevo a Gmail, revisa si necesita respuesta y, si es así, prepara un borrador y envíamelo a Telegram para aprobarlo. |
+  | Google Drive | Archivos de clientes | Cuando aparezca un archivo nuevo en la carpeta «Entrada de clientes» de Google Drive, revisa el formato y avísame. |
+  | Telegram | Encargos sobre la marcha | Envía un correo a Iván Petrov: confirmo la reunión del viernes a las 15:00. |
+  | Slack | Mensajes al equipo | Publica en #general: «La sincronización diaria pasa a las 15:00». |
+</Visibility>
+
+## Qué hace diferente a ASCN Agent
+
+<Columns cols={3}>
+  <Card title="Trabaja solo" icon="clock" href="/es/tasks/scheduled">
+    Ejecuta tareas programadas y reacciona a eventos en los servicios conectados, sin ti.
   </Card>
 
-  <Card title="Ejecuta tareas programadas" icon="clock">
-    Cada día a la hora correcta hace lo que configuraste — sin recordatorios.
+  <Card title="Su propio espacio de trabajo" icon="folder-open" href="/es/agent/files">
+    Guarda archivos, busca en la web, lee páginas y crea documentos en un espacio aislado.
   </Card>
 
-  <Card title="Trabaja con tus documentos" icon="database">
-    Sube archivos, hojas o instrucciones — el agente los aprende y responde con tus datos.
+  <Card title="Aprende habilidades" icon="bolt" href="/es/brain/skills">
+    Explica una vez cómo hacer una tarea: el agente la guarda como habilidad y la repite.
   </Card>
 
-  <Card title="Te escribe donde estés" icon="paper-plane">
-    Envía resúmenes y notificaciones a Telegram, Slack o dentro de ASCN.
+  <Card title="Recuerda tus preferencias" icon="brain" href="/es/brain/memory">
+    Retiene detalles de las conversaciones y los usa en sesiones futuras.
   </Card>
 
-  <Card title="Conectado a tus servicios" icon="plug">
-    Funciona con Gmail, Google Calendar, Google Drive, Slack, GitHub y más.
+  <Card title="Responde donde estés" icon="paper-plane" href="/es/channels/telegram">
+    Chat web de ASCN, Telegram y Slack: da instrucciones y recibe notificaciones en tu mensajero.
   </Card>
 
-  <Card title="Busca en la web" icon="magnifying-glass">
-    Encuentra datos actualizados y te envía el resumen — a demanda o en horario.
+  <Card title="Bajo tu control" icon="shield" href="/es/settings/permissions">
+    Permisos de acciones, secretos cifrados y acceso que puedes revocar en cualquier momento.
   </Card>
-</CardGroup>
+</Columns>
 
-## De qué está compuesto
+<Accordion title="Lista completa de capacidades" icon="list">
+  - Ejecuta procesos programados: resúmenes diarios, informes semanales, recordatorios periódicos
+  - Se activa con triggers: datos nuevos en una aplicación o actividad en un servicio conectado
+  - Vigila tus sistemas y herramientas e informa de cambios importantes
+  - Se une a videollamadas, toma notas y registra tareas
+  - Mantiene notas compartidas que tú y el agente leéis y ampliáis juntos
+  - Recopila leads, monitoriza a la competencia, prepara informes y organiza el seguimiento
+  - Trabaja con páginas web: investiga temas, busca información, realiza acciones
+  - Lee y analiza el correo, redacta respuestas con tu estilo, crea reuniones y envía un resumen antes de cada una
+  - Lee documentos de Google Drive, extrae datos de PDF y hojas de cálculo, crea y edita archivos
+  - Sigue la actividad en GitHub, trabaja en canales de Slack y grupos de Telegram
+  - Monitoriza menciones de marca y recopila tendencias de Reddit, X y otras fuentes
+  - Escribe textos para redes y blogs, genera imágenes y vídeo
+  - Mejora tus aplicaciones Base44 desde el chat: de pequeños cambios a ejecutar funciones de servidor
+  - Se conecta a Google Workspace, TikTok, GitHub, Notion, HubSpot y más de 3000 integraciones
+</Accordion>
 
-Un agente tiene tres partes:
+## Habilidades listas
 
-1. **Cerebro** — le dices al agente quién es, a qué servicios está conectado y qué documentos conoce
-2. **Tareas** — qué hace el agente solo y cuándo: cada mañana, con un nuevo correo, a tu solicitud
-3. **Canales** — dónde habla contigo el agente: ASCN, Telegram o Slack
+Las habilidades son comportamientos listos de la biblioteca de ASCN y la comunidad. Instala una y el agente empieza a seguirla de inmediato.
 
-<Card title="Crea tu primer agente" icon="rocket" href="/es/getting-started/quickstart">
-  Paso a paso — menos de cinco minutos.
-</Card>
+<Columns cols={2}>
+  <Card title="Resumen del correo" icon="envelope" href="/es/brain/skills">
+    `email-digest` agrupa correos por remitente, destaca los importantes y omite boletines.
+  </Card>
+
+  <Card title="Preparación de reuniones" icon="calendar" href="/es/brain/skills">
+    `meeting-prep` toma los asistentes del calendario, busca información sobre ellos y envía un resumen.
+  </Card>
+
+  <Card title="Calificación de leads" icon="filter" href="/es/brain/skills">
+    `lead-qualifier` evalúa las solicitudes entrantes según tus criterios y fija prioridades.
+  </Card>
+
+  <Card title="Briefing matutino" icon="sun" href="/es/brain/skills">
+    `daily-brief` envía cada mañana tareas, reuniones y correos importantes.
+  </Card>
+</Columns>
+
+<div className="not-prose mt-4 mb-10">
+  <a href="/es/brain/skills" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold border border-zinc-300 dark:border-zinc-700 no-underline">Abrir la biblioteca de habilidades</a>
+</div>
+
+## Guías populares
+
+- [Inicio rápido: tu primer agente en 5 minutos](/es/getting-started/quickstart)
+- [Agente de correo y calendario: paso a paso](/es/guides/email-calendar-agent)
+- [Conectar Telegram](/es/channels/telegram)
+- [Conectar aplicaciones y servicios](/es/brain/connectors)
+- [Tareas programadas](/es/tasks/scheduled)
+- [Solución de problemas](/es/agent/troubleshooting)
+
+export const AppFlows = () => {
+  const flows = [
+    { app: "Gmail", title: "Resumen matutino del correo", desc: "Solo lo importante de tu bandeja, cada mañana.", prompt: "Cada mañana a las 9:00 envíame un resumen de los correos no leídos de Gmail con una breve descripción de cada uno.", reply: "Creo una tarea programada: cada día a las 9:00. Necesito acceso a Gmail: conéctalo con el botón de abajo." },
+    { app: "Google Calendar", title: "Plan semanal de reuniones", desc: "Tu agenda de la semana, cada lunes.", prompt: "Cada lunes a las 9:00 revisa mi Google Calendar y envíame el plan de reuniones de la semana.", reply: "Hecho: tarea programada cada lunes a las 9:00. Te enviaré la lista de reuniones con horas y títulos." },
+    { app: "Gmail", title: "Borradores de respuesta", desc: "El agente redacta, tú apruebas.", prompt: "Cuando llegue un correo nuevo a Gmail, revisa si necesita respuesta y, si es así, prepara un borrador y envíamelo a Telegram para aprobarlo.", reply: "Creo un trigger para correos nuevos. Nada se enviará sin tu confirmación." },
+    { app: "Google Drive", title: "Archivos de clientes", desc: "Reacción a un archivo nuevo en una carpeta.", prompt: "Cuando aparezca un archivo nuevo en la carpeta «Entrada de clientes» de Google Drive, revisa el formato y avísame.", reply: "Creo un trigger para archivos nuevos en «Entrada de clientes». Te avisaré en este chat." },
+    { app: "Telegram", title: "Encargos sobre la marcha", desc: "Instrucciones desde tu mensajero.", prompt: "Envía un correo a Iván Petrov: confirmo la reunión del viernes a las 15:00.", reply: "He preparado el correo para Iván Petrov. ¿Lo envío?" },
+    { app: "Slack", title: "Mensajes al equipo", desc: "Publicaciones en los canales del espacio.", prompt: "Publica en #general: «La sincronización diaria pasa a las 15:00».", reply: "Publico el mensaje en #general." },
+  ];
+  const [open, setOpen] = useState(0);
+  const bubble = { padding: "10px 14px", borderRadius: 14, fontSize: 14, lineHeight: 1.45, maxWidth: "85%" };
+  return (
+    <div className="not-prose" style={{ border: "1px solid rgba(127,127,127,.25)", borderRadius: 16, overflow: "hidden" }}>
+      {flows.map((f, i) => {
+        const active = i === open;
+        return (
+          <div key={i} style={{ borderTop: i === 0 ? "none" : "1px solid rgba(127,127,127,.2)" }}>
+            <button type="button" onClick={() => setOpen(active ? -1 : i)} aria-expanded={active} style={{ width: "100%", display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: active ? "rgba(127,127,127,.08)" : "transparent", border: "none", color: "inherit", font: "inherit", textAlign: "left", cursor: "pointer" }}>
+              <span style={{ fontSize: 12, padding: "3px 10px", borderRadius: 999, border: "1px solid rgba(127,127,127,.35)", whiteSpace: "nowrap" }}>{f.app}</span>
+              <span style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ display: "block", fontWeight: 600 }}>{f.title}</span>
+                <span style={{ display: "block", fontSize: 13, opacity: 0.7 }}>{f.desc}</span>
+              </span>
+              <span style={{ opacity: 0.6, transform: active ? "rotate(90deg)" : "none", transition: "transform .2s" }}>›</span>
+            </button>
+            {active && (
+              <div style={{ padding: "6px 18px 18px", display: "grid", gap: 10 }}>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ ...bubble, background: "#3b82f6", color: "#fff" }}>{f.prompt}</div>
+                </div>
+                <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, padding: "6px 7px", borderRadius: 8, background: "rgba(127,127,127,.18)" }}>ASCN</span>
+                  <div style={{ ...bubble, background: "rgba(127,127,127,.12)" }}>{f.reply}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
