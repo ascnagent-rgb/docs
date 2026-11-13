@@ -34,56 +34,60 @@
                 "pages": [
                   "getting-started/what-is-ascn-agent",
                   "getting-started/quickstart",
-                  "architecture/overview"
-                ]
-              },
-              {
-                "group": "Об ИИ-агенте",
-                "icon": "robot",
-                "pages": [
-                  "about-agent/architecture",
-                  "about-agent/capabilities",
-                  "about-agent/security"
-                ]
-              },
-              {
-                "group": "Мозг",
-                "pages": [
-                  "brain/overview",
-                  "brain/connectors",
-                  "brain/skills",
-                  "brain/knowledge",
-                  "brain/memory"
-                ]
-              },
-              {
-                "group": "Задачи",
-                "pages": [
-                  "tasks/scheduled",
-                  "tasks/triggers"
-                ]
-              },
-              {
-                "group": "Каналы",
-                "pages": [
-                  "channels/telegram",
-                  "channels/slack"
-                ]
-              },
-              {
-                "group": "Use Cases",
-                "pages": [
                   "about-agent/use-cases",
-                  "guides/email-calendar-agent"
+                  "guides/email-calendar-agent",
+                  "architecture/overview",
+                  "agent/changelog"
                 ]
               },
               {
-                "group": "Настройки",
+                "group": "Работа с ASCN Agent",
                 "pages": [
+                  "agent/chat",
+                  "agent/files",
+                  "brain/connectors",
+                  "brain/overview",
+                  "brain/knowledge",
+                  "brain/memory",
+                  "brain/skills",
+                  "tasks/scheduled",
+                  "tasks/triggers",
                   "settings/permissions",
                   "settings/secrets",
+                  "agent/team-agents",
+                  "agent/mobile",
+                  "channels/telegram",
+                  "channels/slack",
+                  "agent/microsoft-teams",
+                  "agent/meetings",
+                  "agent/initiative",
+                  "agent/tag-on-x"
+                ]
+              },
+              {
+                "group": "Команды и компании",
+                "icon": "building",
+                "pages": [
+                  "agent/teams-and-enterprises",
+                  "agent/deployment",
+                  "agent/identity-and-access",
+                  "agent/okta-fastpass",
+                  "agent/private-networks",
+                  "agent/proxies",
+                  "agent/computers",
+                  "agent/inference-hooks",
+                  "about-agent/security",
+                  "agent/security-faq"
+                ]
+              },
+              {
+                "group": "Справочник",
+                "pages": [
+                  "settings/delete-agent",
+                  "agent/deep-links",
                   "settings/api",
-                  "settings/delete-agent"
+                  "agent/troubleshooting",
+                  "faq/common-questions"
                 ]
               }
             ]
@@ -508,5 +512,17 @@
       "cursor"
     ],
     "display": "header"
-  }
+  },
+  "redirects": [
+    {
+      "source": "/about-agent/architecture",
+      "destination": "/architecture/overview",
+      "permanent": true
+    },
+    {
+      "source": "/about-agent/capabilities",
+      "destination": "/getting-started/what-is-ascn-agent",
+      "permanent": true
+    }
+  ]
 }
