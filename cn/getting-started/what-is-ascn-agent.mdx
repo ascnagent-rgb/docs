@@ -1,18 +1,164 @@
 ---
-title: "什么是 ASCN Agent？"
-description: "一个为你工作的 AI 助手 —— 当你忙于其他事情时。"
+title: "ASCN Agent"
+sidebarTitle: "概述"
+description: "为你工作的 AI Agent：阅读邮件、准备报告、按计划执行任务，并在你所在的地方回复。"
+keywords:
+  - "ASCN Agent"
+  - "AI Agent"
+  - "概述"
+icon: "house"
 ---
 
-ASCN Agent 是你的个人 AI 助手。你告诉它该做什么，它能访问哪些服务。然后它会自主工作：阅读邮件、关注日历、把重要内容发到 Telegram 或 Slack —— 无需你参与。
+ASCN Agent 是一个拥有独立工作区的主动式 AI Agent。用日常语言描述任务，Agent 会连接所需的服务、完成工作，并把结果发送到聊天、Telegram 或 Slack。根据你交给它的任务，它可以是你的私人助理、客服专员、营销人员或分析师。
 
-## 它能做什么
+<div className="not-prose flex flex-wrap items-center gap-3 mt-6 mb-10">
+  <a href="/cn/getting-started/quickstart" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 no-underline">开始使用</a>
+  <a href="/cn/about-agent/use-cases" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold border border-zinc-300 dark:border-zinc-700 no-underline">查看使用场景</a>
+  <a href="/cn/agent/teams-and-enterprises" className="text-sm font-medium opacity-70 hover:opacity-100 no-underline ml-1">面向团队和企业 →</a>
+</div>
 
-<CardGroup cols={2}>
-       
-</CardGroup>
+## 为你工作的 Agent
 
-## 它由什么组成
+创建一个或多个 Agent，每个角色一个。Agent 在你的应用中工作：阅读邮件、管理日历、关注文件、发布消息。在聊天中与它们交流，附加文件和图片，或用语音口述任务。
 
-1. **大脑** —— 你告诉它它是谁、连接了什么
-2. **任务** —— 它自动做什么、何时做
-3. **渠道** —— 它在哪里和你交流
+Agent 可连接 Gmail、Google 日历、Google 云端硬盘、Slack、GitHub、Notion、HubSpot 等 3000 多项服务，还能通过 MCP 或 [API](/cn/settings/api) 连接你自己的工具。
+
+## 应用中的现成工作流
+
+选择一个工作流，看看任务是什么样子。每个示例都可以原样发送给 Agent。
+
+<AppFlows />
+
+<Visibility for="agents">
+  | 应用 | 工作流 | 指令 |
+  | --- | --- | --- |
+  | Gmail | 早间邮件摘要 | 每天早上 9:00 给我发送 Gmail 未读邮件摘要，并简要说明每封邮件。 |
+  | Google 日历 | 每周会议计划 | 每周一 9:00 查看我的 Google 日历，并发送本周的会议计划。 |
+  | Gmail | 回复草稿 | 当 Gmail 收到新邮件时，判断是否需要回复；如需回复，准备草稿并发到 Telegram 让我审批。 |
+  | Google 云端硬盘 | 客户文件 | 当 Google 云端硬盘的「客户来件」文件夹出现新文件时，检查格式并通知我。 |
+  | Telegram | 随时下达指令 | 给 Ivan Petrov 发邮件：确认周五 15:00 的会议。 |
+  | Slack | 团队消息 | 在 #general 发布：「每日同步会改到 15:00」。 |
+</Visibility>
+
+## ASCN Agent 的不同之处
+
+<Columns cols={3}>
+  <Card title="自主工作" icon="clock" href="/cn/tasks/scheduled">
+    按计划执行任务，并对已连接服务中的事件做出反应，无需你参与。
+  </Card>
+
+  <Card title="独立工作区" icon="folder-open" href="/cn/agent/files">
+    在隔离的工作区中存储文件、搜索网络、阅读网页并创建文档。
+  </Card>
+
+  <Card title="学习技能" icon="bolt" href="/cn/brain/skills">
+    讲一次怎么做，Agent 就会把它保存为技能并重复执行。
+  </Card>
+
+  <Card title="记住你的偏好" icon="brain" href="/cn/brain/memory">
+    记住对话中的细节，并在之后的会话中使用。
+  </Card>
+
+  <Card title="在你所在的地方回复" icon="paper-plane" href="/cn/channels/telegram">
+    ASCN 网页聊天、Telegram 和 Slack：在即时通讯工具中下达指令、接收通知。
+  </Card>
+
+  <Card title="由你掌控" icon="shield" href="/cn/settings/permissions">
+    操作权限、加密的密钥，以及可随时撤销的访问权限。
+  </Card>
+</Columns>
+
+<Accordion title="完整功能列表" icon="list">
+  - 按计划运行流程：每日摘要、每周报告、定期提醒
+  - 由触发器启动：应用中出现新数据或已连接服务中有活动
+  - 监控你的系统和工具，并报告重要变化
+  - 加入视频会议，记录笔记并整理待办事项
+  - 维护你和 Agent 共同阅读、补充的共享笔记
+  - 收集潜在客户、监控竞争对手、准备报告并安排跟进
+  - 处理网页：研究主题、查找信息、执行操作
+  - 阅读和分析邮件，按你的风格撰写草稿，创建会议并在会前发送简报
+  - 读取 Google 云端硬盘文档，从 PDF 和表格中提取数据，创建和编辑文件
+  - 跟踪 GitHub 动态，在 Slack 频道和 Telegram 群组中工作
+  - 监控品牌提及，从 Reddit、X 等来源收集趋势
+  - 撰写社交媒体和博客内容，生成图片和视频
+  - 直接在聊天中改进你的 Base44 应用，从小修改到运行服务端函数
+  - 连接 Google Workspace、TikTok、GitHub、Notion、HubSpot 等 3000 多项集成
+</Accordion>
+
+## 现成技能
+
+技能是来自 ASCN 和社区库的现成行为模式。安装技能后，Agent 会立即按其执行。
+
+<Columns cols={2}>
+  <Card title="邮件摘要" icon="envelope" href="/cn/brain/skills">
+    `email-digest` 按发件人分组邮件，突出重要邮件并跳过订阅通讯。
+  </Card>
+
+  <Card title="会议准备" icon="calendar" href="/cn/brain/skills">
+    `meeting-prep` 从日历中获取参会者，搜索相关信息并发送简报。
+  </Card>
+
+  <Card title="潜在客户评估" icon="filter" href="/cn/brain/skills">
+    `lead-qualifier` 按你的标准评估收到的请求并排列优先级。
+  </Card>
+
+  <Card title="晨间简报" icon="sun" href="/cn/brain/skills">
+    `daily-brief` 每天早上发送任务、会议和重要邮件。
+  </Card>
+</Columns>
+
+<div className="not-prose mt-4 mb-10">
+  <a href="/cn/brain/skills" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold border border-zinc-300 dark:border-zinc-700 no-underline">打开技能库</a>
+</div>
+
+## 热门指南
+
+- [快速入门：5 分钟创建第一个 Agent](/cn/getting-started/quickstart)
+- [邮件和日历 Agent：分步搭建](/cn/guides/email-calendar-agent)
+- [连接 Telegram](/cn/channels/telegram)
+- [连接应用和服务](/cn/brain/connectors)
+- [定时任务](/cn/tasks/scheduled)
+- [故障排除](/cn/agent/troubleshooting)
+
+export const AppFlows = () => {
+  const flows = [
+    { app: "Gmail", title: "早间邮件摘要", desc: "每天早上只看收件箱里的重要内容。", prompt: "每天早上 9:00 给我发送 Gmail 未读邮件摘要，并简要说明每封邮件。", reply: "正在创建定时任务：每天 9:00。需要 Gmail 访问权限，请点击下方按钮连接。" },
+    { app: "Google 日历", title: "每周会议计划", desc: "每周一收到本周日程。", prompt: "每周一 9:00 查看我的 Google 日历，并发送本周的会议计划。", reply: "已完成：每周一 9:00 的定时任务。我会发送包含时间和标题的会议列表。" },
+    { app: "Gmail", title: "回复草稿", desc: "Agent 起草，你来审批。", prompt: "当 Gmail 收到新邮件时，判断是否需要回复；如需回复，准备草稿并发到 Telegram 让我审批。", reply: "正在创建新邮件触发器。未经你确认，不会发送任何邮件。" },
+    { app: "Google 云端硬盘", title: "客户文件", desc: "文件夹出现新文件时做出反应。", prompt: "当 Google 云端硬盘的「客户来件」文件夹出现新文件时，检查格式并通知我。", reply: "正在为「客户来件」中的新文件创建触发器。通知会发到这个聊天。" },
+    { app: "Telegram", title: "随时下达指令", desc: "直接在即时通讯工具中给 Agent 指令。", prompt: "给 Ivan Petrov 发邮件：确认周五 15:00 的会议。", reply: "给 Ivan Petrov 的邮件已准备好。要发送吗？" },
+    { app: "Slack", title: "团队消息", desc: "在工作区频道中发布消息。", prompt: "在 #general 发布：「每日同步会改到 15:00」。", reply: "正在 #general 发布消息。" },
+  ];
+  const [open, setOpen] = useState(0);
+  const bubble = { padding: "10px 14px", borderRadius: 14, fontSize: 14, lineHeight: 1.45, maxWidth: "85%" };
+  return (
+    <div className="not-prose" style={{ border: "1px solid rgba(127,127,127,.25)", borderRadius: 16, overflow: "hidden" }}>
+      {flows.map((f, i) => {
+        const active = i === open;
+        return (
+          <div key={i} style={{ borderTop: i === 0 ? "none" : "1px solid rgba(127,127,127,.2)" }}>
+            <button type="button" onClick={() => setOpen(active ? -1 : i)} aria-expanded={active} style={{ width: "100%", display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: active ? "rgba(127,127,127,.08)" : "transparent", border: "none", color: "inherit", font: "inherit", textAlign: "left", cursor: "pointer" }}>
+              <span style={{ fontSize: 12, padding: "3px 10px", borderRadius: 999, border: "1px solid rgba(127,127,127,.35)", whiteSpace: "nowrap" }}>{f.app}</span>
+              <span style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ display: "block", fontWeight: 600 }}>{f.title}</span>
+                <span style={{ display: "block", fontSize: 13, opacity: 0.7 }}>{f.desc}</span>
+              </span>
+              <span style={{ opacity: 0.6, transform: active ? "rotate(90deg)" : "none", transition: "transform .2s" }}>›</span>
+            </button>
+            {active && (
+              <div style={{ padding: "6px 18px 18px", display: "grid", gap: 10 }}>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ ...bubble, background: "#3b82f6", color: "#fff" }}>{f.prompt}</div>
+                </div>
+                <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, padding: "6px 7px", borderRadius: 8, background: "rgba(127,127,127,.18)" }}>ASCN</span>
+                  <div style={{ ...bubble, background: "rgba(127,127,127,.12)" }}>{f.reply}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};

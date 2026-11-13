@@ -1,0 +1,43 @@
+---
+title: "安全常见问题"
+description: "关于 ASCN Agent 中数据、访问和隐私的常见问题解答。"
+---
+
+## 其他 Agent 能看到我的数据吗？
+
+不能。每个 Agent 都在独立的隔离工作区中运行，一个 Agent 的数据对其他 Agent 不可见。
+
+## 我的数据会被用来训练模型吗？
+
+不会。Agent 不会用你的数据训练 AI 模型，也不会与其他用户共享。
+
+## 密码、令牌和密钥如何存储？
+
+加密存储。[密钥](/cn/settings/secrets)保存后不会在界面中显示，也不会出现在聊天记录或日志中。标准集成（Gmail、Google 日历、Slack 等）通过 OAuth 授权，其密码不会传给 Agent。
+
+## Agent 会在我不知情的情况下发送邮件吗？
+
+不会。默认情况下，Agent 会先准备草稿，发送前请你确认。请把这条规则写入 SOUL.md 或 IDENTITY.md：知识中的规则优先于聊天中的随口一句。详见[记忆](/cn/brain/memory)。
+
+## Agent 可以删除我的文件吗？
+
+只有在你于[工具权限](/cn/settings/permissions)中开启**允许删除文件**后才可以。
+
+## 连接个人 Telegram 账号后 Agent 会获得什么？
+
+访问你的聊天和消息，并可以根据指令或触发器以你的名义发送消息。没有明确指令或已配置的触发器时，Agent 不会在聊天中回复。如需保持隔离，请为 Agent 单独使用一个 Telegram 账号。详见 [Telegram](/cn/channels/telegram)。
+
+## 如何撤销 Agent 对某个服务的访问？
+
+打开**大脑 → 集成**，停用或删除对应连接。注意：使用该服务的任务将停止工作。详见[应用和集成](/cn/brain/connectors)。
+
+## 如何删除 Agent 的全部数据？
+
+**设置 → 危险区域 → 删除工作区**。聊天、大脑设置、任务、渠道、文件和密钥都会被永久删除。详见[设置和通知](/cn/settings/delete-agent)。
+
+## 相关页面
+
+- [安全](/cn/about-agent/security)
+- [权限和隐私](/cn/settings/permissions)
+- [密钥和令牌](/cn/settings/secrets)
+- [常见问题](/cn/faq/common-questions)

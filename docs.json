@@ -462,47 +462,60 @@
                 "pages": [
                   "cn/getting-started/what-is-ascn-agent",
                   "cn/getting-started/quickstart",
-                  "cn/architecture/overview"
-                ]
-              },
-              {
-                "group": "大脑",
-                "pages": [
-                  "cn/brain/overview",
-                  "cn/brain/connectors",
-                  "cn/brain/skills",
-                  "cn/brain/knowledge",
-                  "cn/brain/memory"
-                ]
-              },
-              {
-                "group": "任务",
-                "pages": [
-                  "cn/tasks/scheduled",
-                  "cn/tasks/triggers"
-                ]
-              },
-              {
-                "group": "频道",
-                "pages": [
-                  "cn/channels/telegram",
-                  "cn/channels/slack"
-                ]
-              },
-              {
-                "group": "指南",
-                "pages": [
+                  "cn/about-agent/use-cases",
                   "cn/guides/email-calendar-agent",
-                  "cn/faq/common-questions"
+                  "cn/architecture/overview",
+                  "cn/agent/changelog"
                 ]
               },
               {
-                "group": "设置",
+                "group": "使用 ASCN Agent",
                 "pages": [
+                  "cn/agent/chat",
+                  "cn/agent/files",
+                  "cn/brain/connectors",
+                  "cn/brain/overview",
+                  "cn/brain/knowledge",
+                  "cn/brain/memory",
+                  "cn/brain/skills",
+                  "cn/tasks/scheduled",
+                  "cn/tasks/triggers",
                   "cn/settings/permissions",
                   "cn/settings/secrets",
+                  "cn/agent/team-agents",
+                  "cn/agent/mobile",
+                  "cn/channels/telegram",
+                  "cn/channels/slack",
+                  "cn/agent/microsoft-teams",
+                  "cn/agent/meetings",
+                  "cn/agent/initiative",
+                  "cn/agent/tag-on-x"
+                ]
+              },
+              {
+                "group": "团队和企业",
+                "icon": "building",
+                "pages": [
+                  "cn/agent/teams-and-enterprises",
+                  "cn/agent/deployment",
+                  "cn/agent/identity-and-access",
+                  "cn/agent/okta-fastpass",
+                  "cn/agent/private-networks",
+                  "cn/agent/proxies",
+                  "cn/agent/computers",
+                  "cn/agent/inference-hooks",
+                  "cn/about-agent/security",
+                  "cn/agent/security-faq"
+                ]
+              },
+              {
+                "group": "参考",
+                "pages": [
+                  "cn/settings/delete-agent",
+                  "cn/agent/deep-links",
                   "cn/settings/api",
-                  "cn/settings/delete-agent"
+                  "cn/agent/troubleshooting",
+                  "cn/faq/common-questions"
                 ]
               }
             ]

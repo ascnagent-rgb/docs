@@ -1,0 +1,35 @@
+---
+title: "安全"
+description: "ASCN Agent 如何处理你的数据、令牌和权限。"
+icon: "shield"
+---
+
+## 原则
+
+- **每个 Agent 独立运行**：一个 Agent 的数据对其他 Agent 不可见
+- **密码和密钥加密存储**：只有你能访问
+- **由你决定 Agent 能做什么**：发送邮件、删除文件、创建事件，每个操作都需要你的许可
+- **可随时撤销访问**：断开任何服务，或彻底删除 Agent
+
+## 未经你许可 Agent 不会做的事
+
+- 不会发送邮件
+- 不会与其他用户共享你的数据
+- 不会用你的数据训练 AI 模型
+
+## 在哪里管理
+
+<Columns cols={2}>
+  <Card title="权限" icon="lock" href="/cn/settings/permissions">
+    选择 Agent 可以自行执行哪些操作，哪些需要你确认。
+  </Card>
+  <Card title="密钥和令牌" icon="key" href="/cn/settings/secrets">
+    安全存储服务令牌和密钥。
+  </Card>
+  <Card title="危险区域" icon="triangle-exclamation" href="/cn/settings/delete-agent">
+    重启 Agent并永久删除其所有数据。
+  </Card>
+  <Card title="记忆" icon="brain" href="/cn/brain/memory">
+    Agent 记住了你的哪些信息，以及如何删除。
+  </Card>
+</Columns>
