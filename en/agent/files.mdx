@@ -1,0 +1,62 @@
+---
+title: "Files and results"
+description: "Where the files you upload and the results the agent creates are stored."
+keywords:
+  - "files"
+  - "workspace"
+  - "documents"
+  - "results"
+---
+
+Every agent has a **workspace** — an isolated file environment. It stores documents, folders and other resources the agent can refer to: both the ones you upload and the ones it creates while working.
+
+## How do I add files?
+
+Open **Files** and:
+
+- upload individual files or whole folders
+- create folders to organize the workspace
+
+You can also attach files right in chat — they land in the workspace.
+
+## What can the agent do with files?
+
+- Read documents and answer questions about their contents
+- Extract data from PDFs, spreadsheets and other formats
+- Create and edit files — reports, logs, notes
+- Read documents from Google Drive when the [integration](/en/brain/connectors) is connected
+
+For example, a scheduled task can save the week's results to a file every Friday:
+
+```text
+Every Friday at 17:00 ask me what got done this week
+and write my answer to weekly_report_[date].md.
+```
+
+## Where are skills and knowledge stored?
+
+The agent's own files also live in the workspace:
+
+| What | Where |
+| --- | --- |
+| Skills | `.agents/skills/` in **Files** |
+| Knowledge core | IDENTITY.md, SOUL.md, USER.md in **Brain → Knowledge** |
+| Reference documents | **Brain → Knowledge → Documents** |
+
+These are plain text files — you can open and edit them directly.
+
+## Can the agent modify or delete files?
+
+Only if you allow it. Modifying and deleting files are separate toggles in **Settings → Tool permissions**. More in [Permissions and privacy](/en/settings/permissions).
+
+<Warning>
+  Deleting the workspace permanently deletes all files created by the agent. Save what you need first.
+</Warning>
+
+## Related pages
+
+- [Message and collaborate](/en/agent/chat)
+- [Knowledge](/en/brain/knowledge)
+- [Skills](/en/brain/skills)
+- [Permissions and privacy](/en/settings/permissions)
+- [Settings and notifications](/en/settings/delete-agent)

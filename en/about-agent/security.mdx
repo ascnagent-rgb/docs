@@ -1,0 +1,34 @@
+---
+title: "Security"
+description: "How ASCN Agent handles your data, tokens and permissions."
+---
+
+## Principles
+
+- **Each agent runs separately** — one agent's data isn't available to another
+- **Passwords and keys are stored encrypted** — nobody but you has access to them
+- **You decide what the agent can do** — sending emails, deleting files, creating events: each action requires your permission
+- **Access can be revoked at any time** — disconnect any service or delete the agent completely
+
+## What the agent doesn't do without your permission
+
+- Doesn't send emails
+- Doesn't share your data with other users
+- Doesn't use your data to train AI models
+
+## Where to manage this
+
+<Columns cols={2}>
+  <Card title="Permissions" icon="lock" href="/en/settings/permissions">
+    Choose what the agent can do on its own and what only with your confirmation.
+  </Card>
+  <Card title="Secrets and keys" icon="key" href="/en/settings/secrets">
+    Secure storage for service tokens and keys.
+  </Card>
+  <Card title="Danger zone" icon="triangle-exclamation" href="/en/settings/delete-agent">
+    Reset the agent and permanently delete all its data.
+  </Card>
+  <Card title="Memory" icon="brain" href="/en/brain/memory">
+    What the agent remembers about you and how to delete it.
+  </Card>
+</Columns>

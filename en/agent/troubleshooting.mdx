@@ -1,0 +1,63 @@
+---
+title: "Troubleshooting"
+description: "What to do if the agent doesn't respond, a task doesn't run or a channel doesn't work."
+keywords:
+  - "errors"
+  - "not working"
+  - "stuck"
+  - "support"
+---
+
+## Quick diagnosis
+
+| What you see | What to do |
+| --- | --- |
+| The agent is stuck, doesn't respond or behaves unexpectedly | Restart it in **Settings → Danger zone → Restart** |
+| A task stopped working after you changed integrations | Check that the service is connected in **Brain → Integrations** |
+| A scheduled task doesn't run | Open **Tasks** and check the status: **Active** or **Paused** |
+| The bot doesn't reply in a Telegram group | Mention the bot with its @username or reply to its message |
+| The agent doesn't post to a Telegram channel | Make the bot an admin with posting rights and check the Chat ID |
+| The agent doesn't post to Slack channels | Connect the **Slack integration** in Brain — the Slack channel alone isn't enough |
+| Credits run out too fast | Replace frequent triggers with scheduled tasks or increase the check interval |
+| The agent ignores what you said in chat | Check your knowledge files — they take priority over memory |
+| The agent can't modify or delete a file | Turn on the permission in **Settings → Tool permissions** |
+| The service you need isn't in the integrations list | Connect it through MCP in **Additional connections** |
+| A secret's value isn't visible after saving | That's by design: secrets aren't displayed. To change it, delete it and add it again |
+
+## The agent doesn't respond. What do I do?
+
+1. Open **Settings → Danger zone**
+2. Click **Restart**
+
+Active sessions are interrupted, but data, settings and tasks are kept. You don't need to delete the workspace.
+
+## Why did a task break after I removed an integration?
+
+When you remove a connection, every task that uses it stops working. Connect the service again. Next time, **disable** the integration first, check nothing broke, and only then remove it. More in [Apps and integrations](/en/brain/connectors).
+
+## Why is the bot silent in a Telegram group?
+
+In groups the agent only replies to messages addressed to the bot with its @username or replies to its own messages — so it doesn't clutter the chat. Also check that the bot is an admin with permission to send messages and that **Channels → Telegram** has the correct Chat ID. More in [Telegram](/en/channels/telegram).
+
+## Why do my credits run out so fast?
+
+Each task run uses message credits, and calls to external services also use integration credits. A trigger on every new email with a busy inbox uses credits much faster than a scheduled task.
+
+- If you don't need an instant reaction, use a [scheduled task](/en/tasks/scheduled)
+- Check less often: once an hour instead of every 15 minutes
+- Keep [triggers](/en/tasks/triggers) for urgent things only, such as emails from VIP clients
+
+## Why doesn't the agent do what I ask in chat?
+
+Knowledge takes priority over memory. If SOUL.md says "Never create meetings without explicit confirmation", the agent will propose the meeting details for confirmation even if you asked it to create the meeting right away. To change the behaviour, edit [Knowledge](/en/brain/knowledge).
+
+## Where do I go if nothing helped?
+
+Write to [support in Telegram](https://t.me/ascnai_nocode). Describe what you did, what you expected and what you got, and attach a screenshot.
+
+## Related pages
+
+- [FAQ](/en/faq/common-questions)
+- [Settings and notifications](/en/settings/delete-agent)
+- [Scheduled tasks](/en/tasks/scheduled)
+- [Event triggers](/en/tasks/triggers)

@@ -1,0 +1,43 @@
+---
+title: "Security FAQ"
+description: "Answers to common questions about data, access and privacy in ASCN Agent."
+---
+
+## Can other agents see my data?
+
+No. Each agent runs in a separate isolated workspace — one agent's data isn't available to another.
+
+## Is my data used to train models?
+
+No. The agent doesn't use your data to train AI models and doesn't share it with other users.
+
+## How are passwords, tokens and keys stored?
+
+Encrypted. [Secret](/en/settings/secrets) values aren't shown in the interface after saving and don't appear in chat history or logs. Standard integrations (Gmail, Google Calendar, Slack, etc.) sign in through OAuth — their passwords are never passed to the agent.
+
+## Can the agent send an email without me knowing?
+
+No. By default the agent prepares a draft and asks for confirmation before sending. Pin this rule in SOUL.md or IDENTITY.md — knowledge rules take priority over offhand phrases in chat. More in [Memory](/en/brain/memory).
+
+## Can the agent delete my files?
+
+Only if you've turned on **Allow file deletion** in [tool permissions](/en/settings/permissions).
+
+## What does the agent get when I connect my personal Telegram account?
+
+Access to your chats and messages, and the ability to send messages on your behalf by command or trigger. Without an explicit command or a configured trigger, the agent doesn't reply in chats. To keep things separate, use a dedicated Telegram account. More in [Telegram](/en/channels/telegram).
+
+## How do I revoke the agent's access to a service?
+
+Open **Brain → Integrations** and disable or remove the connection. Note that tasks using this service will stop working. More in [Apps and integrations](/en/brain/connectors).
+
+## How do I delete all of the agent's data?
+
+**Settings → Danger zone → Delete workspace**. Chats, Brain settings, tasks, channels, files and secrets are permanently deleted. More in [Settings and notifications](/en/settings/delete-agent).
+
+## Related pages
+
+- [Security](/en/about-agent/security)
+- [Permissions and privacy](/en/settings/permissions)
+- [Secrets and keys](/en/settings/secrets)
+- [FAQ](/en/faq/common-questions)

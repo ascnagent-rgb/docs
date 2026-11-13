@@ -1,46 +1,164 @@
 ---
-title: "What is ASCN Agent?"
-description: "An AI assistant that works for you — while you're busy with something else."
+title: "ASCN Agent"
+sidebarTitle: "Overview"
+description: "An AI agent that works for you: reads email, prepares reports, runs scheduled tasks and replies wherever you are."
+icon: "house"
+keywords:
+  - "ASCN Agent"
+  - "AI agent"
+  - "overview"
 ---
 
-ASCN Agent is your personal AI assistant. You tell it what to do and which services it can access. From there it works on its own: reads your email, watches your calendar, sends what you need to Telegram or Slack — without your involvement.
+ASCN Agent is a proactive AI agent with its own workspace. Describe a task in plain words — the agent connects to the services it needs, does the work and sends the result to chat, Telegram or Slack. It can be your personal assistant, support specialist, marketer or analyst, depending on what you hand it.
 
-## What it does
+<div className="not-prose flex flex-wrap items-center gap-3 mt-6 mb-10">
+  <a href="/en/getting-started/quickstart" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold bg-zinc-900 text-white dark:bg-white dark:text-zinc-900 no-underline">Get started</a>
+  <a href="/en/about-agent/use-cases" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold border border-zinc-300 dark:border-zinc-700 no-underline">See use cases</a>
+  <a href="/en/agent/teams-and-enterprises" className="text-sm font-medium opacity-70 hover:opacity-100 no-underline ml-1">For teams and enterprises →</a>
+</div>
 
-<CardGroup cols={2}>
-  <Card title="Reads email and reacts" icon="envelope">
-    Watches your inbox and does what you asked: replies, forwards, drafts.
+## Agents that work for you
+
+Create one agent or several — one for each role. Agents work inside your apps: they read email, manage your calendar, watch files and post messages. Talk to them in chat, attach files and images, or dictate a task by voice.
+
+The agent connects to Gmail, Google Calendar, Google Drive, Slack, GitHub, Notion, HubSpot and 3000+ other services, plus any of your own tools through MCP or the [API](/en/settings/api).
+
+## Prebuilt workflows in your apps
+
+Pick a workflow to see what the task looks like. Every example can be sent to the agent as is.
+
+<AppFlows />
+
+<Visibility for="agents">
+  | App | Workflow | Prompt |
+  | --- | --- | --- |
+  | Gmail | Morning inbox summary | Every morning at 9:00 send me a summary of unread Gmail emails with a short description of each. |
+  | Google Calendar | Weekly meeting plan | Every Monday at 9:00 check my Google Calendar and send me the meeting plan for the week. |
+  | Gmail | Reply drafts | When a new email arrives in Gmail, check whether it needs a reply, and if so, prepare a draft and send it to me in Telegram for approval. |
+  | Google Drive | Client files | When a new file appears in the "Client inbox" folder in Google Drive, check its format and notify me. |
+  | Telegram | Errands on the go | Send an email to Ivan Petrov: confirming the meeting on Friday at 15:00. |
+  | Slack | Team messages | Post in #general: "The daily sync moves to 15:00." |
+</Visibility>
+
+## What makes ASCN Agent different
+
+<Columns cols={3}>
+  <Card title="Works on its own" icon="clock" href="/en/tasks/scheduled">
+    Runs scheduled tasks and reacts to events in connected services — without you.
   </Card>
 
-  <Card title="Runs scheduled tasks" icon="clock">
-    Every day at the right time it does what you set up — no reminders needed.
+  <Card title="Its own workspace" icon="folder-open" href="/en/agent/files">
+    Stores files, searches the web, reads pages and creates documents in an isolated workspace.
   </Card>
 
-  <Card title="Works with your documents" icon="database">
-    Upload files, sheets or instructions — the agent learns them and answers based on your data.
+  <Card title="Learns skills" icon="bolt" href="/en/brain/skills">
+    Explain once how to do a task — the agent saves it as a skill and repeats it.
   </Card>
 
-  <Card title="Messages you where you are" icon="paper-plane">
-    Sends summaries and notifications to Telegram, Slack or right inside ASCN.
+  <Card title="Remembers your preferences" icon="brain" href="/en/brain/memory">
+    Picks up details from conversations and uses them in future sessions.
   </Card>
 
-  <Card title="Connected to your services" icon="plug">
-    Works with Gmail, Google Calendar, Google Drive, Slack, GitHub and more.
+  <Card title="Replies where you are" icon="paper-plane" href="/en/channels/telegram">
+    ASCN web chat, Telegram and Slack — give instructions and get notifications from your messenger.
   </Card>
 
-  <Card title="Searches the web" icon="magnifying-glass">
-    Finds fresh data and sends you the summary — on demand or on a schedule.
+  <Card title="Under your control" icon="shield" href="/en/settings/permissions">
+    Action permissions, encrypted secrets and access you can revoke at any time.
   </Card>
-</CardGroup>
+</Columns>
 
-## What it consists of
+<Accordion title="Full list of capabilities" icon="list">
+  - Runs workflows on a schedule: daily summaries, weekly reports, recurring reminders
+  - Fires on triggers — new data in an app or activity in a connected service
+  - Watches your systems and tools and reports important changes
+  - Joins video meetings, takes notes and captures action items
+  - Keeps shared notes that you and the agent read and update together
+  - Collects leads, monitors competitors, prepares reports and organizes follow-ups
+  - Works with web pages: researches topics, finds information, performs actions
+  - Reads and analyzes email, drafts replies in your style, creates meetings and sends a brief before each one
+  - Reads Google Drive documents, extracts data from PDFs and spreadsheets, creates and edits files
+  - Tracks GitHub activity, works in Slack channels and Telegram groups
+  - Monitors brand mentions, collects trends from Reddit, X and other sources
+  - Writes social and blog posts, generates images and video
+  - Improves your Base44 apps right in chat — from small edits to running server functions
+  - Connects to Google Workspace, TikTok, GitHub, Notion, HubSpot and 3000+ other integrations
+</Accordion>
 
-An agent is three parts:
+## Prebuilt skills
 
-1. **Brain** — you tell the agent who it is, which services it's connected to, and which documents it knows
-2. **Tasks** — what the agent does on its own and when: every morning, on a new email, on your request
-3. **Channels** — where the agent talks to you: ASCN, Telegram or Slack
+Skills are ready-made behaviours from the ASCN and community library. Install a skill and the agent starts following it right away.
 
-<Card title="Create your first agent" icon="rocket" href="/en/getting-started/quickstart">
-  Step by step — takes less than five minutes.
-</Card>
+<Columns cols={2}>
+  <Card title="Inbox summary" icon="envelope" href="/en/brain/skills">
+    `email-digest` groups emails by sender, highlights the important ones and skips newsletters.
+  </Card>
+
+  <Card title="Meeting prep" icon="calendar" href="/en/brain/skills">
+    `meeting-prep` pulls attendees from your calendar, researches them and sends a short brief.
+  </Card>
+
+  <Card title="Lead qualification" icon="filter" href="/en/brain/skills">
+    `lead-qualifier` scores inbound requests against your criteria and sets priorities.
+  </Card>
+
+  <Card title="Morning brief" icon="sun" href="/en/brain/skills">
+    `daily-brief` sends tasks, meetings and important emails every morning.
+  </Card>
+</Columns>
+
+<div className="not-prose mt-4 mb-10">
+  <a href="/en/brain/skills" className="inline-flex items-center rounded-full px-5 py-2.5 text-sm font-semibold border border-zinc-300 dark:border-zinc-700 no-underline">Browse the skills library</a>
+</div>
+
+## Popular guides
+
+- [Quickstart: your first agent in 5 minutes](/en/getting-started/quickstart)
+- [Email and calendar agent: step-by-step build](/en/guides/email-calendar-agent)
+- [Connect Telegram](/en/channels/telegram)
+- [Connect apps and services](/en/brain/connectors)
+- [Scheduled tasks](/en/tasks/scheduled)
+- [Troubleshooting](/en/agent/troubleshooting)
+
+export const AppFlows = () => {
+  const flows = [
+    { app: "Gmail", title: "Morning inbox summary", desc: "Only what matters from your inbox, every morning.", prompt: "Every morning at 9:00 send me a summary of unread Gmail emails with a short description of each.", reply: "Creating a scheduled task: daily at 9:00. I need access to Gmail for this — connect it with the button below." },
+    { app: "Google Calendar", title: "Weekly meeting plan", desc: "Your schedule for the week, every Monday.", prompt: "Every Monday at 9:00 check my Google Calendar and send me the meeting plan for the week.", reply: "Done: scheduled task every Monday at 9:00. I'll send a list of meetings with times and titles." },
+    { app: "Gmail", title: "Reply drafts", desc: "The agent drafts, you approve.", prompt: "When a new email arrives in Gmail, check whether it needs a reply, and if so, prepare a draft and send it to me in Telegram for approval.", reply: "Creating a trigger on new emails. Nothing will be sent without your confirmation." },
+    { app: "Google Drive", title: "Client files", desc: "React to a new file in a folder.", prompt: "When a new file appears in the \"Client inbox\" folder in Google Drive, check its format and notify me.", reply: "Creating a trigger on new files in \"Client inbox\". I'll post notifications in this chat." },
+    { app: "Telegram", title: "Errands on the go", desc: "Instructions straight from your messenger.", prompt: "Send an email to Ivan Petrov: confirming the meeting on Friday at 15:00.", reply: "I've drafted the email to Ivan Petrov. Send it?" },
+    { app: "Slack", title: "Team messages", desc: "Posts to your workspace channels.", prompt: "Post in #general: \"The daily sync moves to 15:00.\"", reply: "Posting the message in #general." },
+  ];
+  const [open, setOpen] = useState(0);
+  const bubble = { padding: "10px 14px", borderRadius: 14, fontSize: 14, lineHeight: 1.45, maxWidth: "85%" };
+  return (
+    <div className="not-prose" style={{ border: "1px solid rgba(127,127,127,.25)", borderRadius: 16, overflow: "hidden" }}>
+      {flows.map((f, i) => {
+        const active = i === open;
+        return (
+          <div key={i} style={{ borderTop: i === 0 ? "none" : "1px solid rgba(127,127,127,.2)" }}>
+            <button type="button" onClick={() => setOpen(active ? -1 : i)} aria-expanded={active} style={{ width: "100%", display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", background: active ? "rgba(127,127,127,.08)" : "transparent", border: "none", color: "inherit", font: "inherit", textAlign: "left", cursor: "pointer" }}>
+              <span style={{ fontSize: 12, padding: "3px 10px", borderRadius: 999, border: "1px solid rgba(127,127,127,.35)", whiteSpace: "nowrap" }}>{f.app}</span>
+              <span style={{ flex: 1, minWidth: 0 }}>
+                <span style={{ display: "block", fontWeight: 600 }}>{f.title}</span>
+                <span style={{ display: "block", fontSize: 13, opacity: 0.7 }}>{f.desc}</span>
+              </span>
+              <span style={{ opacity: 0.6, transform: active ? "rotate(90deg)" : "none", transition: "transform .2s" }}>›</span>
+            </button>
+            {active && (
+              <div style={{ padding: "6px 18px 18px", display: "grid", gap: 10 }}>
+                <div style={{ display: "flex", justifyContent: "flex-end" }}>
+                  <div style={{ ...bubble, background: "#3b82f6", color: "#fff" }}>{f.prompt}</div>
+                </div>
+                <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}>
+                  <span style={{ fontSize: 11, fontWeight: 700, padding: "6px 7px", borderRadius: 8, background: "rgba(127,127,127,.18)" }}>ASCN</span>
+                  <div style={{ ...bubble, background: "rgba(127,127,127,.12)" }}>{f.reply}</div>
+                </div>
+              </div>
+            )}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
